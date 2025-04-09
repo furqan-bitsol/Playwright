@@ -7,5 +7,41 @@
     "title": "404 Not Found",
     "description": "Your visited page not found. You may go home page.",
     "backButton": "Back to Homepage"
+  },
+  "contact": {
+    "breadcrumb": {
+      "home": "Home",
+      "contact": "Contact"
+    },
+    "info": {
+      "call": {
+        "title": "Call To Us",
+        "description": "We are available 24/7, 7 days a week.",
+        "phone": "Phone: +8801611112222"
+      },
+      "write": {
+        "title": "Write To Us",
+        "description": "Fill out our form and we will contact you within 24 hours.",
+        "email": {
+          "customer": "Emails: customer@exclusive.com",
+          "support": "Emails: support@exclusive.com"
+        }
+      }
+    },
+    "form": {
+      "fields": {
+        "name": "Your Name *",
+        "email": "Your Email *",
+        "phone": "Your Phone *",
+        "message": "Your Message"
+      },
+      "button": "Send Message",
+      "validation": {
+        "name": "Name must be at least 2 characters",
+        "email": "Please enter a valid email address",
+        "phone": "Please enter a valid phone number",
+        "message": "Message must be at least 10 characters"
+      }
+    }
   }
 }

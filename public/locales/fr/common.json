@@ -7,5 +7,41 @@
     "title": "404 Page Non Trouvée",
     "description": "La page que vous avez visitée est introuvable. Vous pouvez retourner à la page d'accueil.",
     "backButton": "Retour à l'Accueil"
+  },
+  "contact": {
+    "breadcrumb": {
+      "home": "Accueil",
+      "contact": "Contact"
+    },
+    "info": {
+      "call": {
+        "title": "Appelez-nous",
+        "description": "Nous sommes disponibles 24h/24, 7 jours sur 7.",
+        "phone": "Téléphone: +8801611112222"
+      },
+      "write": {
+        "title": "Écrivez-nous",
+        "description": "Remplissez notre formulaire et nous vous contacterons sous 24 heures.",
+        "email": {
+          "customer": "Emails: customer@exclusive.com",
+          "support": "Emails: support@exclusive.com"
+        }
+      }
+    },
+    "form": {
+      "fields": {
+        "name": "Votre Nom *",
+        "email": "Votre Email *",
+        "phone": "Votre Téléphone *",
+        "message": "Votre Message"
+      },
+      "button": "Envoyer le Message",
+      "validation": {
+        "name": "Le nom doit contenir au moins 2 caractères",
+        "email": "Veuillez entrer une adresse email valide",
+        "phone": "Veuillez entrer un numéro de téléphone valide",
+        "message": "Le message doit contenir au moins 10 caractères"
+      }
+    }
   }
 }

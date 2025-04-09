@@ -7,3 +7,5 @@ export * from './FacebookIcon';
 export * from './TwitterIcon';
 export * from './InstagramIcon';
 export * from './LinkedInIcon';
+export * from './PhoneIcon';
+export * from './MailIcon';
