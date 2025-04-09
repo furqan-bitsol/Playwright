@@ -4,6 +4,17 @@ import { SearchIcon, HeartIcon, CartIcon } from '@/components/icons';
 import AccountDropdown from './AccountDropdown';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
+import { NavLink } from '../navigation/NavLink';
+
+/**
+ * Navigation items configuration
+ */
+const NAV_ITEMS = [
+  { href: '/', label: 'Home' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/about', label: 'About' },
+  { href: '/sign-up', label: 'Sign Up' },
+];
 
 export const MainHeader: React.FC = () => {
   const accountBtnRef = React.useRef<HTMLButtonElement>(null);
@@ -20,30 +31,11 @@ export const MainHeader: React.FC = () => {
           </SheetTrigger>
           <SheetContent side='left' className='w-[300px] sm:w-[400px]'>
             <nav className='flex flex-col gap-4 mt-8'>
-              <a
-                href='/'
-                className='text-lg font-medium hover:opacity-80 transition-opacity'
-              >
-                Home
-              </a>
-              <a
-                href='/contact'
-                className='text-lg opacity-60 hover:opacity-100 transition-opacity'
-              >
-                Contact
-              </a>
-              <a
-                href='/about'
-                className='text-lg opacity-60 hover:opacity-100 transition-opacity'
-              >
-                About
-              </a>
-              <a
-                href='/sign-up'
-                className='text-lg opacity-60 hover:opacity-100 transition-opacity'
-              >
-                Sign Up
-              </a>
+              {NAV_ITEMS.map((item) => (
+                <NavLink key={item.href} href={item.href} className='text-lg'>
+                  {item.label}
+                </NavLink>
+              ))}
             </nav>
           </SheetContent>
         </Sheet>
@@ -53,27 +45,11 @@ export const MainHeader: React.FC = () => {
 
       {/* Middle Section - Navigation */}
       <nav className='hidden md:flex gap-8 lg:gap-12 items-center justify-center flex-1'>
-        <a href='/' className='font-medium hover:opacity-80 transition-opacity'>
-          Home
-        </a>
-        <a
-          href='/contact'
-          className='opacity-60 hover:opacity-100 transition-opacity'
-        >
-          Contact
-        </a>
-        <a
-          href='/about'
-          className='opacity-60 hover:opacity-100 transition-opacity'
-        >
-          About
-        </a>
-        <a
-          href='/sign-up'
-          className='opacity-60 hover:opacity-100 transition-opacity'
-        >
-          Sign Up
-        </a>
+        {NAV_ITEMS.map((item) => (
+          <NavLink key={item.href} href={item.href}>
+            {item.label}
+          </NavLink>
+        ))}
       </nav>
 
       {/* Right Section - Search and Icons */}
