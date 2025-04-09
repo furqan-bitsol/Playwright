@@ -43,5 +43,48 @@
         "message": "Le message doit contenir au moins 10 caractères"
       }
     }
+  },
+  "about": {
+    "breadcrumb": {
+      "home": "Accueil",
+      "about": "À propos"
+    },
+    "story": {
+      "title": "Notre Histoire",
+      "part1": "Lancé en 2015, Exclusive est la première place de marché en ligne d'Asie du Sud avec une présence active au Bangladesh. Soutenu par une large gamme de solutions marketing, de données et de services sur mesure, Exclusive compte 10 500 vendeurs et 300 marques et sert 3 millions de clients dans la région.",
+      "part2": "Exclusive propose plus d'un million de produits, en croissance très rapide. Exclusive offre un assortiment diversifié dans des catégories allant des produits de consommation."
+    },
+    "stats": {
+      "sellers": {
+        "value": "10.5k",
+        "description": "Vendeurs actifs sur notre site"
+      },
+      "monthlySales": {
+        "value": "33k",
+        "description": "Vente mensuelle de produits"
+      },
+      "customers": {
+        "value": "45.5k",
+        "description": "Clients actifs sur notre site"
+      },
+      "annualSales": {
+        "value": "25k",
+        "description": "Vente annuelle brute sur notre site"
+      }
+    },
+    "services": {
+      "delivery": {
+        "title": "LIVRAISON GRATUITE ET RAPIDE",
+        "description": "Livraison gratuite pour toute commande supérieure à 140€"
+      },
+      "support": {
+        "title": "SERVICE CLIENT 24/7",
+        "description": "Support client amical 24h/24 et 7j/7"
+      },
+      "guarantee": {
+        "title": "GARANTIE DE REMBOURSEMENT",
+        "description": "Nous remboursons sous 30 jours"
+      }
+    }
   }
 }

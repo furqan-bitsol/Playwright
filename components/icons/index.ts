@@ -1,3 +1,6 @@
+export * from './MoneyIcon';
+export * from './BagIcon';
+export * from './ServiceIcon';
 export * from './SearchIcon';
 export * from './HeartIcon';
 export * from './CartIcon';
@@ -9,3 +12,7 @@ export * from './InstagramIcon';
 export * from './LinkedInIcon';
 export * from './PhoneIcon';
 export * from './MailIcon';
+export * from './ShoppingBagIcon';
+export * from './DeliveryIcon';
+export * from './HeadphoneIcon';
+export * from './SecurityIcon';
