@@ -10,9 +10,7 @@ import { Timer } from './Timer';
 
 export const ECommerceHomePage: React.FC = () => {
   return (
-    <div className='flex overflow-hidden flex-wrap gap-36 content-start items-start bg-white'>
-      <MainHeader />
-
+    <div className='flex overflow-hidden flex-wrap  content-start items-start bg-white'>
       <div className='grow shrink min-w-60 w-[1440px] max-md:max-w-full'>
         <hr className='z-10 shrink-0 h-px bg-black border border-black border-solid opacity-30' />
       </div>
