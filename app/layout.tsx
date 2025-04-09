@@ -4,6 +4,7 @@ import './globals.css';
 import { TopHeader } from '@/components/home/TopHeader';
 import { MainHeader } from '@/components/home/MainHeader';
 import { I18nProvider } from '@/components/providers/I18nProvider';
+import { Footer } from '@/components/home/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
           <TopHeader />
           <MainHeader />
           {children}
+          <Footer />
         </I18nProvider>
       </body>
     </html>

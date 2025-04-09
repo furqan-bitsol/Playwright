@@ -2,3 +2,8 @@ export * from './SearchIcon';
 export * from './HeartIcon';
 export * from './CartIcon';
 export * from './ProfileIcon';
+export * from './SendIcon';
+export * from './FacebookIcon';
+export * from './TwitterIcon';
+export * from './InstagramIcon';
+export * from './LinkedInIcon';
