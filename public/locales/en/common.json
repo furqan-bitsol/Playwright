@@ -1,0 +1,11 @@
+{
+  "notFound": {
+    "breadcrumb": {
+      "home": "Home",
+      "error": "404 Error"
+    },
+    "title": "404 Not Found",
+    "description": "Your visited page not found. You may go home page.",
+    "backButton": "Back to Homepage"
+  }
+}
