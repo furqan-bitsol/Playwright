@@ -86,5 +86,14 @@
         "description": "Nous remboursons sous 30 jours"
       }
     }
+  },
+  "breadcrumb": {
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact",
+    "sign-up": "S'inscrire",
+    "products": "Produits",
+    "cart": "Panier",
+    "wishlist": "Liste de souhaits"
   }
 }
