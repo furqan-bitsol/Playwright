@@ -1,7 +1,6 @@
-import React from 'react';
 import { cn } from '@/lib/utils';
 
-interface PhoneIconProps {
+interface GamepadIconProps {
   width?: number;
   height?: number;
   className?: string;
@@ -9,10 +8,10 @@ interface PhoneIconProps {
 }
 
 /**
- * PhoneIcon Component
- * A reusable phone icon
+ * GamepadIcon Component
+ * A reusable gamepad icon component
  */
-export const PhoneIcon: React.FC<PhoneIconProps> = ({
+export const GamepadIcon: React.FC<GamepadIconProps> = ({
   width = 56,
   height = 56,
   className,
@@ -26,39 +25,38 @@ export const PhoneIcon: React.FC<PhoneIconProps> = ({
     xmlns='http://www.w3.org/2000/svg'
     className={cn(className)}
   >
-    <g clipPath='url(#clip0_834_868)'>
+    <g clipPath='url(#clip0_834_809)'>
       <path
-        d='M38.9375 6.125H17.0625C15.5523 6.125 14.3281 7.34922 14.3281 8.85938V47.1406C14.3281 48.6508 15.5523 49.875 17.0625 49.875H38.9375C40.4477 49.875 41.6719 48.6508 41.6719 47.1406V8.85938C41.6719 7.34922 40.4477 6.125 38.9375 6.125Z'
+        d='M46.6666 14H9.33329C6.75596 14 4.66663 16.0893 4.66663 18.6667V37.3333C4.66663 39.9107 6.75596 42 9.33329 42H46.6666C49.244 42 51.3333 39.9107 51.3333 37.3333V18.6667C51.3333 16.0893 49.244 14 46.6666 14Z'
         stroke={color}
         strokeWidth='2'
         strokeLinecap='round'
         strokeLinejoin='round'
       />
       <path
-        d='M25.6667 7H31.1354'
+        d='M14 28H23.3333M18.6667 23.3334V32.6667'
+        stroke={color}
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+      <path
+        d='M35 25.6666V25.6908'
         stroke={color}
         strokeWidth='3'
         strokeLinecap='round'
         strokeLinejoin='round'
       />
       <path
-        d='M28 44.0052V44.0305'
+        d='M42 30.3333V30.3574'
         stroke={color}
-        strokeWidth='2.5'
+        strokeWidth='3'
         strokeLinecap='round'
         strokeLinejoin='round'
       />
-      <line
-        x1='15.1667'
-        y1='39.8334'
-        x2='40.8333'
-        y2='39.8334'
-        stroke={color}
-        strokeWidth='2'
-      />
     </g>
     <defs>
-      <clipPath id='clip0_834_868'>
+      <clipPath id='clip0_834_809'>
         <rect width='56' height='56' fill='white' />
       </clipPath>
     </defs>

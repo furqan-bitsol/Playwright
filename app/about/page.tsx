@@ -1,5 +1,5 @@
 'use client';
-import { Services } from '@/components/about/Services';
+import { Services } from '@/components/common/Services';
 import { Stats } from '@/components/about/Stats';
 import { Story } from '@/components/about/Story';
 import { Team } from '@/components/about/Team';

@@ -1,20 +1,12 @@
 'use client';
 import React from 'react';
 import { SearchIcon, HeartIcon, CartIcon } from '@/components/icons';
-import AccountDropdown from './AccountDropdown';
+import AccountDropdown from '../home/AccountDropdown';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { NavLink } from '../navigation/NavLink';
-
-/**
- * Navigation items configuration
- */
-const NAV_ITEMS = [
-  { href: '/', label: 'Home' },
-  { href: '/contact', label: 'Contact' },
-  { href: '/about', label: 'About' },
-  { href: '/sign-up', label: 'Sign Up' },
-];
+import { NAV_CATEGORIES } from '@/mocks/categories';
+import { ROUTES } from '@/constants/routes';
 
 export const MainHeader: React.FC = () => {
   const accountBtnRef = React.useRef<HTMLButtonElement>(null);
@@ -30,12 +22,25 @@ export const MainHeader: React.FC = () => {
             </button>
           </SheetTrigger>
           <SheetContent side='left' className='w-[300px] sm:w-[400px]'>
+            {/* Categories in Mobile Menu */}
             <nav className='flex flex-col gap-4 mt-8'>
-              {NAV_ITEMS.map((item) => (
+              {ROUTES.map((item) => (
                 <NavLink key={item.href} href={item.href} className='text-lg'>
                   {item.label}
                 </NavLink>
               ))}
+              <div className='text-lg font-semibold'>Categories</div>
+              {NAV_CATEGORIES.map((category) => (
+                <NavLink
+                  key={category.href}
+                  href={category.href}
+                  className='text-base hover:text-red-500 transition-colors'
+                >
+                  {category.name}
+                </NavLink>
+              ))}
+              <div className='h-px bg-gray-200 my-4' />
+              {/* Navigation Items */}
             </nav>
           </SheetContent>
         </Sheet>
@@ -45,7 +50,7 @@ export const MainHeader: React.FC = () => {
 
       {/* Middle Section - Navigation */}
       <nav className='hidden md:flex gap-8 lg:gap-12 items-center justify-center flex-1'>
-        {NAV_ITEMS.map((item) => (
+        {ROUTES.map((item) => (
           <NavLink key={item.href} href={item.href}>
             {item.label}
           </NavLink>

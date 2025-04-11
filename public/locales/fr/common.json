@@ -95,5 +95,48 @@
     "products": "Produits",
     "cart": "Panier",
     "wishlist": "Liste de souhaits"
+  },
+  "signup": {
+    "form": {
+      "fields": {
+        "name": "Nom",
+        "emailOrPhone": "Email ou numéro de téléphone",
+        "password": "Mot de passe"
+      },
+      "validation": {
+        "name": "Le nom doit comporter au moins 2 caractères.",
+        "emailOrPhone": "Veuillez entrer un email ou un numéro de téléphone valide.",
+        "password": "Le mot de passe doit comporter au moins 6 caractères."
+      },
+      "button": "Créer un compte",
+      "googleButton": "S'inscrire avec Google",
+      "alreadyHaveAccount": "Vous avez déjà un compte ?",
+      "login": "Se connecter"
+    },
+    "page": {
+      "title": "Créer un compte",
+      "subtitle": "Entrez vos informations ci-dessous",
+      "imageAlt": "Panier d'achat et téléphone mobile"
+    }
+  },
+  "login": {
+    "page": {
+      "title": "Connectez-vous à Exclusive",
+      "subtitle": "Entrez vos informations ci-dessous",
+      "imageAlt": "Panier avec téléphone"
+    },
+    "form": {
+      "fields": {
+        "email": "Email ou numéro de téléphone",
+        "password": "Mot de passe"
+      },
+      "validation": {
+        "email": "L'email est requis",
+        "invalidEmail": "Adresse email invalide",
+        "password": "Le mot de passe doit comporter au moins 6 caractères"
+      },
+      "button": "Se connecter",
+      "forgotPassword": "Mot de passe oublié ?"
+    }
   }
 }

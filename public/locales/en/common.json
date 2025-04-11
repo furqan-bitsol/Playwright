@@ -95,5 +95,48 @@
     "products": "Products",
     "cart": "Cart",
     "wishlist": "Wishlist"
+  },
+  "signup": {
+    "page": {
+      "title": "Create an account",
+      "subtitle": "Enter your details below",
+      "imageAlt": "Shopping cart and mobile phone"
+    },
+    "form": {
+      "fields": {
+        "name": "Name",
+        "emailOrPhone": "Email or Phone Number",
+        "password": "Password"
+      },
+      "validation": {
+        "name": "Name must be at least 2 characters.",
+        "emailOrPhone": "Please enter a valid email or phone number.",
+        "password": "Password must be at least 6 characters."
+      },
+      "button": "Create Account",
+      "googleButton": "Sign up with Google",
+      "alreadyHaveAccount": "Already have an account?",
+      "login": "Log in"
+    }
+  },
+  "login": {
+    "page": {
+      "title": "Log in to Exclusive",
+      "subtitle": "Enter your details below",
+      "imageAlt": "Shopping cart with phone"
+    },
+    "form": {
+      "fields": {
+        "email": "Email or Phone Number",
+        "password": "Password"
+      },
+      "validation": {
+        "email": "Email is required",
+        "invalidEmail": "Invalid email address",
+        "password": "Password must be at least 6 characters"
+      },
+      "button": "Log In",
+      "forgotPassword": "Forgot Password?"
+    }
   }
 }
