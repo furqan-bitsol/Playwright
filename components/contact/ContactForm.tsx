@@ -14,14 +14,13 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import {
-  CONTACT_US_FORM_SCHEMA,
   CONTACT_US_FORM_DEFAULT_VALUES,
   CONTACT_US_FORM_FIELDS,
   MESSAGE_FORM_FIELD,
 } from '@/constants/forms';
 import { useTranslation } from 'react-i18next';
-
-type ContactFormData = z.infer<typeof CONTACT_US_FORM_SCHEMA>;
+import { getContactUsFormSchema } from '@/lib/forms';
+import { ContactFormData } from '@/types/forms';
 
 const INPUT_STYLES =
   'rounded text-base bg-neutral-100 px-4 py-[13px] border-none';
@@ -29,7 +28,7 @@ const INPUT_STYLES =
 export const ContactForm = () => {
   const { t } = useTranslation('common');
   const form = useForm<ContactFormData>({
-    resolver: zodResolver(CONTACT_US_FORM_SCHEMA),
+    resolver: zodResolver(getContactUsFormSchema(t)),
     defaultValues: CONTACT_US_FORM_DEFAULT_VALUES,
   });
 
@@ -55,6 +54,7 @@ export const ContactForm = () => {
                   <FormControl>
                     <Input
                       {...fieldProps}
+                      name={String(fieldProps.name)}
                       type={field.type}
                       placeholder={t(field.placeholder)}
                       className={INPUT_STYLES}
@@ -75,6 +75,7 @@ export const ContactForm = () => {
               <FormControl>
                 <Textarea
                   {...field}
+                  name={String(field.name)}
                   placeholder={t(MESSAGE_FORM_FIELD.placeholder)}
                   className='w-full h-[207px] rounded text-base resize-none bg-neutral-100 px-4 py-[13px] border-none'
                 />

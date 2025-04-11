@@ -127,16 +127,52 @@
     },
     "form": {
       "fields": {
-        "email": "Email ou numéro de téléphone",
+        "emailOrPhone": "Email ou numéro de téléphone",
         "password": "Mot de passe"
       },
       "validation": {
         "email": "L'email est requis",
-        "invalidEmail": "Adresse email invalide",
+        "emailOrPhone": "Veuillez entrer un email ou un numéro de téléphone valide.",
         "password": "Le mot de passe doit comporter au moins 6 caractères"
       },
       "button": "Se connecter",
       "forgotPassword": "Mot de passe oublié ?"
+    }
+  },
+  "forgotPassword": {
+    "page": {
+      "title": "Mot de passe oublié",
+      "subtitle": "Entrez votre email pour réinitialiser votre mot de passe",
+      "imageAlt": "Illustration de mot de passe oublié"
+    },
+    "form": {
+      "fields": {
+        "email": "Adresse e-mail"
+      },
+      "validation": {
+        "email": "L'email est requis",
+        "invalidEmail": "Adresse email invalide"
+      },
+      "button": "Envoyer le lien de réinitialisation"
+    }
+  },
+  "resetPassword": {
+    "page": {
+      "title": "Réinitialiser le mot de passe",
+      "subtitle": "Entrez votre nouveau mot de passe ci-dessous",
+      "imageAlt": "Illustration de réinitialisation de mot de passe"
+    },
+    "form": {
+      "fields": {
+        "password": "Nouveau mot de passe",
+        "confirmPassword": "Confirmez le mot de passe"
+      },
+      "validation": {
+        "password": "Le mot de passe doit comporter au moins 6 caractères",
+        "confirmPassword": "Le mot de passe de confirmation doit comporter au moins 6 caractères",
+        "passwordMismatch": "Les mots de passe ne correspondent pas"
+      },
+      "button": "Réinitialiser le mot de passe"
     }
   }
 }

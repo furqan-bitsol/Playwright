@@ -10,6 +10,8 @@ export const ROUTE_LINKS = {
   privacy: '/privacy',
   terms: '/terms',
   faq: '/faq',
+  forgotPassword: '/forgot-password',
+  resetPassword: '/reset-password',
 };
 export const ROUTES = [
   { href: ROUTE_LINKS.home, label: 'Home' },

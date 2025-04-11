@@ -127,16 +127,52 @@
     },
     "form": {
       "fields": {
-        "email": "Email or Phone Number",
+        "emailOrPhone": "Email or Phone Number",
         "password": "Password"
       },
       "validation": {
         "email": "Email is required",
-        "invalidEmail": "Invalid email address",
+        "emailOrPhone": "Please enter a valid email or phone number.",
         "password": "Password must be at least 6 characters"
       },
       "button": "Log In",
       "forgotPassword": "Forgot Password?"
+    }
+  },
+  "forgotPassword": {
+    "page": {
+      "title": "Forgot Password",
+      "subtitle": "Enter your email to reset your password",
+      "imageAlt": "Forgot password illustration"
+    },
+    "form": {
+      "fields": {
+        "email": "Email Address"
+      },
+      "validation": {
+        "email": "Email is required",
+        "invalidEmail": "Invalid email address"
+      },
+      "button": "Send Reset Link"
+    }
+  },
+  "resetPassword": {
+    "page": {
+      "title": "Reset Password",
+      "subtitle": "Enter your new password below",
+      "imageAlt": "Reset password illustration"
+    },
+    "form": {
+      "fields": {
+        "password": "New Password",
+        "confirmPassword": "Confirm Password"
+      },
+      "validation": {
+        "password": "Password must be at least 6 characters",
+        "confirmPassword": "Confirm Password must be at least 6 characters",
+        "passwordMismatch": "Passwords do not match"
+      },
+      "button": "Reset Password"
     }
   }
 }

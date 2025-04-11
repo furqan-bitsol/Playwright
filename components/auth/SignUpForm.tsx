@@ -13,17 +13,15 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import {
-  SIGN_UP_FORM_SCHEMA,
   SIGN_UP_FORM_DEFAULT_VALUES,
   SIGN_UP_FORM_FIELDS,
 } from '@/constants/forms';
 import { AuthPageLayout } from './AuthPageLayout';
 import { useTranslation } from 'react-i18next';
-
 import { ROUTE_LINKS } from '@/constants/routes';
 import Link from 'next/link';
-
-type SignUpFormData = z.infer<typeof SIGN_UP_FORM_SCHEMA>;
+import { getSignUpFormSchema } from '@/lib/forms';
+import { SignUpFormData } from '@/types/forms';
 
 const INPUT_STYLES =
   'pb-2 text-base bg-transparent border-0 border-b border-black rounded-none opacity-40 focus-visible:ring-0 focus-visible:ring-offset-0';
@@ -31,7 +29,7 @@ const INPUT_STYLES =
 export const SignUpForm: React.FC = () => {
   const { t } = useTranslation('common'); // Use translation hook
   const form = useForm<SignUpFormData>({
-    resolver: zodResolver(SIGN_UP_FORM_SCHEMA),
+    resolver: zodResolver(getSignUpFormSchema(t)),
     defaultValues: SIGN_UP_FORM_DEFAULT_VALUES,
   });
 

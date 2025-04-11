@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 interface AuthPageLayoutProps {
   children: React.ReactNode;
-  pageType: 'signup' | 'login'; // Determines which translations to use
+  pageType: 'signup' | 'login' | 'resetPassword' | 'forgotPassword'; // Determines which translations to use
 }
 
 export const AuthPageLayout: React.FC<AuthPageLayoutProps> = ({
@@ -35,7 +35,7 @@ export const AuthPageLayout: React.FC<AuthPageLayoutProps> = ({
               {t(`${pageType}.page.title`)}
             </h2>{' '}
             {/* Dynamic title */}
-            <p className='text-base'>{t(`${pageType}.page.subtitle`)}</p>{' '}
+            <p className='text-base'>{t(`${pageType}.page.subtitle`)}</p>
             {/* Dynamic subtitle */}
           </div>
           {children}
