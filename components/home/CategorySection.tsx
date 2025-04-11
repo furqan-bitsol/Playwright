@@ -4,6 +4,7 @@ import React from 'react';
 import { CategoryCard } from './CategoryCard';
 import { Slider } from '@/components/ui/slider';
 import { CATEGORIES } from '@/mocks/categories';
+import { ROUTE_LINKS } from '@/constants/routes';
 
 /**
  * CategorySection Component
@@ -29,6 +30,7 @@ export const CategorySection: React.FC = () => {
             Icon={category.Icon}
             name={category.name}
             className='flex-shrink-0 w-[170px]'
+            link={`${ROUTE_LINKS.allProducts}?category=${category.name.toLowerCase()}`} // Use the link prop for navigation
           />
         ))}
       </Slider>

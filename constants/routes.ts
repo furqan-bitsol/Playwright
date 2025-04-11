@@ -12,6 +12,9 @@ export const ROUTE_LINKS = {
   faq: '/faq',
   forgotPassword: '/forgot-password',
   resetPassword: '/reset-password',
+  flashSaleProducts: '/products/flash-sales',
+  bestSellingProducts: '/products/best-selling',
+  allProducts: '/products/all',
 };
 export const ROUTES = [
   { href: ROUTE_LINKS.home, label: 'Home' },

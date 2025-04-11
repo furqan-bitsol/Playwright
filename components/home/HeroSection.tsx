@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import {
@@ -8,61 +7,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-
-/**
- * Category type definitions
- */
-interface SubCategory {
-  name: string;
-  href: string;
-}
-
-interface Category {
-  name: string;
-  href: string;
-  hasSubmenu?: boolean;
-  subCategories?: SubCategory[];
-}
-
-/**
- * Category data with subcategories
- */
-const CATEGORIES: Category[] = [
-  {
-    name: "Woman's Fashion",
-    href: '/category/womens-fashion',
-    hasSubmenu: true,
-    subCategories: [
-      { name: 'Dresses', href: '/category/womens-fashion/dresses' },
-      { name: 'Tops', href: '/category/womens-fashion/tops' },
-      { name: 'Shoes', href: '/category/womens-fashion/shoes' },
-      { name: 'Accessories', href: '/category/womens-fashion/accessories' },
-    ],
-  },
-  {
-    name: "Men's Fashion",
-    href: '/category/mens-fashion',
-    hasSubmenu: true,
-    subCategories: [
-      { name: 'Shirts', href: '/category/mens-fashion/shirts' },
-      { name: 'Pants', href: '/category/mens-fashion/pants' },
-      { name: 'Shoes', href: '/category/mens-fashion/shoes' },
-      { name: 'Accessories', href: '/category/mens-fashion/accessories' },
-    ],
-  },
-  { name: 'Electronics', href: '/category/electronics' },
-  { name: 'Home & Lifestyle', href: '/category/home-lifestyle' },
-  { name: 'Medicine', href: '/category/medicine' },
-  { name: 'Sports & Outdoor', href: '/category/sports-outdoor' },
-  { name: "Baby's & Toys", href: '/category/babies-toys' },
-  { name: 'Groceries & Pets', href: '/category/groceries-pets' },
-  { name: 'Health & Beauty', href: '/category/health-beauty' },
-];
+import { NAV_CATEGORIES } from '@/mocks/categories';
+import { NavCategory } from '@/types/categories';
 
 /**
  * Category Item Component
  */
-const CategoryItem: React.FC<{ category: Category }> = ({ category }) => {
+const CategoryItem: React.FC<{ category: NavCategory }> = ({ category }) => {
   if (category.hasSubmenu) {
     return (
       <DropdownMenu>
@@ -110,7 +61,7 @@ export const HeroSection = () => {
         >
           <div className='flex grow gap-4 text-base text-black'>
             <div className='flex flex-col w-full'>
-              {CATEGORIES.map((category) => (
+              {NAV_CATEGORIES.map((category) => (
                 <div key={category.href} className='w-full'>
                   <CategoryItem category={category} />
                 </div>

@@ -2,11 +2,12 @@
 
 import React from 'react';
 import { ProductCard } from './ProductCard';
-import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
+import Link from 'next/link';
 
 import { BEST_SELLING_PRODUCTS } from '@/mocks/products';
 import { SectionHeader } from '../ui/section-header';
+import { ROUTE_LINKS } from '@/constants/routes';
 
 /**
  * BestSellingProducts Component
@@ -22,12 +23,13 @@ export const BestSellingProducts: React.FC = () => {
         title='Best Selling Products'
         subtitle='This Month'
         rightContent={
-          <Button
+          <Link
+            href={ROUTE_LINKS.bestSellingProducts} // Update the href to the correct route
             className='px-12 h-14 py-4 text-base font-medium bg-red-500 rounded text-neutral-50 hover:bg-red-600 transition-colors max-md:px-5'
             aria-label='View all best selling products'
           >
             View All
-          </Button>
+          </Link>
         }
       />
 

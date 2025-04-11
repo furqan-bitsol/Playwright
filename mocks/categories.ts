@@ -6,40 +6,65 @@ import {
   HeadphoneIcon,
   GamepadIcon,
 } from '@/components/icons';
+import { NavCategory } from '@/types/categories';
 
 /**
  * Navigation categories configuration
  */
-export const NAV_CATEGORIES = [
+export const NAV_CATEGORIES: NavCategory[] = [
   {
     name: "Woman's Fashion",
-    href: '/category/womens-fashion',
+    href: '/products/all?category=womens-fashion',
     hasSubmenu: true,
     subCategories: [
-      { name: 'Dresses', href: '/category/womens-fashion/dresses' },
-      { name: 'Tops', href: '/category/womens-fashion/tops' },
-      { name: 'Shoes', href: '/category/womens-fashion/shoes' },
-      { name: 'Accessories', href: '/category/womens-fashion/accessories' },
+      {
+        name: 'Dresses',
+        href: '/products/all?category=womens-fashion&subCategory=dresses',
+      },
+      {
+        name: 'Tops',
+        href: '/products/all?category=womens-fashion&subCategory=tops',
+      },
+      {
+        name: 'Shoes',
+        href: '/products/all?category=womens-fashion&subCategory=shoes',
+      },
+      {
+        name: 'Accessories',
+        href: '/products/all?category=womens-fashion&subCategory=accessories',
+      },
     ],
   },
   {
     name: "Men's Fashion",
-    href: '/category/mens-fashion',
+    href: '/products/all?category=mens-fashion',
     hasSubmenu: true,
     subCategories: [
-      { name: 'Shirts', href: '/category/mens-fashion/shirts' },
-      { name: 'Pants', href: '/category/mens-fashion/pants' },
-      { name: 'Shoes', href: '/category/mens-fashion/shoes' },
-      { name: 'Accessories', href: '/category/mens-fashion/accessories' },
+      {
+        name: 'Shirts',
+        href: '/products/all?category=mens-fashion&subCategory=shirts',
+      },
+      {
+        name: 'Pants',
+        href: '/products/all?category=mens-fashion&subCategory=pants',
+      },
+      {
+        name: 'Shoes',
+        href: '/products/all?category=mens-fashion&subCategory=shoes',
+      },
+      {
+        name: 'Accessories',
+        href: '/products/all?category=mens-fashion&subCategory=accessories',
+      },
     ],
   },
-  { name: 'Electronics', href: '/category/electronics' },
-  { name: 'Home & Lifestyle', href: '/category/home-lifestyle' },
-  { name: 'Medicine', href: '/category/medicine' },
-  { name: 'Sports & Outdoor', href: '/category/sports-outdoor' },
-  { name: "Baby's & Toys", href: '/category/babies-toys' },
-  { name: 'Groceries & Pets', href: '/category/groceries-pets' },
-  { name: 'Health & Beauty', href: '/category/health-beauty' },
+  { name: 'Electronics', href: '/products/all?category=electronics' },
+  { name: 'Home & Lifestyle', href: '/products/all?category=home-&-lifestyle' },
+  { name: 'Medicine', href: '/products/all?category=medicine' },
+  { name: 'Sports & Outdoor', href: '/products/all?category=sports-&-outdoor' },
+  { name: "Baby's & Toys", href: '/products/all?category=babies-&-toys' },
+  { name: 'Groceries & Pets', href: '/products/all?category=groceries-&-pets' },
+  { name: 'Health & Beauty', href: '/products/all?category=health-&-beauty' },
 ] as const;
 
 /**

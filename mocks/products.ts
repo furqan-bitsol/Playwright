@@ -1,5 +1,8 @@
+import { Product } from '@/types/products';
+
 export const FLASH_SALE_PRODUCTS: Product[] = [
   {
+    id: '1',
     image:
       'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/588809589ffa0596f29be2fe0bc17a99982f7d41',
     title: 'HAVIT HV-G92 Gamepad',
@@ -10,6 +13,7 @@ export const FLASH_SALE_PRODUCTS: Product[] = [
     discount: 40,
   },
   {
+    id: '2',
     image:
       'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/32e9a1600318286879ba42afbcf26b480ae071b0',
     title: 'AK-900 Wired Keyboard',
@@ -20,6 +24,7 @@ export const FLASH_SALE_PRODUCTS: Product[] = [
     discount: 35,
   },
   {
+    id: '3',
     image:
       'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/690018693f67fd8cc4949c739b0c81478431edfe',
     title: 'IPS LCD Gaming Monitor',
@@ -30,6 +35,7 @@ export const FLASH_SALE_PRODUCTS: Product[] = [
     discount: 30,
   },
   {
+    id: '4',
     image:
       'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/d9422fa273d9c73fa03429a1516009cf254f5c07',
     title: 'S-Series Comfort Chair',
@@ -40,6 +46,7 @@ export const FLASH_SALE_PRODUCTS: Product[] = [
     discount: 25,
   },
   {
+    id: '5',
     image:
       'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/32e9a1600318286879ba42afbcf26b480ae071b0',
     title: 'AK-900 Wired Keyboard',
@@ -50,6 +57,7 @@ export const FLASH_SALE_PRODUCTS: Product[] = [
     discount: 35,
   },
   {
+    id: '6',
     image:
       'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/690018693f67fd8cc4949c739b0c81478431edfe',
     title: 'IPS LCD Gaming Monitor',
@@ -60,6 +68,7 @@ export const FLASH_SALE_PRODUCTS: Product[] = [
     discount: 30,
   },
   {
+    id: '7',
     image:
       'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/d9422fa273d9c73fa03429a1516009cf254f5c07',
     title: 'S-Series Comfort Chair',
@@ -71,8 +80,9 @@ export const FLASH_SALE_PRODUCTS: Product[] = [
   },
 ];
 
-export const BEST_SELLING_PRODUCTS = [
+export const BEST_SELLING_PRODUCTS: Product[] = [
   {
+    id: '1',
     image:
       'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/e7432ac52b7277818e216f4cce703ac420b3cab8?placeholderIfAbsent=true',
     title: 'The north coat',
@@ -82,6 +92,7 @@ export const BEST_SELLING_PRODUCTS = [
     reviewCount: 65,
   },
   {
+    id: '2',
     image:
       'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/a63f2121f90daf2ab08177b2c545287b6d96bcd8?placeholderIfAbsent=true',
     title: 'Gucci duffle bag',
@@ -91,6 +102,7 @@ export const BEST_SELLING_PRODUCTS = [
     reviewCount: 65,
   },
   {
+    id: '3',
     image:
       'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/cd8d81ae34c65d85c51a91e2c58adcef16f6fa28?placeholderIfAbsent=true',
     title: 'RGB liquid CPU Cooler',
@@ -100,6 +112,7 @@ export const BEST_SELLING_PRODUCTS = [
     reviewCount: 65,
   },
   {
+    id: '4',
     image:
       'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/b998ed9d442aa7e214656e71b7a4a2a5ff3231d2?placeholderIfAbsent=true',
     title: 'Small BookSelf',

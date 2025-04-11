@@ -174,5 +174,10 @@
       },
       "button": "Réinitialiser le mot de passe"
     }
+  },
+  "products": {
+    "all": "Tous les produits",
+    "allFor": "Tous les produits pour {{name}}",
+    "type": "Tous les produits {{type}}"
   }
 }

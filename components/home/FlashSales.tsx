@@ -3,9 +3,10 @@
 import React from 'react';
 import { ProductCard } from './ProductCard';
 import { Timer } from './Timer';
-import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { FLASH_SALE_PRODUCTS } from '@/mocks/products';
+import Link from 'next/link';
+import { ROUTE_LINKS } from '@/constants/routes';
 
 /**
  * FlashSales Component
@@ -33,12 +34,13 @@ export const FlashSales: React.FC = () => {
       </Slider>
 
       <div className='flex justify-center w-full'>
-        <Button
+        <Link
+          href={ROUTE_LINKS.flashSaleProducts} // Update the href to the correct route
           className='px-12 py-4 mt-16 text-base h-14 font-medium bg-red-500 rounded text-neutral-50 hover:bg-red-600 transition-colors max-md:px-5 max-md:mt-10'
           aria-label='View all flash sale products'
         >
           View All Products
-        </Button>
+        </Link>
       </div>
 
       <hr

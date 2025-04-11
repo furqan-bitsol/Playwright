@@ -174,5 +174,10 @@
       },
       "button": "Reset Password"
     }
+  },
+  "products": {
+    "all": "All Products",
+    "allFor": "All Products for {{name}}",
+    "type": "All {{type}} Products"
   }
 }

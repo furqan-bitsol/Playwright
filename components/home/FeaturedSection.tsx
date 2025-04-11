@@ -2,10 +2,11 @@
 
 import React from 'react';
 import { ProductCard } from './ProductCard';
-import { Button } from '@/components/ui/button';
 import { SectionHeader } from '@/components/ui/section-header';
 import { FEATURED_PRODUCTS } from '@/mocks/products';
 import { MAX_DISPLAY_PRODUCTS } from '@/constants';
+import Link from 'next/link';
+import { ROUTE_LINKS } from '@/constants/routes';
 
 /**
  * FeaturedSection Component
@@ -32,12 +33,13 @@ export const FeaturedSection = () => {
       </div>
 
       <div className='flex justify-center w-full'>
-        <Button
+        <Link
+          href={ROUTE_LINKS.allProducts} // Update the href to the correct route
           className='px-12 h-14 py-4 mt-16 text-base font-medium bg-red-500 rounded text-neutral-50 hover:bg-red-600 transition-colors max-md:px-5 max-md:mt-10'
           aria-label='View all featured products'
         >
           View All Products
-        </Button>
+        </Link>
       </div>
     </section>
   );
