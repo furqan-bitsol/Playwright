@@ -188,3 +188,43 @@ export const FEATURED_PRODUCTS = [
     reviewCount: 145,
   },
 ] as const;
+
+export const THUMBNAILS = [
+  {
+    src: 'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/a5bfb5f8a9636c0f7c07b270bac998518162844e?placeholderIfAbsent=true',
+    alt: 'Product thumbnail 1',
+  },
+  {
+    src: 'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/cde46c947fdd88bbe5451a81e70c80b2da349244?placeholderIfAbsent=true',
+    alt: 'Product thumbnail 2',
+  },
+  {
+    src: 'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/f06a776142062cd760c7e13b90055dd7fa4bdcc5?placeholderIfAbsent=true',
+    alt: 'Product thumbnail 3',
+  },
+  {
+    src: 'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/37f6e7e18accfaf9507e5b3c0709eb6d0848e379?placeholderIfAbsent=true',
+    alt: 'Product thumbnail 4',
+  },
+  {
+    src: 'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/a5bfb5f8a9636c0f7c07b270bac998518162844e?placeholderIfAbsent=true',
+    alt: 'Product thumbnail 1',
+  },
+  {
+    src: 'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/cde46c947fdd88bbe5451a81e70c80b2da349244?placeholderIfAbsent=true',
+    alt: 'Product thumbnail 2',
+  },
+  {
+    src: 'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/f06a776142062cd760c7e13b90055dd7fa4bdcc5?placeholderIfAbsent=true',
+    alt: 'Product thumbnail 3',
+  },
+  {
+    src: 'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/37f6e7e18accfaf9507e5b3c0709eb6d0848e379?placeholderIfAbsent=true',
+    alt: 'Product thumbnail 4',
+  },
+];
+
+export const MAIN_IMAGE = {
+  src: 'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/316cc55d9f41d1cf72c06e93f59c19e128a6a14b?placeholderIfAbsent=true',
+  alt: 'Product main image',
+};
