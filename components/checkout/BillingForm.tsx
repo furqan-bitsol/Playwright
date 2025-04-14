@@ -13,6 +13,7 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Input } from '../ui/input';
+import { Button } from '../ui/button';
 
 const formSchema = z.object({
   firstName: z.string().min(2, 'First name is required'),
@@ -22,13 +23,20 @@ const formSchema = z.object({
   townCity: z.string().min(2, 'Town/City is required'),
   phoneNumber: z.string().min(10, 'Phone number is required'),
   email: z.string().email('Invalid email address'),
-  saveInfo: z.boolean().default(false),
+  saveInfo: z.boolean(),
 });
 
 export const BillingForm: React.FC = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      firstName: '',
+      companyName: '',
+      streetAddress: '',
+      apartment: '',
+      townCity: '',
+      phoneNumber: '',
+      email: '',
       saveInfo: false,
     },
   });
@@ -199,6 +207,13 @@ export const BillingForm: React.FC = () => {
             </FormItem>
           )}
         />
+
+        <Button
+          type='submit'
+          className='w-full bg-red-500 text-white py-3 rounded hover:bg-red-600'
+        >
+          Submit
+        </Button>
       </form>
     </Form>
   );
