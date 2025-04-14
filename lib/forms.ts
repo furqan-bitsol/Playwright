@@ -79,3 +79,19 @@ export const getForgotPasswordFormSchema = (t: (key: string) => string) =>
       .min(1, { message: t('forgotPassword.form.validation.email') })
       .email({ message: t('forgotPassword.form.validation.invalidEmail') }),
   });
+
+export const getCouponSchema = (t: (key: string) => string) =>
+  z
+    .object({
+      // Coupon code is optional; if provided, it must be '123ABC'
+      couponCode: z
+        .string()
+        .optional()
+        .refine(
+          (code) => code === undefined || code === '' || code === '123ABC',
+          {
+            message: 'Invalid coupon code',
+          }
+        ),
+    })
+    .strict();
