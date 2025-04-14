@@ -95,3 +95,20 @@ export const getCouponSchema = (t: (key: string) => string) =>
         ),
     })
     .strict();
+
+export const getBillingFormSchema = (t: (key: string) => string) =>
+  z.object({
+    name: z.string().min(2, t('billing.form.validation.name')),
+    companyName: z.string().optional(),
+    streetAddress: z
+      .string()
+      .min(5, t('billing.form.validation.streetAddress')),
+    apartment: z.string().optional(),
+    city: z.string().min(2, t('billing.form.validation.city')),
+    phoneNumber: z
+      .string()
+      .min(10, t('billing.form.validation.phoneNumber.min'))
+      .regex(/^\d+$/, t('billing.form.validation.phoneNumber.regex')),
+    email: z.string().email(t('billing.form.validation.email')),
+    saveInfo: z.boolean(),
+  });

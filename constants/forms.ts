@@ -59,6 +59,17 @@ export const RESET_PASSWORD_FORM_DEFAULT_VALUES = {
   confirmPassword: '',
 };
 
+export const BILLING_FORM_DEFAULT_VALUES = {
+  name: '',
+  companyName: '',
+  streetAddress: '',
+  apartment: '',
+  city: '',
+  phoneNumber: '',
+  email: '',
+  saveInfo: false,
+};
+
 // Field definitions for SignUpForm
 export const SIGN_UP_FORM_FIELDS = [
   {
@@ -103,5 +114,44 @@ export const RESET_PASSWORD_FORM_FIELDS: FormField[] = [
     name: 'confirmPassword',
     type: 'password',
     placeholder: 'resetPassword.form.fields.confirmPassword',
+  },
+];
+
+export const BILLING_FORM_FIELDS: FormField[] = [
+  {
+    name: 'name',
+    type: 'text',
+    label: 'Name',
+    required: true,
+  },
+  {
+    name: 'companyName',
+    type: 'text',
+    label: 'Company Name',
+  },
+  {
+    name: 'streetAddress',
+    type: 'text',
+    label: ' Street Address ',
+    required: true,
+  },
+  { name: 'city', type: 'text', label: 'City', required: true },
+  {
+    name: 'apartment',
+    type: 'text',
+    label: 'Apartment, floor, etc. (optional)',
+  },
+  {
+    name: 'phoneNumber',
+    type: 'tel',
+    label: 'Phone Number',
+    required: true,
+  },
+  { name: 'email', type: 'text', label: 'Email Address', required: true },
+  {
+    name: 'saveInfo',
+    type: 'checkbox',
+    label: 'Save this information for faster check-out next time',
+    required: false,
   },
 ];

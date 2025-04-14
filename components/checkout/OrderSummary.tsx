@@ -1,56 +1,48 @@
 'use client';
 import * as React from 'react';
 import Image from 'next/image';
-import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { RadioGroup, RadioGroupItem } from '../ui/radio-group';
 import { Label } from '../ui/label';
+import { CART_ITEMS } from '@/mocks/products';
+import { useTranslation } from 'react-i18next';
 
 export const OrderSummary: React.FC = () => {
+  const { t } = useTranslation('common'); // Use translation hook
+
   return (
     <div className='flex flex-col gap-8'>
       <div className='flex flex-col gap-8'>
-        <div className='flex gap-6 items-center'>
-          <Image
-            src='https://cdn.builder.io/api/v1/image/assets/TEMP/4eb0893db4be46a5af1d7e4165592909ed996b1f'
-            alt='LCD Monitor'
-            width={54}
-            height={54}
-            className='object-contain'
-          />
-          <div className='flex flex-1 justify-between items-center'>
-            <span className='text-base'>LCD Monitor</span>
-            <span className='text-base'>$650</span>
+        {CART_ITEMS.map((item) => (
+          <div className='flex gap-6 items-center' key={item.name}>
+            <Image
+              src={item.image}
+              alt={item.name}
+              width={54}
+              height={54}
+              className='object-contain'
+            />
+            <div className='flex flex-1 justify-between items-center'>
+              <span className='text-base'>{item.name}</span>
+              <span className='text-base'>${item.price}</span>
+            </div>
           </div>
-        </div>
-        <div className='flex gap-5 items-center'>
-          <Image
-            src='https://cdn.builder.io/api/v1/image/assets/TEMP/781f86d344d66e4bb05db7b549f3e059fce1d194'
-            alt='H1 Gamepad'
-            width={54}
-            height={54}
-            className='object-contain'
-          />
-          <div className='flex flex-1 justify-between items-center'>
-            <span className='text-base'>H1 Gamepad</span>
-            <span className='text-base'>$1100</span>
-          </div>
-        </div>
+        ))}
       </div>
 
       <div className='flex flex-col gap-4'>
         <div className='flex justify-between items-center'>
-          <span className='text-base'>Subtotal:</span>
+          <span className='text-base'>{t('orderSummary.subtotal')}:</span>
           <span className='text-base'>$1750</span>
         </div>
         <div className='border-b border-black opacity-40' />
         <div className='flex justify-between items-center'>
-          <span className='text-base'>Shipping:</span>
-          <span className='text-base'>Free</span>
+          <span className='text-base'>{t('orderSummary.shipping')}:</span>
+          <span className='text-base'>{t('orderSummary.free')}</span>
         </div>
         <div className='border-b border-black opacity-40' />
         <div className='flex justify-between items-center'>
-          <span className='text-base'>Total:</span>
+          <span className='text-base'>{t('orderSummary.total')}:</span>
           <span className='text-base'>$1750</span>
         </div>
       </div>
@@ -60,7 +52,7 @@ export const OrderSummary: React.FC = () => {
           <div className='flex justify-between items-center'>
             <div className='flex gap-4 items-center'>
               <RadioGroupItem value='bank' id='bank' />
-              <Label htmlFor='bank'>Bank</Label>
+              <Label htmlFor='bank'>{t('orderSummary.payment.bank')}</Label>
             </div>
             <div className='flex gap-2 items-center'>
               <Image
@@ -91,28 +83,15 @@ export const OrderSummary: React.FC = () => {
           </div>
           <div className='flex gap-4 items-center'>
             <RadioGroupItem value='cash' id='cash' />
-            <Label htmlFor='cash'>Cash on delivery</Label>
+            <Label htmlFor='cash'>{t('orderSummary.payment.cash')}</Label>
           </div>
         </RadioGroup>
 
-        <div className='flex gap-4'>
-          <Input
-            type='text'
-            placeholder='Coupon Code'
-            className='flex-1 px-6 py-4 text-base rounded border border-black border-solid opacity-50'
-          />
-          <Button
-            variant='destructive'
-            className='px-12 py-4 text-base font-medium'
-          >
-            Apply Coupon
-          </Button>
-        </div>
         <Button
           variant='destructive'
           className='w-full px-12 py-4 text-base font-medium'
         >
-          Place Order
+          {t('orderSummary.placeOrderButton')}
         </Button>
       </div>
     </div>

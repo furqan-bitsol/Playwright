@@ -94,7 +94,13 @@
     "sign-up": "Sign Up",
     "products": "Products",
     "cart": "Cart",
-    "wishlist": "Wishlist"
+    "wishlist": "Wishlist",
+    "ariaLabel": "Breadcrumb navigation",
+    "account": "Account",
+    "myAccount": "My Account",
+    "product": "Product",
+    "viewCart": "View Cart",
+    "checkout": "Checkout"
   },
   "signup": {
     "page": {
@@ -179,5 +185,46 @@
     "all": "All Products",
     "allFor": "All Products for {{name}}",
     "type": "All {{type}} Products"
+  },
+  "billing": {
+    "page": {
+      "title": "Billing Details"
+    },
+    "form": {
+      "fields": {
+        "name": "Name",
+        "companyName": "Company Name",
+        "streetAddress": "Street Address",
+        "apartment": "Apartment, floor, etc. (optional)",
+        "city": "City",
+        "phoneNumber": "Phone Number",
+        "email": "Email Address",
+        "saveInfo": "Save this information for faster check-out next time"
+      },
+      "validation": {
+        "name": "Name must be at least 2 characters.",
+        "streetAddress": "Street address must be at least 5 characters.",
+        "city": "City must be at least 2 characters.",
+        "phoneNumber": {
+          "min": "Phone number must be at least 10 digits.",
+          "regex": "Phone number must contain only digits."
+        },
+        "email": "Please enter a valid email address."
+      },
+      "button": {
+        "submit": "Submit"
+      }
+    }
+  },
+  "orderSummary": {
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "free": "Free",
+    "total": "Total",
+    "payment": {
+      "bank": "Bank",
+      "cash": "Cash on delivery"
+    },
+    "placeOrderButton": "Place Order"
   }
 }

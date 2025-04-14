@@ -27,8 +27,10 @@ export type ForgotPasswordFormData = {
 
 export type FormField = {
   name: string;
-  type: 'text' | 'password';
-  placeholder: string;
+  type: 'text' | 'password' | 'tel' | 'email' | 'checkbox';
+  placeholder?: string;
+  label?: string;
+  required?: boolean;
 };
 
 export type ContactFormData = {
@@ -37,3 +39,14 @@ export type ContactFormData = {
   phone: string;
   message?: string;
 };
+
+export interface BillingFormData {
+  name: string;
+  companyName?: string; // Optional
+  streetAddress: string;
+  apartment?: string; // Optional
+  city: string;
+  phoneNumber: string;
+  email: string;
+  saveInfo: boolean;
+}

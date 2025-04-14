@@ -10,38 +10,25 @@ import {
   FormMessage,
 } from '../ui/form';
 import { useForm } from 'react-hook-form';
-import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
-
-const formSchema = z.object({
-  firstName: z.string().min(2, 'First name is required'),
-  companyName: z.string().optional(),
-  streetAddress: z.string().min(5, 'Street address is required'),
-  apartment: z.string().optional(),
-  townCity: z.string().min(2, 'Town/City is required'),
-  phoneNumber: z.string().min(10, 'Phone number is required'),
-  email: z.string().email('Invalid email address'),
-  saveInfo: z.boolean(),
-});
+import {
+  BILLING_FORM_DEFAULT_VALUES,
+  BILLING_FORM_FIELDS,
+} from '@/constants/forms';
+import { useTranslation } from 'react-i18next';
+import { getBillingFormSchema } from '@/lib/forms';
+import { BillingFormData } from '@/types/forms';
 
 export const BillingForm: React.FC = () => {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      firstName: '',
-      companyName: '',
-      streetAddress: '',
-      apartment: '',
-      townCity: '',
-      phoneNumber: '',
-      email: '',
-      saveInfo: false,
-    },
+  const { t } = useTranslation('common'); // Use translation hook
+  const form = useForm<BillingFormData>({
+    resolver: zodResolver(getBillingFormSchema(t)),
+    defaultValues: BILLING_FORM_DEFAULT_VALUES,
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: BillingFormData) {
     console.log(values);
   }
 
@@ -51,168 +38,66 @@ export const BillingForm: React.FC = () => {
         onSubmit={form.handleSubmit(onSubmit)}
         className='flex flex-col gap-8 min-w-[470px]'
       >
-        <FormField
-          control={form.control}
-          name='firstName'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className='text-base opacity-40'>
-                First Name<span className='text-red-500'>*</span>
-              </FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  className='w-full rounded bg-neutral-100 h-[50px]'
-                  required
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name='companyName'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className='text-base opacity-40'>
-                Company Name
-              </FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  className='w-full rounded bg-neutral-100 h-[50px]'
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name='streetAddress'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className='text-base opacity-40'>
-                Street Address<span className='text-red-500'>*</span>
-              </FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  className='w-full rounded bg-neutral-100 h-[50px]'
-                  required
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name='apartment'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className='text-base opacity-40'>
-                Apartment, floor, etc. (optional)
-              </FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  className='w-full rounded bg-neutral-100 h-[50px]'
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name='townCity'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className='text-base opacity-40'>
-                Town/City<span className='text-red-500'>*</span>
-              </FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  className='w-full rounded bg-neutral-100 h-[50px]'
-                  required
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name='phoneNumber'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className='text-base opacity-40'>
-                Phone Number<span className='text-red-500'>*</span>
-              </FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  type='tel'
-                  className='w-full rounded bg-neutral-100 h-[50px]'
-                  required
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name='email'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className='text-base opacity-40'>
-                Email Address<span className='text-red-500'>*</span>
-              </FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  type='email'
-                  className='w-full rounded bg-neutral-100 h-[50px]'
-                  required
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name='saveInfo'
-          render={({ field }) => (
-            <FormItem className='flex gap-4 items-center'>
-              <FormControl>
-                <Checkbox
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                  className='w-6 h-6 bg-red-500 rounded data-[state=checked]:bg-red-500'
-                />
-              </FormControl>
-              <FormLabel className='text-base'>
-                Save this information for faster check-out next time
-              </FormLabel>
-            </FormItem>
-          )}
-        />
+        {BILLING_FORM_FIELDS.map((item) => {
+          if (item.type !== 'checkbox') {
+            return (
+              <FormField
+                key={item.name}
+                control={form.control}
+                name={item.name as keyof BillingFormData}
+                render={({ field, fieldState }) => (
+                  <FormItem>
+                    <FormLabel className='text-base '>
+                      {t(`billing.form.fields.${item.name}`)}
+                      {item.required && <span className='text-red-500'>*</span>}
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        type={item.type}
+                        className='w-full rounded bg-neutral-100 h-[50px]'
+                        value={
+                          typeof field.value === 'string' ? field.value : ''
+                        }
+                      />
+                    </FormControl>
+                    <FormMessage className='text-sm text-red-500 mt-1'>
+                      {fieldState.error?.message}
+                    </FormMessage>
+                  </FormItem>
+                )}
+              />
+            );
+          } else {
+            return (
+              <FormField
+                key={item.name}
+                control={form.control}
+                name='saveInfo'
+                render={({ field }) => (
+                  <FormItem className='flex gap-4 items-center'>
+                    <FormControl>
+                      <Checkbox
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                        className='w-6 h-6 bg-red-500 rounded data-[state=checked]:bg-red-500'
+                      />
+                    </FormControl>
+                    <FormLabel className='text-base'>
+                      {t('billing.form.fields.saveInfo')}
+                    </FormLabel>
+                  </FormItem>
+                )}
+              />
+            );
+          }
+        })}
 
         <Button
           type='submit'
           className='w-full bg-red-500 text-white py-3 rounded hover:bg-red-600'
         >
-          Submit
+          {t('billing.form.button.submit')}
         </Button>
       </form>
     </Form>

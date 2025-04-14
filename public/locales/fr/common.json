@@ -2,7 +2,13 @@
   "notFound": {
     "breadcrumb": {
       "home": "Accueil",
-      "error": "Erreur 404"
+      "error": "Erreur 404",
+      "ariaLabel": "Navigation par fil d'Ariane",
+      "account": "Compte",
+      "myAccount": "Mon Compte",
+      "product": "Produit",
+      "viewCart": "Voir le Panier",
+      "checkout": "Paiement"
     },
     "title": "404 Page Non Trouvée",
     "description": "La page que vous avez visitée est introuvable. Vous pouvez retourner à la page d'accueil.",
@@ -179,5 +185,46 @@
     "all": "Tous les produits",
     "allFor": "Tous les produits pour {{name}}",
     "type": "Tous les produits {{type}}"
+  },
+  "billing": {
+    "page": {
+      "title": "Détails de Facturation"
+    },
+    "form": {
+      "fields": {
+        "name": "Nom",
+        "companyName": "Nom de l'entreprise",
+        "streetAddress": "Adresse",
+        "apartment": "Appartement, étage, etc. (facultatif)",
+        "city": "Ville",
+        "phoneNumber": "Numéro de téléphone",
+        "email": "Adresse e-mail",
+        "saveInfo": "Enregistrer ces informations pour un paiement plus rapide la prochaine fois"
+      },
+      "validation": {
+        "name": "Le nom doit contenir au moins 2 caractères.",
+        "streetAddress": "L'adresse doit contenir au moins 5 caractères.",
+        "city": "La ville doit contenir au moins 2 caractères.",
+        "phoneNumber": {
+          "min": "Le numéro de téléphone doit contenir au moins 10 chiffres.",
+          "regex": "Le numéro de téléphone doit contenir uniquement des chiffres."
+        },
+        "email": "Veuillez entrer une adresse email valide."
+      },
+      "button": {
+        "submit": "Soumettre"
+      }
+    }
+  },
+  "orderSummary": {
+    "subtotal": "Sous-total",
+    "shipping": "Livraison",
+    "free": "Gratuit",
+    "total": "Total",
+    "payment": {
+      "bank": "Banque",
+      "cash": "Paiement à la livraison"
+    },
+    "placeOrderButton": "Passer la commande"
   }
 }
