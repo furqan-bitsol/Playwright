@@ -9,14 +9,7 @@ import { useRouter } from 'next/navigation';
 import { ROUTE_LINKS } from '@/constants/routes';
 import { Breadcrumb } from '@/components/ui/breadcrumb';
 import { CART_ITEMS } from '@/mocks/products';
-
-interface CartItem {
-  image: string;
-  name: string;
-  price: number;
-  quantity: number;
-  subtotal: number;
-}
+import { CartItem } from '@/types/cart';
 
 export const Cart = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>(CART_ITEMS);
@@ -41,7 +34,6 @@ export const Cart = () => {
     });
   };
 
-  // Function to update subtotal and total quantity
   const updateCartSummary = () => {
     const newSubtotal = cartItems.reduce((acc, item) => acc + item.subtotal, 0);
     const newTotalQuantity = cartItems.reduce(

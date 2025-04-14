@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image'; // Import Next.js Image component
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -18,10 +19,12 @@ export function ProductInfo() {
 
         <div className='flex gap-4 items-start mt-4 text-sm'>
           <div className='flex gap-2 items-start text-black'>
-            <img
+            <Image
               src='https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/55500910f7fda67e937673122aa77ab99e4599d2?placeholderIfAbsent=true'
               alt='Product rating'
-              className='object-contain shrink-0 aspect-[5] w-[100px]'
+              width={100}
+              height={100}
+              className='object-contain shrink-0 aspect-[5]'
             />
             <span className='opacity-50'>(150 Reviews)</span>
           </div>
@@ -103,9 +106,11 @@ export function ProductInfo() {
 
         <Card className='mt-10 w-full p-6'>
           <div className='flex gap-4 items-center'>
-            <img
+            <Image
               src='https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/44ee474a183708b9d84b0ac691e5ff61db67c0af?placeholderIfAbsent=true'
               alt='Delivery icon'
+              width={40}
+              height={40}
               className='w-10 h-10'
             />
             <div>
@@ -120,9 +125,11 @@ export function ProductInfo() {
           </div>
           <Separator className='my-4' />
           <div className='flex gap-4 items-center'>
-            <img
+            <Image
               src='https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/4941b1229d658d5a77faa3f7f6de33375cf5bf05?placeholderIfAbsent=true'
               alt='Return policy icon'
+              width={40}
+              height={40}
               className='w-10 h-10'
             />
             <div>

@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export const EnhanceMusicHero = () => {
   return (
     <section
@@ -5,10 +7,11 @@ export const EnhanceMusicHero = () => {
       aria-label='Music experience promotion'
     >
       <div className='flex relative flex-col items-start px-1 pt-96 pb-8 min-h-[511px] max-md:pt-24 max-md:pr-5 max-md:max-w-full'>
-        <img
+        <Image
           src='https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/73f5265c2f5d001cb1791ad0b057a894190088c4?placeholderIfAbsent=true'
           alt='PlayStation 5 Console'
-          className='object-cover absolute inset-0 size-full'
+          fill
+          className='object-cover absolute inset-0'
         />
         <div className='relative max-w-full w-[242px] z-10'>
           <div className='w-full text-neutral-50'>

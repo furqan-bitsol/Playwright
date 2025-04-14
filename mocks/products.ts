@@ -1,3 +1,4 @@
+import { CartItem } from '@/types/cart';
 import { Product } from '@/types/products';
 
 export const FLASH_SALE_PRODUCTS: Product[] = [
@@ -229,7 +230,7 @@ export const MAIN_IMAGE = {
   alt: 'Product main image',
 };
 
-export const CART_ITEMS = [
+export const CART_ITEMS: CartItem[] = [
   {
     image:
       'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/a305240f496ee42d1775862bbd213e45634bac40?placeholderIfAbsent=true',

@@ -106,7 +106,7 @@ export default function CategoriesHeroSection() {
       <div className='relative z-10 max-w-[1170px] mx-auto px-4 py-20 text-center'>
         <h2 className='text-4xl font-bold text-white mb-4'>Special Edition</h2>
         <p className='text-xl text-gray-100 mb-8'>
-          Get our special edition products before they're gone!
+          Get our special edition products before they&apos;re gone!
         </p>
 
         <div className='mb-8'>
