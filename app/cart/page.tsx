@@ -11,7 +11,7 @@ import { Breadcrumb } from '@/components/ui/breadcrumb';
 import { CART_ITEMS } from '@/mocks/products';
 import { CartItem } from '@/types/cart';
 
-export const Cart = () => {
+const Cart = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>(CART_ITEMS);
 
   const [subtotal, setSubtotal] = useState(1750); // Initial subtotal
