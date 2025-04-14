@@ -15,6 +15,7 @@ export const ROUTE_LINKS = {
   flashSaleProducts: '/products/flash-sales',
   bestSellingProducts: '/products/best-selling',
   allProducts: '/products/all',
+  productDetails: (id: string) => `/products/details?id=${id}`,
 };
 export const ROUTES = [
   { href: ROUTE_LINKS.home, label: 'Home' },

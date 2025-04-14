@@ -1,35 +1,48 @@
 'use client';
 import * as React from 'react';
+import { useSearchParams } from 'next/navigation';
 import { ProductGallery } from './ProductGallery';
 import { ProductInfo } from './ProductInfo';
 import { Slider } from '@/components/ui/slider';
-import { FLASH_SALE_PRODUCTS } from '@/mocks/products';
 import { ProductCard } from '@/components/home/ProductCard';
+import { PRODUCTS } from '@/mocks/products';
 
 export default function ProductDetailsPage() {
+  const searchParams = useSearchParams();
+  const productId = searchParams.get('id'); // Get the product ID from the query params
+  const product = PRODUCTS.find((p) => p.id === productId); // Find the product by ID
+
+  if (!product) {
+    return <div className='text-center mt-20'>Product not found</div>;
+  }
+
   return (
     <main className='flex flex-col self-center mt-20 w-full max-w-[1170px] mx-auto max-md:mt-10 max-md:max-w-full'>
       {/* Breadcrumbs */}
 
       <section className='mt-20 w-full max-md:mt-10 max-md:max-w-full'>
         <div className='flex gap-5 max-md:flex-col'>
-          <ProductGallery />
-          <ProductInfo />
+          <ProductGallery product={product} />
+          <ProductInfo product={product} />
         </div>
       </section>
 
-      {/* use the Slider component as the one used in home page, along with only the heading Related Items */}
+      {/* Related Items Slider */}
       <Slider
         cardWidth={270}
         gap={32}
         className='mt-10 pb-4'
-        aria-label='Flash sale products'
-        title='Related Item'
-        subtitle="Today's"
+        aria-label='Related products'
+        title='Related Items'
       >
-        {FLASH_SALE_PRODUCTS.map((product) => (
-          <ProductCard key={`flash-sale-${product.title}`} {...product} />
-        ))}
+        {PRODUCTS.filter((p) => p.id !== productId && p.featured).map(
+          (relatedProduct) => (
+            <ProductCard
+              key={`related-${relatedProduct.id}`}
+              {...relatedProduct}
+            />
+          )
+        )}
       </Slider>
     </main>
   );

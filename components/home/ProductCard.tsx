@@ -1,10 +1,13 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import { HeartIcon } from '../icons';
+import { HeartIcon, EyeIcon, StarIcon } from '../icons';
 import { cn } from '@/lib/utils';
+import { useRouter } from 'next/navigation';
+import { ROUTE_LINKS } from '@/constants/routes';
 
 interface ProductCardProps {
+  id: number | string;
   image: string;
   title: string;
   price: number;
@@ -20,6 +23,7 @@ interface ProductCardProps {
  * Displays product information in a card format
  */
 export const ProductCard: React.FC<ProductCardProps> = ({
+  id,
   image,
   title,
   price,
@@ -29,6 +33,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   discount,
   showAddToCart = false,
 }) => {
+  const router = useRouter();
+
   return (
     <div className='relative flex flex-col min-w-[270px] group'>
       {/* Product Image Container */}
@@ -59,29 +65,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <button
             className='p-2 bg-white rounded-full shadow-md hover:bg-gray-50'
             aria-label='Quick view'
+            onClick={() =>
+              router.push(ROUTE_LINKS.productDetails(id as string))
+            }
           >
-            <svg
-              width='20'
-              height='20'
-              viewBox='0 0 20 20'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                d='M10 4.37C3.75 4.37 1.25 10 1.25 10C1.25 10 3.75 15.63 10 15.63C16.25 15.63 18.75 10 18.75 10C18.75 10 16.25 4.37 10 4.37Z'
-                stroke='currentColor'
-                strokeWidth='1.5'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
-              <path
-                d='M10 13.125C11.7259 13.125 13.125 11.7259 13.125 10C13.125 8.27411 11.7259 6.875 10 6.875C8.27411 6.875 6.875 8.27411 6.875 10C6.875 11.7259 8.27411 13.125 10 13.125Z'
-                stroke='currentColor'
-                strokeWidth='1.5'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
-            </svg>
+            <EyeIcon width={20} height={20} className='text-black' />
           </button>
         </div>
 
@@ -109,17 +97,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <div className='flex items-center gap-2'>
           <div className='flex'>
             {[...Array(5)].map((_, index) => (
-              <svg
+              <StarIcon
                 key={index}
                 className={cn('w-4 h-4', {
                   'text-yellow-400': index < rating,
                   'text-gray-300': index >= rating,
                 })}
-                fill='currentColor'
-                viewBox='0 0 20 20'
-              >
-                <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
-              </svg>
+              ></StarIcon>
             ))}
           </div>
           <span className='text-black text-opacity-50'>({reviewCount})</span>

@@ -3,17 +3,14 @@
 import React from 'react';
 import { ProductCard } from './ProductCard';
 import { SectionHeader } from '@/components/ui/section-header';
-import { FEATURED_PRODUCTS } from '@/mocks/products';
-import { MAX_DISPLAY_PRODUCTS } from '@/constants';
 import Link from 'next/link';
 import { ROUTE_LINKS } from '@/constants/routes';
+import { PRODUCTS } from '@/mocks/products';
 
 /**
  * FeaturedSection Component
  */
 export const FeaturedSection = () => {
-  const displayProducts = FEATURED_PRODUCTS.slice(0, MAX_DISPLAY_PRODUCTS);
-
   return (
     <section
       className='w-full mt-36 max-md:mt-10'
@@ -27,9 +24,10 @@ export const FeaturedSection = () => {
         role='grid'
         aria-label='Featured products grid'
       >
-        {displayProducts.map((product) => (
-          <ProductCard key={`featured-${product.title}`} {...product} />
-        ))}
+        {PRODUCTS.map((product) => {
+          if (!product.featured) return null; // Skip if not featured
+          return <ProductCard key={`featured-${product.title}`} {...product} />;
+        })}
       </div>
 
       <div className='flex justify-center w-full'>

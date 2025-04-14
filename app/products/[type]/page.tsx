@@ -4,9 +4,9 @@ import React from 'react';
 import { ProductGrid } from '@/components/products/ProductGrid';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
-import { getProductsByType } from '@/utils/products';
+
 import { useParams, useSearchParams } from 'next/navigation';
-import { BEST_SELLING_PRODUCTS } from '@/mocks/products';
+import { PRODUCTS } from '@/mocks/products';
 
 const ProductsPage: React.FC = () => {
   const { t } = useTranslation('common'); // Translation hook
@@ -34,7 +34,7 @@ const ProductsPage: React.FC = () => {
       </header>
 
       {/* Product Grid */}
-      <ProductGrid products={BEST_SELLING_PRODUCTS} />
+      <ProductGrid products={PRODUCTS} />
 
       {/* Back to Home Button */}
       <div className='mt-10 flex justify-center'>

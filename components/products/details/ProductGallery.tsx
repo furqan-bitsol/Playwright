@@ -2,8 +2,12 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { MAIN_IMAGE, THUMBNAILS } from '@/mocks/products';
+import { Product } from '@/types/products';
+import { THUMBNAILS } from '@/mocks/products';
 
+interface ProductGalleryProps {
+  product: Product;
+}
 interface ThumbnailProps {
   src: string;
   alt: string;
@@ -19,20 +23,19 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ src, alt }) => (
   />
 );
 
-export const ProductGallery: React.FC = () => {
+export const ProductGallery: React.FC<ProductGalleryProps> = ({ product }) => {
   return (
     <div className='w-[64%] max-md:ml-0 max-md:w-full'>
       <div className='grow max-md:mt-10 max-md:max-w-full'>
-        <div className='flex gap-5 md:h-[600px]  flex-row-reverse max-md:flex-col'>
+        <div className='flex gap-5 md:h-[600px] flex-row-reverse max-md:flex-col'>
           {/* Main Image Section */}
           <Image
-            src={MAIN_IMAGE.src}
-            alt={MAIN_IMAGE.alt}
-            width={500} // Default width for the main image
-            height={600} // Default height for the main image
+            src={product.image}
+            alt={product.title}
+            width={500}
+            height={600}
             className='object-contain h-auto max-md:h-[300px]'
           />
-
           {/* Thumbnails Section for Desktop */}
           <aside className='w-[170px] h-[600px] max-md:hidden overflow-y-auto scrollbar-hide flex flex-col gap-4'>
             {THUMBNAILS.map((thumbnail, index) => (

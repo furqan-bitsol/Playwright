@@ -5,9 +5,9 @@ import { ProductCard } from './ProductCard';
 import { Slider } from '@/components/ui/slider';
 import Link from 'next/link';
 
-import { BEST_SELLING_PRODUCTS } from '@/mocks/products';
 import { SectionHeader } from '../ui/section-header';
 import { ROUTE_LINKS } from '@/constants/routes';
+import { PRODUCTS } from '@/mocks/products';
 
 /**
  * BestSellingProducts Component
@@ -40,9 +40,12 @@ export const BestSellingProducts: React.FC = () => {
         aria-label='Best selling products slider'
         showArrows={false} // Disable navigation arrows
       >
-        {BEST_SELLING_PRODUCTS.map((product) => (
-          <ProductCard key={`best-selling-${product.title}`} {...product} />
-        ))}
+        {PRODUCTS.map((product) => {
+          if (!product.bestSelling) return null; // Skip if not best selling
+          return (
+            <ProductCard key={`best-selling-${product.title}`} {...product} />
+          );
+        })}
       </Slider>
 
       <hr

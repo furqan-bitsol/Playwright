@@ -22,3 +22,5 @@ export * from './ComputerIcon';
 export * from './CameraIcon';
 export * from './SmartWatchIcon';
 export * from './GamepadIcon';
+export * from './EyeIcon';
+export * from './StarIcon';

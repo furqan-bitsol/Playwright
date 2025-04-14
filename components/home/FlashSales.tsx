@@ -4,9 +4,9 @@ import React from 'react';
 import { ProductCard } from './ProductCard';
 import { Timer } from './Timer';
 import { Slider } from '@/components/ui/slider';
-import { FLASH_SALE_PRODUCTS } from '@/mocks/products';
 import Link from 'next/link';
 import { ROUTE_LINKS } from '@/constants/routes';
+import { PRODUCTS } from '@/mocks/products';
 
 /**
  * FlashSales Component
@@ -28,9 +28,12 @@ export const FlashSales: React.FC = () => {
         }
         subtitle="Today's"
       >
-        {FLASH_SALE_PRODUCTS.map((product) => (
-          <ProductCard key={`flash-sale-${product.title}`} {...product} />
-        ))}
+        {PRODUCTS.map((product) => {
+          if (!product.discount) return null; // Skip if not flash sale
+          return (
+            <ProductCard key={`flash-sale-${product.title}`} {...product} />
+          );
+        })}
       </Slider>
 
       <div className='flex justify-center w-full'>
