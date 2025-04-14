@@ -6,7 +6,8 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { NavLink } from '../navigation/NavLink';
 import { NAV_CATEGORIES } from '@/mocks/categories';
-import { ROUTES } from '@/constants/routes';
+import { ROUTE_LINKS, ROUTES } from '@/constants/routes';
+import Link from 'next/link';
 
 export const MainHeader: React.FC = () => {
   const accountBtnRef = React.useRef<HTMLButtonElement>(null);
@@ -77,12 +78,9 @@ export const MainHeader: React.FC = () => {
           >
             <HeartIcon className='w-6 h-6 md:w-8 md:h-8' />
           </button>
-          <button
-            aria-label='Cart'
-            className='hover:opacity-80 transition-opacity'
-          >
-            <CartIcon className='w-6 h-6 md:w-8 md:h-8' />
-          </button>
+          <Link href={ROUTE_LINKS.cart} aria-label='Cart'>
+            <CartIcon className='w-6 h-6 md:w-8 md:h-8 hover:opacity-80 transition-opacity' />
+          </Link>
           <AccountDropdown triggerRef={accountBtnRef} />
         </div>
       </div>

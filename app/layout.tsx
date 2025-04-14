@@ -5,6 +5,7 @@ import { TopHeader } from '@/components/layouts/TopHeader';
 import { MainHeader } from '@/components/layouts/MainHeader';
 import { I18nProvider } from '@/components/providers/I18nProvider';
 import { Footer } from '@/components/layouts/Footer';
+import { ClientProviders } from '@/components/providers/ClientProviders';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -27,12 +28,14 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        <I18nProvider>
-          <TopHeader />
-          <MainHeader />
-          {children}
-          <Footer />
-        </I18nProvider>
+        <ClientProviders>
+          <I18nProvider>
+            <TopHeader />
+            <MainHeader />
+            {children}
+            <Footer />
+          </I18nProvider>
+        </ClientProviders>
       </body>
     </html>
   );

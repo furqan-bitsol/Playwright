@@ -1,5 +1,6 @@
 'use client';
-import React, { useState } from 'react';
+
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -8,33 +9,19 @@ import { CartSummary } from '@/components/cart/CardSummary';
 import { useRouter } from 'next/navigation';
 import { ROUTE_LINKS } from '@/constants/routes';
 import { Breadcrumb } from '@/components/ui/breadcrumb';
-import { CART_ITEMS } from '@/mocks/products';
-import { CartItem } from '@/types/cart';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '@/store/store';
+import { updateQuantity as updateCartQuantity } from '@/store/cartSlice';
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState<CartItem[]>(CART_ITEMS);
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state: RootState) => state.cart.items); // Get cart items from Redux
 
-  const [subtotal, setSubtotal] = useState(1750); // Initial subtotal
-  const [totalQuantity, setTotalQuantity] = useState(3); // Initial total quantity
+  const [subtotal, setSubtotal] = useState(0); // Subtotal state
+  const [totalQuantity, setTotalQuantity] = useState(0); // Total quantity state
 
-  const updateQuantity = (index: number, delta: number) => {
-    setCartItems((prevItems) => {
-      // Use the latest state for updates
-      return prevItems.map((item, i) => {
-        if (i === index) {
-          const newQuantity = Math.max(1, item.quantity + delta); // Ensure quantity is at least 1
-          return {
-            ...item,
-            quantity: newQuantity,
-            subtotal: item.price * newQuantity, // Update subtotal
-          };
-        }
-        return item;
-      });
-    });
-  };
-
-  const updateCartSummary = () => {
+  // Update cart summary whenever cart items change
+  useEffect(() => {
     const newSubtotal = cartItems.reduce((acc, item) => acc + item.subtotal, 0);
     const newTotalQuantity = cartItems.reduce(
       (acc, item) => acc + item.quantity,
@@ -42,6 +29,14 @@ const Cart = () => {
     );
     setSubtotal(newSubtotal);
     setTotalQuantity(newTotalQuantity);
+  }, [cartItems]);
+
+  const updateQuantity = (id: string, delta: number) => {
+    const item = cartItems.find((item) => item._id === id);
+    if (item) {
+      const newQuantity = Math.max(1, item.quantity + delta); // Ensure quantity is at least 1
+      dispatch(updateCartQuantity({ id, quantity: newQuantity })); // Dispatch Redux action to update quantity
+    }
   };
 
   const router = useRouter();
@@ -67,17 +62,17 @@ const Cart = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {cartItems.map((item, index) => (
-                    <tr key={index} className='border-b'>
+                  {cartItems.map((item) => (
+                    <tr key={item._id} className='border-b'>
                       <td className='py-4 px-4 flex items-center gap-4 max-md:flex-col max-md:items-start'>
                         <Image
                           src={item.image}
-                          alt={item.name}
+                          alt={item.title}
                           width={50}
                           height={50}
                           className='object-contain'
                         />
-                        <span>{item.name}</span>
+                        <span>{item.title}</span>
                       </td>
                       <td className='py-4 px-4'>${item.price.toFixed(2)}</td>
                       <td className='py-4 px-4'>
@@ -85,8 +80,8 @@ const Cart = () => {
                           <Button
                             variant='outline'
                             size='icon'
-                            onClick={() => updateQuantity(index, -1)} // Decrease quantity
-                            aria-label={`Decrease quantity for ${item.name}`}
+                            onClick={() => updateQuantity(item._id, -1)} // Decrease quantity
+                            aria-label={`Decrease quantity for ${item.title}`}
                           >
                             -
                           </Button>
@@ -94,8 +89,8 @@ const Cart = () => {
                           <Button
                             variant='outline'
                             size='icon'
-                            onClick={() => updateQuantity(index, 1)} // Increase quantity
-                            aria-label={`Increase quantity for ${item.name}`}
+                            onClick={() => updateQuantity(item._id, 1)} // Increase quantity
+                            aria-label={`Increase quantity for ${item.title}`}
                           >
                             +
                           </Button>
@@ -124,7 +119,7 @@ const Cart = () => {
           <Button
             variant='outline'
             className='px-12 max-sm:w-full'
-            onClick={updateCartSummary} // Update cart summary on click
+            onClick={() => {}} // Update cart summary on click
           >
             Update Cart
           </Button>
@@ -134,7 +129,7 @@ const Cart = () => {
         <CartSummary
           subtotal={subtotal}
           totalQuantity={totalQuantity}
-          onCheckout={() => console.log('Proceeding to checkout...')}
+          onCheckout={() => router.push(ROUTE_LINKS.checkout)} // Navigate to checkout
         />
       </section>
     </main>

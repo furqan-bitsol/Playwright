@@ -5,6 +5,7 @@ export const ROUTE_LINKS = {
   signup: '/signup',
   login: '/login',
   cart: '/cart',
+  checkout: '/checkout',
   wishlist: '/wishlist',
   shop: '/shop',
   privacy: '/privacy',

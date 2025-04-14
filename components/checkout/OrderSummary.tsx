@@ -1,39 +1,47 @@
 'use client';
+
 import * as React from 'react';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import { RadioGroup, RadioGroupItem } from '../ui/radio-group';
 import { Label } from '../ui/label';
-import { CART_ITEMS } from '@/mocks/products';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 import { useTranslation } from 'react-i18next';
 
 export const OrderSummary: React.FC = () => {
   const { t } = useTranslation('common'); // Use translation hook
+  const cartItems = useSelector((state: RootState) => state.cart.items); // Get cart items from Redux
+
+  // Calculate subtotal
+  const subtotal = cartItems.reduce((acc, item) => acc + item.subtotal, 0);
 
   return (
     <div className='flex flex-col gap-8'>
+      {/* Cart Items */}
       <div className='flex flex-col gap-8'>
-        {CART_ITEMS.map((item) => (
-          <div className='flex gap-6 items-center' key={item.name}>
+        {cartItems.map((item) => (
+          <div className='flex gap-6 items-center' key={item._id}>
             <Image
               src={item.image}
-              alt={item.name}
+              alt={item.title}
               width={54}
               height={54}
               className='object-contain'
             />
             <div className='flex flex-1 justify-between items-center'>
-              <span className='text-base'>{item.name}</span>
-              <span className='text-base'>${item.price}</span>
+              <span className='text-base'>{item.title}</span>
+              <span className='text-base'>${item.subtotal.toFixed(2)}</span>
             </div>
           </div>
         ))}
       </div>
 
+      {/* Order Summary */}
       <div className='flex flex-col gap-4'>
         <div className='flex justify-between items-center'>
           <span className='text-base'>{t('orderSummary.subtotal')}:</span>
-          <span className='text-base'>$1750</span>
+          <span className='text-base'>${subtotal.toFixed(2)}</span>
         </div>
         <div className='border-b border-black opacity-40' />
         <div className='flex justify-between items-center'>
@@ -43,10 +51,11 @@ export const OrderSummary: React.FC = () => {
         <div className='border-b border-black opacity-40' />
         <div className='flex justify-between items-center'>
           <span className='text-base'>{t('orderSummary.total')}:</span>
-          <span className='text-base'>$1750</span>
+          <span className='text-base'>${subtotal.toFixed(2)}</span>
         </div>
       </div>
 
+      {/* Payment Options */}
       <div className='flex flex-col gap-4'>
         <RadioGroup defaultValue='cash'>
           <div className='flex justify-between items-center'>

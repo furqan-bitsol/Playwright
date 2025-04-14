@@ -1,4 +1,3 @@
-import { CartItem } from '@/types/cart';
 import { Product } from '@/types/products';
 
 export const PRODUCTS: Product[] = [
@@ -269,22 +268,3 @@ export const MAIN_IMAGE = {
   src: 'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/316cc55d9f41d1cf72c06e93f59c19e128a6a14b?placeholderIfAbsent=true',
   alt: 'Product main image',
 };
-
-export const CART_ITEMS: CartItem[] = [
-  {
-    image:
-      'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/a305240f496ee42d1775862bbd213e45634bac40?placeholderIfAbsent=true',
-    name: 'LCD Monitor',
-    price: 650,
-    quantity: 1,
-    subtotal: 650,
-  },
-  {
-    image:
-      'https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/b536f09376acdd9133ad31a529ebb920174cc41c?placeholderIfAbsent=true',
-    name: 'H1 Gamepad',
-    price: 550,
-    quantity: 2,
-    subtotal: 1100,
-  },
-];
