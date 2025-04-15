@@ -14,6 +14,8 @@ interface SliderProps {
   'aria-label'?: string;
   title?: string | React.ReactNode;
   subtitle?: string;
+  rightContent?: React.ReactNode;
+  isWishlist?: boolean;
 }
 
 /**
@@ -32,6 +34,8 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
       'aria-label': ariaLabel,
       title,
       subtitle,
+      rightContent,
+      isWishlist,
     },
     ref
   ) => {
@@ -78,13 +82,12 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
 
     return (
       <div className={cn('relative', containerClassName)}>
-        {title && subtitle && (
-          <SectionHeader
-            title={title}
-            subtitle={subtitle}
-            rightContent={navigationButtons}
-          />
-        )}
+        <SectionHeader
+          title={title}
+          subtitle={subtitle}
+          rightContent={rightContent ?? navigationButtons}
+          isWishlist={isWishlist}
+        />
 
         <div
           ref={sliderRef}

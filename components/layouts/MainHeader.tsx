@@ -72,12 +72,13 @@ export const MainHeader: React.FC = () => {
         </div>
 
         <div className='flex gap-4 items-center'>
-          <button
+          <Link
+            href={ROUTE_LINKS.wishlist}
             aria-label='Wishlist'
             className='hover:opacity-80 transition-opacity'
           >
             <HeartIcon className='w-6 h-6 md:w-8 md:h-8' />
-          </button>
+          </Link>
           <Link href={ROUTE_LINKS.cart} aria-label='Cart'>
             <CartIcon className='w-6 h-6 md:w-8 md:h-8 hover:opacity-80 transition-opacity' />
           </Link>
