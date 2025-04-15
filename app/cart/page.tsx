@@ -30,7 +30,7 @@ const Cart = () => {
     setTotalQuantity(newTotalQuantity);
   }, [cartItems]);
 
-  const updateQuantity = (id: string, delta: number) => {
+  const updateQuantity = (id: string | number, delta: number) => {
     const item = cartItems.find((item) => item._id === id);
     if (item) {
       const newQuantity = Math.max(1, item.quantity + delta); // Ensure quantity is at least 1

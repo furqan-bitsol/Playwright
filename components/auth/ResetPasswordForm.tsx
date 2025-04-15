@@ -54,7 +54,9 @@ export const ResetPasswordForm: React.FC = () => {
                     <Input
                       {...controlledField}
                       type='text'
-                      placeholder={t(formField.placeholder)}
+                      placeholder={
+                        formField.placeholder ? t(formField.placeholder) : ''
+                      }
                       className={INPUT_STYLES}
                     />
                   </FormControl>
