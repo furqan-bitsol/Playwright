@@ -1,10 +1,13 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import { HeartIcon, EyeIcon, StarIcon } from '../icons';
+import { HeartIcon, EyeIcon, StarIcon, FilledHeartIcon } from '../icons';
 import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import { ROUTE_LINKS } from '@/constants/routes';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
+import { addToWishlist, removeFromWishlist } from '@/store/wishlistSlice';
 
 interface ProductCardProps {
   id: number | string;
@@ -34,6 +37,28 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   showAddToCart = false,
 }) => {
   const router = useRouter();
+  const dispatch = useDispatch();
+  const wishlist = useSelector((state: RootState) => state.wishlist.items);
+  const inWishlist = wishlist.some((item) => item.id === id);
+
+  const handleWishlistToggle = () => {
+    if (inWishlist) {
+      dispatch(removeFromWishlist(id.toString()));
+    } else {
+      dispatch(
+        addToWishlist({
+          id: id,
+          title,
+          price,
+          originalPrice,
+          rating,
+          reviewCount,
+          discount,
+          image,
+        })
+      );
+    }
+  };
 
   return (
     <div className='relative flex flex-col min-w-[270px] group'>
@@ -57,10 +82,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         {/* Action Buttons */}
         <div className='absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity'>
           <button
-            className='p-2 bg-white rounded-full shadow-md hover:bg-gray-50'
-            aria-label='Add to wishlist'
+            className={`p-2 bg-white rounded-full shadow-md hover:bg-gray-50 ${inWishlist ? 'text-red-500' : 'text-gray-500'}`}
+            aria-label={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+            onClick={handleWishlistToggle}
           >
-            <HeartIcon className='w-5 h-5' />
+            {inWishlist ? (
+              <FilledHeartIcon className='w-5 h-5' />
+            ) : (
+              <HeartIcon className='w-5 h-5' />
+            )}
           </button>
           <button
             className='p-2 bg-white rounded-full shadow-md hover:bg-gray-50'

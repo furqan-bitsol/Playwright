@@ -19,7 +19,12 @@ export const BestSellingProducts: React.FC = () => {
       className='w-full mt-16 max-md:mt-10'
       aria-label='Best selling products'
     >
-      <SectionHeader
+      <Slider
+        cardWidth={270}
+        gap={30}
+        className='mt-16 pb-4 max-md:mt-10'
+        aria-label='Best selling products slider'
+        showArrows={false} // Disable navigation arrows
         title='Best Selling Products'
         subtitle='This Month'
         rightContent={
@@ -31,14 +36,6 @@ export const BestSellingProducts: React.FC = () => {
             View All
           </Link>
         }
-      />
-
-      <Slider
-        cardWidth={270}
-        gap={30}
-        className='mt-16 pb-4 max-md:mt-10'
-        aria-label='Best selling products slider'
-        showArrows={false} // Disable navigation arrows
       >
         {PRODUCTS.map((product) => {
           if (!product.bestSelling) return null; // Skip if not best selling

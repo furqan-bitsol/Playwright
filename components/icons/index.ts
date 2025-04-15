@@ -24,3 +24,4 @@ export * from './SmartWatchIcon';
 export * from './GamepadIcon';
 export * from './EyeIcon';
 export * from './StarIcon';
+export * from './FilledHeartIcon';
