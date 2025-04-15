@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
-import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,7 +11,7 @@ import { ChevronDown } from 'lucide-react';
 import { LANGUAGES } from '@/constants';
 
 export const TopHeader: React.FC = () => {
-  const { t, i18n } = useTranslation('home');
+  const { t, i18n } = useTranslation('common');
   const [selectedLang, setSelectedLang] = React.useState('English');
 
   const handleLanguageChange = (code: string, name: string) => {
