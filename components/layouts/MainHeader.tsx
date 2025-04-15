@@ -8,9 +8,12 @@ import { NavLink } from '../navigation/NavLink';
 import { NAV_CATEGORIES } from '@/mocks/categories';
 import { ROUTE_LINKS, ROUTES } from '@/constants/routes';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 export const MainHeader: React.FC = () => {
   const accountBtnRef = React.useRef<HTMLButtonElement>(null);
+  const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
 
   return (
     <header className='max-w-[1170px] mx-auto max-md:px-5 flex flex-col md:flex-row justify-between items-center  pt-6 md:pt-10 pb-4 w-full gap-4 md:gap-8'>
@@ -79,8 +82,13 @@ export const MainHeader: React.FC = () => {
           >
             <HeartIcon className='w-6 h-6 md:w-8 md:h-8' />
           </Link>
-          <Link href={ROUTE_LINKS.cart} aria-label='Cart'>
+          <Link href={ROUTE_LINKS.cart} aria-label='Cart' className='relative'>
             <CartIcon className='w-6 h-6 md:w-8 md:h-8 hover:opacity-80 transition-opacity' />
+            {cartItemCount > 0 && (
+              <span className='absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center'>
+                {cartItemCount}
+              </span>
+            )}
           </Link>
           <AccountDropdown triggerRef={accountBtnRef} />
         </div>

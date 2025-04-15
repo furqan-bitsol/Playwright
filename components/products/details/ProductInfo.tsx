@@ -9,7 +9,7 @@ import { Heart, Minus, Plus } from 'lucide-react';
 import { StarIcon } from '@/components/icons';
 import { cn } from '@/lib/utils'; // Utility for conditional classNames
 import { Product } from '@/types/products'; // Import the Product type
-import { addItem } from '@/store/cartSlice'; // Import the Redux action
+import { addToCart } from '@/store/cartSlice'; // Import the Redux action
 
 interface ProductInfoProps {
   product: Product; // Define the prop type
@@ -35,10 +35,10 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
       quantity,
       subtotal: product.price * quantity,
       image: product.image,
-      size: selectedSize, // Include the selected size
+      size: selectedSize ?? undefined, // Ensure size is string or undefined
     };
 
-    dispatch(addItem(cartItem)); // Dispatch the action to add the item to the cart
+    dispatch(addToCart(cartItem)); // Dispatch the action to add the item to the cart
     alert('Item added to cart successfully!');
   };
 

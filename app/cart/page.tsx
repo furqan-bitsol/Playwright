@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 import { ROUTE_LINKS } from '@/constants/routes';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store/store';
-import { updateQuantity as updateCartQuantity } from '@/store/cartSlice';
+import { updateQuantity as updateCartQuantity, removeFromCart } from '@/store/cartSlice';
 import MainLayout from '@/components/layouts/MainLayout';
 
 const Cart = () => {
@@ -91,8 +91,21 @@ const Cart = () => {
                             +
                           </Button>
                         </div>
+                        <div className='mt-2'>
+                          <span className='text-sm text-gray-500'>Size: {item.size || 'N/A'}</span>
+                        </div>
                       </td>
                       <td className='py-4 px-4'>${item.subtotal.toFixed(2)}</td>
+                      <td className='py-4 px-4'>
+                        <Button
+                          variant='destructive'
+                          size='sm'
+                          onClick={() => dispatch(removeFromCart(item._id))} // Remove item from cart
+                          aria-label={`Remove ${item.title} from cart`}
+                        >
+                          Remove
+                        </Button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>

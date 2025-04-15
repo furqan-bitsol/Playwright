@@ -5,4 +5,5 @@ export interface CartItem {
   quantity: number; // Quantity of the product in the cart
   subtotal: number; // Subtotal for the item (price * quantity)
   image: string; // Image URL for the product
+  size?: string; // Size of the product (optional)
 }
