@@ -27,7 +27,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({ product }) => {
   return (
     <div className='w-[64%] max-md:ml-0 max-md:w-full'>
       <div className='grow max-md:mt-10 max-md:max-w-full'>
-        <div className='flex gap-5 md:h-[600px] flex-row-reverse max-md:flex-col'>
+        <div className='flex gap-5 md:h-[600px] flex-row-reverse max-md:flex-col justify-center items-center'>
           {/* Main Image Section */}
           <Image
             src={product.image}

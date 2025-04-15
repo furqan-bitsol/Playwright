@@ -61,7 +61,7 @@ export function Breadcrumb({
     <nav
       aria-label='breadcrumb'
       className={cn(
-        'flex items-center text-sm text-muted-foreground',
+        'flex items-center text-sm text-muted-foreground w-full mb-20',
         className
       )}
     >

@@ -1,17 +1,16 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import { CartSummary } from '@/components/cart/CardSummary';
 import { useRouter } from 'next/navigation';
 import { ROUTE_LINKS } from '@/constants/routes';
-import { Breadcrumb } from '@/components/ui/breadcrumb';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store/store';
 import { updateQuantity as updateCartQuantity } from '@/store/cartSlice';
+import MainLayout from '@/components/layouts/MainLayout';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -42,12 +41,9 @@ const Cart = () => {
   const router = useRouter();
 
   return (
-    <main className='flex flex-col mx-auto self-center mt-20 w-full max-w-[1170px] max-md:mt-10 max-md:max-w-full'>
-      {/* Breadcrumb */}
-      <Breadcrumb />
-
+    <MainLayout>
       {/* Cart Section */}
-      <section className='mt-20 w-full max-md:mt-10 max-md:max-w-full'>
+      <section className='w-full max-md:max-w-full'>
         <Card>
           <CardContent className='px-10 py-6 w-full text-base text-black max-md:px-5 max-md:py-6'>
             {/* Responsive Table Wrapper */}
@@ -132,7 +128,7 @@ const Cart = () => {
           onCheckout={() => router.push(ROUTE_LINKS.checkout)} // Navigate to checkout
         />
       </section>
-    </main>
+    </MainLayout>
   );
 };
 

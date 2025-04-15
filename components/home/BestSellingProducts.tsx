@@ -4,8 +4,6 @@ import React from 'react';
 import { ProductCard } from './ProductCard';
 import { Slider } from '@/components/ui/slider';
 import Link from 'next/link';
-
-import { SectionHeader } from '../ui/section-header';
 import { ROUTE_LINKS } from '@/constants/routes';
 import { PRODUCTS } from '@/mocks/products';
 

@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 import { useParams, useSearchParams } from 'next/navigation';
 import { PRODUCTS } from '@/mocks/products';
+import MainLayout from '@/components/layouts/MainLayout';
 
 const ProductsPage: React.FC = () => {
   const { t } = useTranslation('common'); // Translation hook
@@ -28,7 +29,7 @@ const ProductsPage: React.FC = () => {
       : t('products.type', { type: (type as string).split('-').join(' ') });
 
   return (
-    <main className='w-full max-w-[1170px] mx-auto px-4 py-10'>
+    <MainLayout>
       <header className='mb-8'>
         <h1 className='text-4xl font-bold'>{pageTitle}</h1>
       </header>
@@ -46,7 +47,7 @@ const ProductsPage: React.FC = () => {
           {t('breadcrumb.home')}
         </Button>
       </div>
-    </main>
+    </MainLayout>
   );
 };
 

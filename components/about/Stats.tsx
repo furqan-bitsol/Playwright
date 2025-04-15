@@ -39,7 +39,7 @@ export const Stats = () => {
   ];
 
   return (
-    <section className='flex flex-wrap justify-center gap-6 md:gap-[30px] mt-16 md:mt-[140px]'>
+    <section className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-[30px] mt-16 md:mt-[140px]'>
       {stats.map((stat) => (
         <StatCard
           key={stat.description}
@@ -47,7 +47,7 @@ export const Stats = () => {
           value={stat.value}
           description={stat.description}
           isHighlighted={stat.isHighlighted}
-          className={`${stat.className} max-w-full`}
+          className={`${stat.className} max-w-[270px] h-[230px]`}
         />
       ))}
     </section>

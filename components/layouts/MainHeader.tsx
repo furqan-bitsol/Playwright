@@ -13,7 +13,7 @@ export const MainHeader: React.FC = () => {
   const accountBtnRef = React.useRef<HTMLButtonElement>(null);
 
   return (
-    <header className='flex flex-col md:flex-row justify-between items-center px-4 md:px-16 pt-6 md:pt-10 pb-4 w-full gap-4 md:gap-8'>
+    <header className='max-w-[1170px] mx-auto max-md:px-5 flex flex-col md:flex-row justify-between items-center  pt-6 md:pt-10 pb-4 w-full gap-4 md:gap-8'>
       {/* Left Section - Logo */}
       <div className='flex items-center w-full md:w-auto md:justify-start'>
         <Sheet>

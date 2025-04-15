@@ -11,9 +11,9 @@ import {
 
 export const Footer: React.FC = () => {
   return (
-    <footer className='flex flex-col justify-end px-4 md:px-16 pt-12 md:pt-20 pb-6 bg-black w-full'>
+    <footer className='flex flex-col justify-end px-5 pt-12 md:pt-20 pb-6 bg-black w-full'>
       {/* Main Footer Content */}
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10 max-w-7xl mx-auto w-full'>
+      <div className='max-w-[1170px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10 w-full'>
         {/* Subscribe Section */}
         <section className='flex flex-col text-neutral-50 w-full sm:max-w-[217px]'>
           <div className='space-y-6'>
@@ -210,7 +210,7 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Copyright Section */}
-      <div className='mt-12 md:mt-16 pt-4 border-t border-white/40 text-white'>
+      <div className='max-w-[1170px] mx-auto mt-12 md:mt-16 pt-4 border-t border-white/40 text-white'>
         <p className='text-center text-sm md:text-base'>
           © Copyright Rimel 2022. All right reserved
         </p>

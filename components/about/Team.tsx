@@ -70,9 +70,9 @@ const TEAM_MEMBERS: TeamMember[] = [
  * TeamMemberCard Component
  */
 const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => (
-  <div className='flex flex-col items-stretch w-full max-w-[370px] mx-auto'>
+  <div className='flex flex-col items-stretch w-full max-w-[370px]  mx-auto'>
     <div className='rounded bg-neutral-100 overflow-hidden pt-6 md:pt-[39px] px-4 md:px-[37px]'>
-      <div className='relative aspect-[0.75] w-full'>
+      <div className='relative w-full h-[430px] md:w-[370px] md:h-[430px]'>
         <Image
           src={member.image}
           alt={member.name}
@@ -136,7 +136,7 @@ export const Team = () => {
   }, [api]);
 
   return (
-    <section className='mt-16 md:mt-[140px]'>
+    <section className='mt-16 md:mt-[140px] w-full'>
       <Carousel
         setApi={(api) => setApi(api ?? null)}
         className='w-full'
@@ -146,7 +146,8 @@ export const Team = () => {
           skipSnaps: false,
           slidesToScroll: 1,
           breakpoints: {
-            '(min-width: 768px)': { slidesToScroll: 3 },
+            '(min-width: 768px)': { slidesToScroll: 2 },
+            '(min-width: 1024px)': { slidesToScroll: 3 },
           },
         }}
       >
@@ -154,9 +155,9 @@ export const Team = () => {
           {TEAM_MEMBERS.map((member) => (
             <CarouselItem
               key={member.name}
-              className='pl-4 md:pl-[30px] md:basis-1/3'
+              className='pl-4 md:pl-[30px] md:basis-1/2 lg:basis-1/3'
             >
-              <div className='p-1'>
+              <div className='p-1 w-full'>
                 <TeamMemberCard member={member} />
               </div>
             </CarouselItem>

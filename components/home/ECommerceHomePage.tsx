@@ -8,10 +8,11 @@ import { BestSellingProducts } from './BestSellingProducts';
 import { NewArrival } from './NewArrival';
 import CategoriesHeroSection from './CategoriesHeroSection';
 import { Services } from '../common/Services';
+import MainLayout from '../layouts/MainLayout';
 
 export default function ECommerceHomePage() {
   return (
-    <main className='flex z-10 flex-col items-center mx-auto w-full max-w-[1170px] max-md:max-w-full'>
+    <MainLayout>
       {/* Hero Section */}
       <HeroSection />
 
@@ -34,6 +35,6 @@ export default function ECommerceHomePage() {
 
       {/* Service Features */}
       <Services />
-    </main>
+    </MainLayout>
   );
 }
