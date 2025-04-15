@@ -57,7 +57,11 @@ export const LoginForm: React.FC = () => {
                     <Input
                       {...field}
                       type={fieldConfig.type}
-                      placeholder={t(fieldConfig.placeholder)} // Add translation for placeholder
+                      placeholder={
+                        fieldConfig.placeholder
+                          ? t(fieldConfig.placeholder)
+                          : ''
+                      } // Add translation for placeholder with fallback
                       className={INPUT_STYLES}
                     />
                   </FormControl>
