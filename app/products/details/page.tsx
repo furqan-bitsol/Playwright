@@ -1,8 +1,11 @@
-import ProductDetailsPage from '@/components/products/details/ProductDetailsPage';
-import React from 'react';
+'use client';
+import dynamic from 'next/dynamic';
 
-const ProductDetails = () => {
-  return <ProductDetailsPage />;
-};
+const ProductDetails = dynamic(
+  () => import('@/components/products/details/ProductDetailsPage'),
+  {
+    ssr: false, // Disable server-side rendering
+  }
+);
 
 export default ProductDetails;
