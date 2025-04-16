@@ -33,10 +33,9 @@ export const SignUpForm: React.FC = () => {
     defaultValues: SIGN_UP_FORM_DEFAULT_VALUES,
   });
 
-  const onSubmit = (data: SignUpFormData) => {
-    console.log(data);
-    // Handle form submission
-  };
+  function onSubmit(data: SignUpFormData) {
+    // TODO: Implement form submission logic here
+  }
 
   return (
     <AuthPageLayout pageType='signup'>

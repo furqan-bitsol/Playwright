@@ -21,16 +21,19 @@ import { useTranslation } from 'react-i18next';
 import { getBillingFormSchema } from '@/lib/forms';
 import { BillingFormData } from '@/types/forms';
 
+// Removed console.log from onSubmit function and added a placeholder for form submission logic
+function onSubmit(values: BillingFormData) {
+  // TODO: Implement form submission logic here
+}
+
 export const BillingForm: React.FC = () => {
   const { t } = useTranslation('common'); // Use translation hook
+
+  // Initialize the form with default values and validation schema
   const form = useForm<BillingFormData>({
     resolver: zodResolver(getBillingFormSchema(t)),
     defaultValues: BILLING_FORM_DEFAULT_VALUES,
   });
-
-  function onSubmit(values: BillingFormData) {
-    console.log(values);
-  }
 
   return (
     <Form {...form}>
@@ -38,6 +41,7 @@ export const BillingForm: React.FC = () => {
         onSubmit={form.handleSubmit(onSubmit)}
         className='flex flex-col gap-8 min-w-[470px]'
       >
+        {/* Render form fields dynamically based on BILLING_FORM_FIELDS */}
         {BILLING_FORM_FIELDS.map((item) => {
           if (item.type !== 'checkbox') {
             return (
@@ -47,7 +51,7 @@ export const BillingForm: React.FC = () => {
                 name={item.name as keyof BillingFormData}
                 render={({ field, fieldState }) => (
                   <FormItem>
-                    <FormLabel className='text-base '>
+                    <FormLabel className='text-base'>
                       {t(`billing.form.fields.${item.name}`)}
                       {item.required && <span className='text-red-500'>*</span>}
                     </FormLabel>
@@ -93,6 +97,7 @@ export const BillingForm: React.FC = () => {
           }
         })}
 
+        {/* Submit button for the form */}
         <Button
           type='submit'
           className='w-full bg-red-500 text-white py-3 rounded hover:bg-red-600'

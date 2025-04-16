@@ -29,8 +29,7 @@ export const ForgotPasswordForm: React.FC = () => {
   });
 
   const onSubmit = (data: ForgotPasswordFormData) => {
-    console.log(data);
-    // Handle form submission
+    // TODO: Implement form submission logic here
   };
 
   return (

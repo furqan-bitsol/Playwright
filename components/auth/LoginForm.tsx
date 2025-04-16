@@ -35,8 +35,7 @@ export const LoginForm: React.FC = () => {
   });
 
   const onSubmit = (data: LoginFormData) => {
-    console.log(data);
-    // Handle form submission
+    // TODO: Implement form submission logic here
   };
 
   return (

@@ -31,10 +31,9 @@ export const ResetPasswordForm: React.FC = () => {
     defaultValues: RESET_PASSWORD_FORM_DEFAULT_VALUES,
   });
 
-  const onSubmit = (data: ResetPasswordFormData) => {
-    console.log(data);
-    // Handle form submission
-  };
+  function onSubmit(data: ResetPasswordFormData) {
+    // TODO: Implement form submission logic here
+  }
 
   return (
     <AuthPageLayout pageType='resetPassword'>

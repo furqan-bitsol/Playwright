@@ -32,8 +32,7 @@ export const ContactForm = () => {
   });
 
   const onSubmit = (data: ContactFormData) => {
-    console.log(data);
-    // Handle form submission
+    // TODO: Implement form submission logic here
   };
 
   return (

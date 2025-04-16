@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -77,9 +78,11 @@ export const HeroSection = () => {
               <div className='w-[37%] max-md:w-full'>
                 <div className='flex flex-col items-start self-stretch my-auto w-full text-base text-neutral-50'>
                   <div className='flex gap-6 items-center text-center'>
-                    <img
+                    <Image
                       src='https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/cacf23b2e4629b6854d4c62396778f71d94b1884?placeholderIfAbsent=true'
-                      alt=''
+                      alt='Hero Image'
+                      width={500}
+                      height={500}
                       className='object-contain shrink-0 self-stretch my-auto w-10 aspect-[0.82]'
                     />
                     <p className='self-stretch my-auto w-[126px]'>
@@ -97,9 +100,11 @@ export const HeroSection = () => {
                       <span className='self-start'>Shop Now</span>
                       <span className='mt-1 border border-solid bg-neutral-50 border-neutral-50 min-h-px w-[81px] group-hover:bg-red-500 transition-colors' />
                     </span>
-                    <img
+                    <Image
                       src='https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/0fe83527999bb9ea3e8046c3185af07bc43d1163?placeholderIfAbsent=true'
-                      alt=''
+                      alt='Arrow Icon'
+                      width={24}
+                      height={24}
                       className='object-contain shrink-0 self-stretch my-auto w-6 aspect-square'
                     />
                   </a>
@@ -107,9 +112,11 @@ export const HeroSection = () => {
               </div>
               <div className='ml-5 w-[63%] max-md:ml-0 max-md:w-full'>
                 <div className='flex relative flex-col items-start pt-72 pb-3 w-full min-h-[328px] max-md:pt-24'>
-                  <img
+                  <Image
                     src='https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/bf65a66b635333a8348587da7254d9c8ba14b0cd?placeholderIfAbsent=true'
                     alt='iPhone 14'
+                    width={1200}
+                    height={800}
                     className='object-cover absolute inset-0 size-full'
                   />
                   <div className='flex relative gap-3 items-center z-10'>

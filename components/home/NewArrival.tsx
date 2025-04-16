@@ -1,5 +1,6 @@
 import { EnhanceMusicHero } from './EnhanceMusicHero';
 import { WomensCollection } from './WomensCollection';
+import Image from 'next/image';
 
 export const NewArrival = () => {
   return (
@@ -26,14 +27,18 @@ export const NewArrival = () => {
         <div className='flex flex-col items-center min-w-60 w-[570px] max-md:max-w-full'>
           <WomensCollection />
           <div className='flex flex-wrap gap-8 justify-center items-center mt-8 max-md:max-w-full'>
-            <img
+            <Image
               src='https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/14a0de098df8fa673dc072e8c1b7c2680793ea24?placeholderIfAbsent=true'
               alt='Featured Product 1'
+              width={270}
+              height={270}
               className='object-contain self-stretch my-auto aspect-[0.95] min-w-60 w-[270px]'
             />
-            <img
+            <Image
               src='https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/2e0aa78abdc689ecbbb60849670185d870c65c89?placeholderIfAbsent=true'
               alt='Featured Product 2'
+              width={270}
+              height={270}
               className='object-contain self-stretch my-auto aspect-[0.95] min-w-60 w-[270px]'
             />
           </div>
