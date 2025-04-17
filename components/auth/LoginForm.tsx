@@ -22,28 +22,43 @@ import {
   LOGIN_FORM_DEFAULT_VALUES,
   LOGIN_FORM_FIELDS,
 } from '@/constants/forms';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '@/components/home/firebase/firebaseConfig';
+import { useRouter } from 'next/navigation';
+import { useToast } from '@/hooks/use-toast';
 
 const INPUT_STYLES =
   'px-0 py-2 text-base border-t-0 border-x-0 border-b border-solid border-b-black border-opacity-50 rounded-none w-[370px] max-sm:w-full focus:outline-none focus:border-b-black focus-visible:ring-0 focus-visible:ring-offset-0';
 
 export const LoginForm: React.FC = () => {
   const { t } = useTranslation('common'); // Use translation hook
+  const router = useRouter();
+  const { toast } = useToast();
 
   const form = useForm<LoginFormData>({
     resolver: zodResolver(getLoginFormSchema(t)),
     defaultValues: LOGIN_FORM_DEFAULT_VALUES,
   });
 
-  const onSubmit = (data: LoginFormData) => {
-    // TODO: Implement form submission logic here
+  const onSubmit = async (data: LoginFormData) => {
+    try {
+      await signInWithEmailAndPassword(auth, data.emailOrPhone, data.password);
+      toast({ title: 'Login successful!', variant: 'success' });
+      router.push('/'); // Redirect to the home page after successful login
+    } catch (error) {
+      console.error('Login failed:', error);
+      toast({
+        title: 'Login failed. Please check your credentials.',
+        variant: 'destructive',
+      });
+    }
   };
-
   return (
     <AuthPageLayout pageType='login'>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='flex flex-col gap-10'
+          className='flex flex-col gap-10 w-full'
         >
           {LOGIN_FORM_FIELDS.map((fieldConfig) => (
             <FormField

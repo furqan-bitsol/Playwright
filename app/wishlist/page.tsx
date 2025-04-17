@@ -8,13 +8,32 @@ import { RootState } from '@/store/store';
 import { useDispatch } from 'react-redux';
 import { clearWishlist } from '@/store/wishlistSlice';
 import { addToCart } from '@/store/cartSlice';
+import { useAuth } from '@/contexts/AuthContext';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 import React from 'react';
 import { useSelector } from 'react-redux';
 
 const WishList = () => {
+  const { user, loading } = useAuth();
+  const router = useRouter();
   const wishlistItems = useSelector((state: RootState) => state.wishlist.items);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/login'); // Redirect to login if not authenticated
+    }
+  }, [user, loading, router]);
+
+  if (loading) {
+    return <p>Loading...</p>; // Show a loading state while checking auth
+  }
+
+  if (!user) {
+    return null; // Prevent rendering if user is not authenticated
+  }
 
   const handleMoveAllToBag = () => {
     wishlistItems.forEach((item) => {
@@ -54,10 +73,7 @@ const WishList = () => {
         >
           {wishlistItems.length > 0 ? (
             wishlistItems.map((product) => (
-              <ProductCard
-                key={`wishlist-${product.title}`}
-                {...product}
-              />
+              <ProductCard key={`wishlist-${product.title}`} {...product} />
             ))
           ) : (
             <p>Your wishlist is empty.</p>

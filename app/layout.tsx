@@ -6,6 +6,9 @@ import { MainHeader } from '@/components/layouts/MainHeader';
 import { I18nProvider } from '@/components/providers/I18nProvider';
 import { Footer } from '@/components/layouts/Footer';
 import { ClientProviders } from '@/components/providers/ClientProviders';
+import { AuthProvider } from '@/contexts/AuthContext';
+import { ToastProvider, ToastViewport } from '@/components/ui/toast';
+import { Toaster } from '@/components/ui/toaster';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -30,10 +33,16 @@ export default function RootLayout({
       <body className={inter.className}>
         <ClientProviders>
           <I18nProvider>
-            <TopHeader />
-            <MainHeader />
-            {children}
-            <Footer />
+            <AuthProvider>
+              <ToastProvider>
+                <Toaster />
+                <ToastViewport />
+                <TopHeader />
+                <MainHeader />
+                {children}
+                <Footer />
+              </ToastProvider>
+            </AuthProvider>
           </I18nProvider>
         </ClientProviders>
       </body>
