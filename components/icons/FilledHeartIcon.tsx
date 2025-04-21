@@ -13,6 +13,7 @@ export const FilledHeartIcon: React.FC<FilledHeartIconProps> = ({
 }) => {
   return (
     <svg
+    data-testid='heart-icon-filled'
       width={width}
       height={height}
       viewBox='0 0 32 32'

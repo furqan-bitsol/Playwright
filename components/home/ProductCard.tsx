@@ -91,9 +91,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             onClick={handleWishlistToggle}
           >
             {inWishlist ? (
-              <FilledHeartIcon className='w-5 h-5' data-testid='heart-icon-filled' />
+              <FilledHeartIcon className='w-5 h-5'  />
             ) : (
-              <HeartIcon className='w-5 h-5' data-testid='heart-icon-unfilled' />
+              <HeartIcon className='w-5 h-5'  />
             )}
           </button>
           <button
