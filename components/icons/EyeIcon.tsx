@@ -19,6 +19,7 @@ export const EyeIcon: React.FC<EyeIconProps> = ({
 }) => {
   return (
     <svg
+      data-testid='eye-icon'
       width={width}
       height={height}
       viewBox='0 0 20 20'

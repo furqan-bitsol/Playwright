@@ -103,7 +103,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               router.push(ROUTE_LINKS.productDetails(id as string))
             }
           >
-            <EyeIcon width={20} height={20} className='text-black' data-testid='eye-icon' />
+            <EyeIcon width={20} height={20} className='text-black'  />
           </button>
         </div>
 
