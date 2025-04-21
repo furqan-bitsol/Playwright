@@ -6,7 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { NavLink } from '../navigation/NavLink';
 import { NAV_CATEGORIES } from '@/mocks/categories';
-import { ROUTE_LINKS, ROUTES } from '@/constants/routes';
+import { ROUTE_LINKS, MAIN_HEADER_ROUTES } from '@/constants/routes';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
@@ -28,7 +28,7 @@ export const MainHeader: React.FC = () => {
           <SheetContent side='left' className='w-[300px] sm:w-[400px]'>
             {/* Categories in Mobile Menu */}
             <nav className='flex flex-col gap-4 mt-8'>
-              {ROUTES.map((item) => (
+              {MAIN_HEADER_ROUTES.map((item) => (
                 <NavLink key={item.href} href={item.href} className='text-lg'>
                   {item.label}
                 </NavLink>
@@ -54,7 +54,7 @@ export const MainHeader: React.FC = () => {
 
       {/* Middle Section - Navigation */}
       <nav className='hidden md:flex gap-8 lg:gap-12 items-center justify-center flex-1'>
-        {ROUTES.map((item) => (
+        {MAIN_HEADER_ROUTES.map((item) => (
           <NavLink key={item.href} href={item.href}>
             {item.label}
           </NavLink>

@@ -14,7 +14,7 @@ import { PRODUCTS } from '@/mocks/products';
  */
 export const FlashSales: React.FC = () => {
   return (
-    <section className='mt-36 w-full max-md:mt-10' aria-label='Flash sales'>
+    <section className='mt-36 w-full max-md:mt-10' aria-label='Flash sales' data-testid='flash-sales'>
       <Slider
         cardWidth={270}
         gap={32}
@@ -28,10 +28,10 @@ export const FlashSales: React.FC = () => {
         }
         subtitle="Today's"
       >
-        {PRODUCTS.map((product) => {
+        {PRODUCTS.map((product,index) => {
           if (!product.discount) return null; // Skip if not flash sale
           return (
-            <ProductCard key={`flash-sale-${product.title}`} {...product} />
+            <ProductCard key={`flash-sale-${product.title}`} data-testid={`flash-sale=${index}`} {...product} />
           );
         })}
       </Slider>

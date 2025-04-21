@@ -87,9 +87,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             onClick={handleWishlistToggle}
           >
             {inWishlist ? (
-              <FilledHeartIcon className='w-5 h-5' />
+              <FilledHeartIcon className='w-5 h-5' data-testid='heart-icon-filled' />
             ) : (
-              <HeartIcon className='w-5 h-5' />
+              <HeartIcon className='w-5 h-5' data-testid='heart-icon-unfilled' />
             )}
           </button>
           <button
@@ -99,7 +99,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               router.push(ROUTE_LINKS.productDetails(id as string))
             }
           >
-            <EyeIcon width={20} height={20} className='text-black' />
+            <EyeIcon width={20} height={20} className='text-black' data-testid='eye-icon' />
           </button>
         </div>
 

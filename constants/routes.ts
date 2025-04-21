@@ -18,7 +18,7 @@ export const ROUTE_LINKS = {
   allProducts: '/products/all',
   productDetails: (id: string) => `/products/details?id=${id}`,
 };
-export const ROUTES = [
+export const MAIN_HEADER_ROUTES = [
   { href: ROUTE_LINKS.home, label: 'Home' },
   { href: ROUTE_LINKS.contact, label: 'Contact' },
   { href: ROUTE_LINKS.about, label: 'About' },
