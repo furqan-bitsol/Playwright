@@ -31,7 +31,7 @@ export const FlashSales: React.FC = () => {
         {PRODUCTS.map((product,index) => {
           if (!product.discount) return null; // Skip if not flash sale
           return (
-            <ProductCard key={`flash-sale-${product.title}`} data-testid={`flash-sale=${index}`} {...product} />
+            <ProductCard key={`flash-sale-${product.title}`} index={index} testid='flash-sale' {...product} />
           );
         })}
       </Slider>

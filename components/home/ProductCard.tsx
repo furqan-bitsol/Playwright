@@ -19,6 +19,8 @@ interface ProductCardProps {
   reviewCount: number;
   discount?: number;
   showAddToCart?: boolean;
+  index?: number;
+  testid?: string;
 }
 
 /**
@@ -35,6 +37,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   reviewCount,
   discount,
   showAddToCart = false,
+  index,
+  testid
 }) => {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -61,7 +65,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   };
 
   return (
-    <div className='relative flex flex-col min-w-[270px] group'>
+    <div className='relative flex flex-col min-w-[270px] group' data-testid={`${testid}=${index}`}>
       {/* Product Image Container */}
       <div className='relative aspect-square bg-neutral-100 rounded-md overflow-hidden'>
         <Image
