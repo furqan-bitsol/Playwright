@@ -65,7 +65,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   };
 
   return (
-    <div className='relative flex flex-col min-w-[270px] group' data-testid={`${testid}=${index}`}>
+    <div className='relative flex flex-col min-w-[270px] group' data-testid={`${testid}-${index}`}>
       {/* Product Image Container */}
       <div className='relative aspect-square bg-neutral-100 rounded-md overflow-hidden'>
         <Image
