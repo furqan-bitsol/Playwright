@@ -16,24 +16,24 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const WishList = () => {
-  const { user, loading } = useAuth();
-  const router = useRouter();
+  // const { user, loading } = useAuth();
+  // const router = useRouter();
   const wishlistItems = useSelector((state: RootState) => state.wishlist.items);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (!loading && !user) {
-      router.push('/login'); // Redirect to login if not authenticated
-    }
-  }, [user, loading, router]);
+  // useEffect(() => {
+  //   if (!loading && !user) {
+  //     router.push('/login'); // Redirect to login if not authenticated
+  //   }
+  // }, [user, loading, router]);
 
-  if (loading) {
-    return <p>Loading...</p>; // Show a loading state while checking auth
-  }
+  // if (loading) {
+  //   return <p>Loading...</p>; // Show a loading state while checking auth
+  // }
 
-  if (!user) {
-    return null; // Prevent rendering if user is not authenticated
-  }
+  // if (!user) {
+  //   return null; // Prevent rendering if user is not authenticated
+  // }
 
   const handleMoveAllToBag = () => {
     wishlistItems.forEach((item) => {
