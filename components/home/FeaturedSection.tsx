@@ -24,9 +24,16 @@ export const FeaturedSection = () => {
         role='grid'
         aria-label='Featured products grid'
       >
-        {PRODUCTS.map((product) => {
+        {PRODUCTS.map((product, index) => {
           if (!product.featured) return null; // Skip if not featured
-          return <ProductCard key={`featured-${product.title}`} {...product} />;
+          return (
+            <ProductCard
+              key={`featured-${product.title}`}
+              {...product}
+              testid='featured'
+              index={index}
+            />
+          );
         })}
       </div>
 

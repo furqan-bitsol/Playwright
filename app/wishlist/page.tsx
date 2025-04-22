@@ -72,8 +72,13 @@ const WishList = () => {
           }
         >
           {wishlistItems.length > 0 ? (
-            wishlistItems.map((product) => (
-              <ProductCard key={`wishlist-${product.title}`} {...product} />
+            wishlistItems.map((product, index) => (
+              <ProductCard
+                key={`wishlist-${product.title}`}
+                {...product}
+                testid='wishlist'
+                index={index}
+              />
             ))
           ) : (
             <p>Your wishlist is empty.</p>
@@ -93,10 +98,15 @@ const WishList = () => {
             </Button>
           }
         >
-          {PRODUCTS.map((product) => {
+          {PRODUCTS.map((product, index) => {
             if (!product.discount) return null; // Skip if not best selling
             return (
-              <ProductCard key={`best-selling-${product.title}`} {...product} />
+              <ProductCard
+                key={`for-you-${product.title}`}
+                {...product}
+                testid='for-you'
+                index={index}
+              />
             );
           })}
         </Slider>

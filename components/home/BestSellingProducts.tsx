@@ -35,10 +35,15 @@ export const BestSellingProducts: React.FC = () => {
           </Link>
         }
       >
-        {PRODUCTS.map((product) => {
+        {PRODUCTS.map((product, index) => {
           if (!product.bestSelling) return null; // Skip if not best selling
           return (
-            <ProductCard key={`best-selling-${product.title}`} {...product} />
+            <ProductCard
+              key={`best-selling-${product.title}`}
+              {...product}
+              testid='best-selling'
+              index={index}
+            />
           );
         })}
       </Slider>
