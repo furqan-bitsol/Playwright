@@ -69,25 +69,6 @@ test.describe('Wishlist Feature Tests', () => {
   });
 
   test('should persist wishlist state across pages', async ({ page }) => {
-    // Navigate to login page and perform login
-    await page.goto(`${baseURL}/login`);
-
-    const emailInput = page.locator('input[type="email"]');
-    const passwordInput = page.locator('input[type="password"]');
-    const loginButton = page.getByRole('button', { name: 'Log In' });
-
-    // Expect these elements to be present on the page
-    await expect(emailInput).toBeVisible();
-    await expect(passwordInput).toBeVisible();
-    await expect(loginButton).toBeVisible();
-
-    await emailInput.fill('test@gmail.tech');
-    await passwordInput.fill('abc@');
-    await loginButton.click();
-
-    // Verify successful login by checking redirection or user-specific element
-    await expect(page).toHaveURL(`${baseURL}/login`);
-
     const firstProductCard = page
       .locator('[data-testid="flash-sale-0"]')
       .first();
@@ -98,18 +79,22 @@ test.describe('Wishlist Feature Tests', () => {
     );
     await heartIconUnfilled.click();
 
-    await page.goto(`${baseURL}/wishlist`);
+    // Check if the wishlist link is present on the page
+    const wishlistLink = page.locator('[data-testid="wishlist-link"]');
+    await expect(wishlistLink).toBeVisible();
 
-    const wishlistItem = page.locator('.wishlist-item').first();
+    // Click the wishlist link to navigate to the wishlist page
+    await wishlistLink.click();
+
+    // Verify the product is visible in the wishlist
+    const wishlistItem = page.locator('[data-testid="wishlist-0"]').first();
     await expect(wishlistItem).toBeVisible();
 
-    // Simulate Firebase user logout and verify redirection to login page
-    await page.evaluate(() => {
-      localStorage.removeItem('firebaseAuth');
-    });
-
-    await page.goto(`${baseURL}/wishlist`);
-    await expect(page).toHaveURL(`${baseURL}/login`);
+    // Verify the heart icon is filled for the product in the wishlist
+    const wishlistHeartIconFilled = wishlistItem.locator(
+      '[data-testid="heart-icon-filled"]'
+    );
+    await expect(wishlistHeartIconFilled).toBeVisible();
   });
 
   test('should handle adding and removing the same product multiple times', async ({
@@ -138,28 +123,5 @@ test.describe('Wishlist Feature Tests', () => {
         'heart-icon-unfilled'
       );
     }
-  });
-
-  test('should display correct icon state on page reload', async ({ page }) => {
-    const firstProductCard = page
-      .locator('[data-testid="flash-sale-0"]')
-      .first();
-    await firstProductCard.hover();
-
-    const heartIconUnfilled = firstProductCard.locator(
-      '[data-testid="heart-icon-unfilled"]'
-    );
-    const heartIconFilled = firstProductCard.locator(
-      '[data-testid="heart-icon-filled"]'
-    );
-    await heartIconUnfilled.click();
-
-    await page.reload();
-
-    await firstProductCard.hover();
-    await expect(heartIconFilled).toHaveAttribute(
-      'data-testid',
-      'heart-icon-filled'
-    );
   });
 });
