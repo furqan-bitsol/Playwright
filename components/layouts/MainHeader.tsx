@@ -31,7 +31,7 @@ export const MainHeader: React.FC = () => {
             {/* Categories in Mobile Menu */}
             <nav className='flex flex-col gap-4 mt-8'>
               {MAIN_HEADER_ROUTES.map((item) => (
-                <NavLink key={item.href} href={item.href} className='text-lg'>
+                <NavLink key={item.href} href={item.href} className='text-lg' dataTestID={item['data-testid']}>
                   {item.label}
                 </NavLink>
               ))}
@@ -57,7 +57,7 @@ export const MainHeader: React.FC = () => {
       {/* Middle Section - Navigation */}
       <nav className='hidden md:flex gap-8 lg:gap-12 items-center justify-center flex-1'>
         {MAIN_HEADER_ROUTES.map((item) => (
-          <NavLink key={item.href} href={item.href}>
+          <NavLink key={item.href} href={item.href} dataTestID={item['data-testid']}>
             {item.label}
           </NavLink>
         ))}

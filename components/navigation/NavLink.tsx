@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import test from 'node:test';
 import React from 'react';
 
 interface NavLinkProps {
   href: string;
   children: React.ReactNode;
   className?: string;
+  "dataTestID"?: string;
 }
 
 /**
@@ -14,6 +16,7 @@ interface NavLinkProps {
  */
 export const NavLink: React.FC<NavLinkProps> = ({
   href,
+ dataTestID,
   children,
   className = '',
 }) => {
@@ -28,6 +31,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
           ? 'font-medium hover:opacity-80'
           : 'opacity-60 hover:opacity-100'
       } transition-opacity ${className}`}
+      data-testid={dataTestID}
     >
       {children}
     </Link>
