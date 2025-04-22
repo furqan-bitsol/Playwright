@@ -13,7 +13,9 @@ import { RootState } from '@/store/store';
 
 export const MainHeader: React.FC = () => {
   const accountBtnRef = React.useRef<HTMLButtonElement>(null);
-  const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
+  const cartItemCount = useSelector(
+    (state: RootState) => state.cart.items.length
+  );
 
   return (
     <header className='max-w-[1170px] mx-auto max-md:px-5 flex flex-col md:flex-row justify-between items-center  pt-6 md:pt-10 pb-4 w-full gap-4 md:gap-8'>
@@ -79,10 +81,16 @@ export const MainHeader: React.FC = () => {
             href={ROUTE_LINKS.wishlist}
             aria-label='Wishlist'
             className='hover:opacity-80 transition-opacity'
+            data-test-id='wishlist-link'
           >
             <HeartIcon className='w-6 h-6 md:w-8 md:h-8' />
           </Link>
-          <Link href={ROUTE_LINKS.cart} aria-label='Cart' className='relative'>
+          <Link
+            href={ROUTE_LINKS.cart}
+            aria-label='Cart'
+            className='relative'
+            data-test-id='cart-link'
+          >
             <CartIcon className='w-6 h-6 md:w-8 md:h-8 hover:opacity-80 transition-opacity' />
             {cartItemCount > 0 && (
               <span className='absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center'>
