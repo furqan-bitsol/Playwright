@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import test from 'node:test';
 import React from 'react';
 
 interface NavLinkProps {
