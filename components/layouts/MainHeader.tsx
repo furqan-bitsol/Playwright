@@ -81,7 +81,7 @@ export const MainHeader: React.FC = () => {
             href={ROUTE_LINKS.wishlist}
             aria-label='Wishlist'
             className='hover:opacity-80 transition-opacity'
-            data-test-id='wishlist-link'
+            data-testid='wishlist-link'
           >
             <HeartIcon className='w-6 h-6 md:w-8 md:h-8' />
           </Link>
@@ -89,7 +89,7 @@ export const MainHeader: React.FC = () => {
             href={ROUTE_LINKS.cart}
             aria-label='Cart'
             className='relative'
-            data-test-id='cart-link'
+            data-testid='cart-link'
           >
             <CartIcon className='w-6 h-6 md:w-8 md:h-8 hover:opacity-80 transition-opacity' />
             {cartItemCount > 0 && (
