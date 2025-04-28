@@ -6,14 +6,29 @@ import {
   signOut,
   onAuthStateChanged,
   User,
+  updateProfile,
+  sendPasswordResetEmail,
+  confirmPasswordReset,
 } from 'firebase/auth';
 
 export function useFirebaseAuth() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const signUp = (email: string, password: string) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+  const signUp = async (
+    name: string,
+    emailOrPhone: string,
+    password: string
+  ) => {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      emailOrPhone,
+      password
+    );
+    if (auth.currentUser) {
+      await updateProfile(auth.currentUser, { displayName: name });
+    }
+    return userCredential;
   };
 
   const signIn = (email: string, password: string) => {
@@ -22,6 +37,16 @@ export function useFirebaseAuth() {
 
   const logOut = () => {
     return signOut(auth);
+  };
+
+  // Send password reset email
+  const forgotPassword = (email: string) => {
+    return sendPasswordResetEmail(auth, email);
+  };
+
+  // Reset password with code from email
+  const resetPassword = (oobCode: string, newPassword: string) => {
+    return confirmPasswordReset(auth, oobCode, newPassword);
   };
 
   useEffect(() => {
@@ -39,5 +64,7 @@ export function useFirebaseAuth() {
     signUp,
     signIn,
     logOut,
+    forgotPassword,
+    resetPassword,
   };
 }

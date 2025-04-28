@@ -1,12 +1,19 @@
 'use client';
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { onAuthStateChanged, User } from 'firebase/auth';
-import { auth } from '@/firebase/firebaseConfig';
+import React, { createContext, useContext, useEffect, useMemo } from 'react';
+import { User, UserCredential } from 'firebase/auth';
+import { useDispatch } from 'react-redux';
+import { setUser, setLoading } from '@/store/authSlice';
+import { useFirebaseAuth } from '@/firebase/useFirebaseAuth';
 
 
 interface AuthContextProps {
   user: User | null;
   loading: boolean;
+  signIn: (email: string, password: string) => Promise<UserCredential>;
+  signUp: (name: string, email: string, password: string) => Promise<UserCredential>;
+  signOut: () => Promise<void>;
+  forgotPassword: (email: string) => Promise<void>
+  resetPassword: (oobCode: string, newPassword: string) => Promise<void>
 }
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
@@ -14,20 +21,26 @@ const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { user, loading, signIn, signUp, logOut, forgotPassword,
+    resetPassword, } = useFirebaseAuth();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
-    });
+    dispatch(setUser(user));
+    dispatch(setLoading(loading));
+  }, [user, loading, dispatch]);
 
-    return () => unsubscribe();
-  }, []);
+  const memoizedValue = useMemo(
+    () => ({
+      user, loading, signIn, signUp, signOut: logOut, forgotPassword,
+      resetPassword,
+    }),
+    [user, loading, signIn, signUp, logOut, forgotPassword,
+      resetPassword,]
+  );
 
   return (
-    <AuthContext.Provider value={{ user, loading }}>
+    <AuthContext.Provider value={memoizedValue}>
       {children}
     </AuthContext.Provider>
   );

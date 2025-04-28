@@ -22,8 +22,7 @@ import {
   LOGIN_FORM_DEFAULT_VALUES,
   LOGIN_FORM_FIELDS,
 } from '@/constants/forms';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '@/components/home/firebase/firebaseConfig';
+import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 
@@ -31,9 +30,10 @@ const INPUT_STYLES =
   'px-0 py-2 text-base border-t-0 border-x-0 border-b border-solid border-b-black border-opacity-50 rounded-none w-[370px] max-sm:w-full focus:outline-none focus:border-b-black focus-visible:ring-0 focus-visible:ring-offset-0';
 
 export const LoginForm: React.FC = () => {
-  const { t } = useTranslation('common'); // Use translation hook
+  const { t } = useTranslation('common');
   const router = useRouter();
   const { toast } = useToast();
+  const { signIn } = useAuth();
 
   const form = useForm<LoginFormData>({
     resolver: zodResolver(getLoginFormSchema(t)),
@@ -42,13 +42,18 @@ export const LoginForm: React.FC = () => {
 
   const onSubmit = async (data: LoginFormData) => {
     try {
-      await signInWithEmailAndPassword(auth, data.emailOrPhone, data.password);
-      toast({ title: 'Login successful!', variant: 'success' });
-      router.push('/'); // Redirect to the home page after successful login
-    } catch (error) {
-      console.error('Login failed:', error);
+      await signIn(data.emailOrPhone, data.password);
       toast({
-        title: 'Login failed. Please check your credentials.',
+        title: t('login.form.successTitle', 'Login successful!'),
+        description: t('login.form.successDescription', 'Welcome back!'),
+        variant: 'success',
+      });
+      router.push(ROUTE_LINKS.home);
+    } catch (error: any) {
+      form.setError('emailOrPhone', { message: error.message ?? t('login.form.error') });
+      toast({
+        title: t('login.form.errorTitle', 'Login failed'),
+        description: error.message ?? t('login.form.error'),
         variant: 'destructive',
       });
     }

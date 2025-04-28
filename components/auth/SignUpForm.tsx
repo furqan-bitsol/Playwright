@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -22,19 +21,40 @@ import { ROUTE_LINKS } from '@/constants/routes';
 import Link from 'next/link';
 import { getSignUpFormSchema } from '@/lib/forms';
 import { SignUpFormData } from '@/types/forms';
+import { useAuth } from "@/contexts/AuthContext";
+import { useToast } from '@/hooks/use-toast';
+import { useRouter } from 'next/navigation';
 
 const INPUT_STYLES =
   'pb-2 text-base bg-transparent border-0 border-b border-black rounded-none opacity-40 focus-visible:ring-0 focus-visible:ring-offset-0';
 
 export const SignUpForm: React.FC = () => {
   const { t } = useTranslation('common'); // Use translation hook
+  const { signUp } = useAuth();
+  const { toast } = useToast();
+  const router = useRouter();
   const form = useForm<SignUpFormData>({
     resolver: zodResolver(getSignUpFormSchema(t)),
     defaultValues: SIGN_UP_FORM_DEFAULT_VALUES,
   });
 
-  function onSubmit(data: SignUpFormData) {
-    // TODO: Implement form submission logic here
+  async function onSubmit(data: SignUpFormData) {
+    try {
+      await signUp(data.name, data.emailOrPhone, data.password);
+      toast({
+        title: t('signup.form.successTitle', 'Signup successful!'),
+        description: t('signup.form.successDescription', 'You can now log in.'),
+        variant: 'success',
+      });
+      router.push(ROUTE_LINKS.login);
+    } catch (error: any) {
+      form.setError('emailOrPhone', { message: error.message ?? t('signup.form.error') });
+      toast({
+        title: t('signup.form.errorTitle', 'Signup failed'),
+        description: error.message ?? t('signup.form.error'),
+        variant: 'destructive',
+      });
+    }
   }
 
   return (
