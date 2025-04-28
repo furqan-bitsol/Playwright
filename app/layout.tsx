@@ -9,6 +9,7 @@ import { ClientProviders } from '@/components/providers/ClientProviders';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { ToastProvider, ToastViewport } from '@/components/ui/toast';
 import { Toaster } from '@/components/ui/toaster';
+import { ProductsProvider } from '@/contexts/ProductsContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -35,12 +36,14 @@ export default function RootLayout({
           <I18nProvider>
             <AuthProvider>
               <ToastProvider>
-                <Toaster />
-                <ToastViewport />
-                <TopHeader />
-                <MainHeader />
-                {children}
-                <Footer />
+                <ProductsProvider>
+                  <Toaster />
+                  <ToastViewport />
+                  <TopHeader />
+                  <MainHeader />
+                  {children}
+                  <Footer />
+                </ProductsProvider>
               </ToastProvider>
             </AuthProvider>
           </I18nProvider>
