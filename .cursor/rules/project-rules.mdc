@@ -1,0 +1,185 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Project Context and Architecture
+SYSTEM_CONTEXT: |
+  You are a senior developer working on a Next.js/React e-commerce project with TypeScript.
+  Key technologies:
+  - Next.js 14
+  - React 18
+  - TypeScript
+  - Firebase (auth, Firestore, storage)
+  - Redux Toolkit
+  - Tailwind CSS
+  - Playwright for testing
+  - i18next for internationalization
+
+  Required file reads on startup:
+  - docs/architecture.mermaid: System architecture and component relationships
+  - docs/technical.md: Technical specifications and patterns
+  - docs/tasks.md: Current development tasks and requirements
+  - docs/status.md: Project progress and state
+
+  Before making any changes:
+  1. Parse and understand system architecture from docs/architecture.mermaid
+  2. Check current task context from docs/tasks.md
+  3. Update progress in docs/status.md
+  4. Follow technical specifications from docs/technical.md
+
+# File Management Rules
+ON_FILE_CHANGE: |
+  Required actions after any code changes:
+  1. READ docs/architecture.mermaid to verify architectural compliance
+  2. UPDATE docs/status.md with:
+     - Current progress
+     - Any new issues encountered
+     - Completed items
+  3. VALIDATE changes against docs/technical.md specifications
+  4. VERIFY task progress against docs/tasks.md
+  5. RUN linting: npm run lint
+  6. VERIFY TypeScript types: npm run type-check
+  7. CHECK component structure:
+     - Components in components/
+     - Hooks in hooks/
+     - Utils in utils/
+     - Types in types/
+     - Redux slices in store/
+     - Tests in tests/
+  8. ENSURE proper imports and exports
+
+# Code Style and Patterns
+REACT_GUIDELINES: |
+  - Use functional components with TypeScript
+  - Follow React hooks best practices
+  - Implement proper error boundaries
+  - Use Redux Toolkit for global state
+  - Use Context for cross-cutting concerns (e.g., Auth, Language)
+  - Follow component composition patterns
+  - Use proper prop types and interfaces
+  - Place UI components in components/ui/
+  - Place page layouts in components/layouts/
+
+TYPESCRIPT_GUIDELINES: |
+  - Use strict typing, avoid 'any'
+  - Follow SOLID principles
+  - Write unit tests for all public methods
+  - Document with JSDoc
+  - Define proper interfaces for props and Redux state
+  - Use type inference where appropriate
+  - Document complex types with comments
+
+# Architecture Understanding
+READ_ARCHITECTURE: |
+  File: docs/architecture.mermaid
+  Required parsing:
+  1. Load and parse complete Mermaid diagram
+  2. Extract and understand:
+     - Module boundaries and relationships
+     - Data flow patterns
+     - System interfaces
+     - Component dependencies
+  3. Validate any changes against architectural constraints
+  4. Ensure new code maintains defined separation of concerns
+
+  Error handling:
+  1. If file not found: STOP and notify user
+  2. If diagram parse fails: REQUEST clarification
+  3. If architectural violation detected: WARN user
+
+# Task Management
+TASK_WORKFLOW: |
+  Required files:
+  - docs/tasks.md: Source of task definitions
+  - docs/status.md: Progress tracking
+  - docs/technical.md: Implementation guidelines
+
+  Workflow steps:
+  1. READ docs/tasks.md:
+     - Parse current task requirements
+     - Extract acceptance criteria
+     - Identify dependencies
+
+  2. VALIDATE against docs/architecture.mermaid:
+     - Confirm architectural alignment
+     - Check component interactions
+
+  3. UPDATE docs/status.md:
+     - Mark task as in-progress
+     - Track completion of sub-tasks
+     - Document any blockers
+
+  4. IMPLEMENT following TDD:
+     - Create test files first in tests/
+     - Implement to pass tests
+     - Update status on test completion
+
+# Testing Requirements
+TESTING_RULES: |
+  Required testing practices:
+  1. E2E Testing:
+     - Use Playwright for end-to-end tests
+     - Tests should be in tests/ directory
+     - Follow test naming conventions
+     - Include proper test descriptions
+
+  2. Component Testing:
+     - Test all public methods
+     - Test component rendering
+     - Test state changes
+     - Test error cases
+
+# State Management
+STATE_MANAGEMENT: |
+  1. Redux:
+     - Use Redux Toolkit for state management
+     - Keep store structure in store/
+     - Use proper action creators and reducers
+     - Sync auth state with Firebase
+  2. Local State:
+     - Use React hooks for local state
+     - Implement proper state updates
+     - Handle loading and error states
+
+# Error Prevention
+VALIDATION_RULES: |
+  1. Type Safety:
+     - Verify all TypeScript types
+     - Check for null/undefined
+     - Validate props and Redux state
+     - Verify type consistency
+     - Validate against business rules
+     - Ensure error handling
+  2. Code Quality:
+     - Follow ESLint rules
+     - Maintain consistent formatting
+     - Use proper error handling
+  3. Performance:
+     - Implement proper memoization
+     - Use code splitting for large components/pages
+     - Optimize images and assets
+
+# Internationalization
+I18N_RULES: |
+  1. Use i18next for translations
+  2. Keep translations organized in /public/locales
+  3. Use proper translation keys
+  4. Support multiple languages (en, es, fr, ...)
+
+# Firebase Integration
+FIREBASE_RULES: |
+  1. Use proper security rules
+  2. Implement proper error handling
+  3. Follow Firebase best practices
+  4. Use proper data modeling
+  5. Use updateProfile for user display name after signup
+
+# UI/UX Guidelines
+UI_RULES: |
+  1. Use Tailwind CSS for styling
+  2. Follow responsive design
+  3. Implement proper loading states
+  4. Use proper error states
+  5. Follow accessibility guidelines
+  6. Place shared UI in components/ui/

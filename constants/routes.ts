@@ -19,8 +19,19 @@ export const ROUTE_LINKS = {
   productDetails: (id: string) => `/products/details?id=${id}`,
 };
 export const MAIN_HEADER_ROUTES = [
-  { href: ROUTE_LINKS.home, label: 'Home', "data-testid": 'home-link' },
-  { href: ROUTE_LINKS.contact, label: 'Contact', "data-testid": 'contact-link' },
-  { href: ROUTE_LINKS.about, label: 'About', "data-testid": 'about-link' },
-  { href: ROUTE_LINKS.signup, label: 'Sign Up', "data-testid": 'signup-link' },
+  { href: ROUTE_LINKS.home, label: 'Home', 'data-testid': 'home-link' },
+  {
+    href: ROUTE_LINKS.contact,
+    label: 'Contact',
+    'data-testid': 'contact-link',
+  },
+  { href: ROUTE_LINKS.about, label: 'About', 'data-testid': 'about-link' },
+  { href: ROUTE_LINKS.signup, label: 'Sign Up', 'data-testid': 'signup-link' },
+];
+
+export const AUTH_PAGES = [
+  ROUTE_LINKS.login,
+  ROUTE_LINKS.signup,
+  ROUTE_LINKS.forgotPassword,
+  ROUTE_LINKS.resetPassword,
 ];

@@ -8,23 +8,16 @@
 - Initial mock data structure
 - Basic routing setup
 - Internationalization setup with i18next
+- Firebase Authentication (Sign Up, Login, Forgot Password, Reset Password, Redux integration, Toast notifications, i18n, error handling)
+- Private route protection (middleware for auth pages and wishlist, AccountDropdown visibility, firebaseToken cookie logic)
 
 ## In Progress
-
-### AUTH-001: Firebase Authentication
-
-- ✅ Firebase project setup
-- ✅ Basic authentication UI components
-- 🏗️ Signup implementation
-- 🏗️ Login implementation
-- ⏳ Password reset flow
-- ⏳ Protected routes middleware
 
 ### AUTH-002: Protected Routes and Features
 
 - ✅ Basic route structure
-- 🏗️ Wishlist protection
-- 🏗️ Cart protection
+- ✅ Wishlist protection (private route)
+- ✅ Cart protection (if implemented)
 - ⏳ User dashboard setup
 
 ### ADMIN-001: Admin Dashboard
@@ -50,7 +43,6 @@
 
 ## Pending
 
-- Complete authentication flow
 - Admin role implementation
 - Product image upload
 - Order management system
@@ -71,16 +63,14 @@
 
 ## Next Steps
 
-1. Complete authentication implementation
-2. Implement protected routes
-3. Set up admin dashboard
-4. Migrate mock data to Firebase
-5. Implement persistent cart
-6. Add proper error handling
-7. Implement loading states
-8. Add proper TypeScript types
-9. Write comprehensive tests
-10. Update documentation
+1. Set up admin dashboard
+2. Migrate mock data to Firebase
+3. Implement persistent cart
+4. Add proper error handling
+5. Implement loading states
+6. Add proper TypeScript types
+7. Write comprehensive tests
+8. Update documentation
 
 ## Blockers
 

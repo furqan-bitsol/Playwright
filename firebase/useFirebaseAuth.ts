@@ -10,6 +10,7 @@ import {
   sendPasswordResetEmail,
   confirmPasswordReset,
 } from 'firebase/auth';
+import { setCookie, destroyCookie } from 'nookies';
 
 export function useFirebaseAuth() {
   const [user, setUser] = useState<User | null>(null);
@@ -28,6 +29,11 @@ export function useFirebaseAuth() {
     if (auth.currentUser) {
       await updateProfile(auth.currentUser, { displayName: name });
     }
+    const token = await userCredential.user.getIdToken();
+    setCookie(null, 'firebaseToken', token, {
+      path: '/',
+      maxAge: 60 * 60 * 24,
+    });
     return userCredential;
   };
 
@@ -36,6 +42,7 @@ export function useFirebaseAuth() {
   };
 
   const logOut = () => {
+    destroyCookie(null, 'firebaseToken');
     return signOut(auth);
   };
 

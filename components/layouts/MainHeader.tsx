@@ -10,12 +10,14 @@ import { ROUTE_LINKS, MAIN_HEADER_ROUTES } from '@/constants/routes';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
+import { useAuth } from '@/contexts/AuthContext';
 
 export const MainHeader: React.FC = () => {
   const accountBtnRef = React.useRef<HTMLButtonElement>(null);
   const cartItemCount = useSelector(
     (state: RootState) => state.cart.items.length
   );
+  const { user } = useAuth();
 
   return (
     <header className='max-w-[1170px] mx-auto max-md:px-5 flex flex-col md:flex-row justify-between items-center  pt-6 md:pt-10 pb-4 w-full gap-4 md:gap-8'>
@@ -98,7 +100,7 @@ export const MainHeader: React.FC = () => {
               </span>
             )}
           </Link>
-          <AccountDropdown triggerRef={accountBtnRef} />
+          {user && <AccountDropdown triggerRef={accountBtnRef} />}
         </div>
       </div>
     </header>
