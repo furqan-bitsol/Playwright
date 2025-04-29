@@ -5,13 +5,18 @@ import { ProductCard } from './ProductCard';
 import { Slider } from '@/components/ui/slider';
 import Link from 'next/link';
 import { ROUTE_LINKS } from '@/constants/routes';
-import { PRODUCTS } from '@/mocks/products';
+import { useProducts } from '@/contexts/ProductsContext';
 
 /**
  * BestSellingProducts Component
  * Displays best selling products in a slider format without navigation arrows
  */
 export const BestSellingProducts: React.FC = () => {
+  const { products, loading, error } = useProducts();
+
+  if (loading) return <p>Loading products...</p>;
+  if (error) return <p>{error}</p>;
+
   return (
     <section
       className='w-full mt-16 max-md:mt-10'
@@ -35,7 +40,7 @@ export const BestSellingProducts: React.FC = () => {
           </Link>
         }
       >
-        {PRODUCTS.map((product, index) => {
+        {products?.map((product, index) => {
           if (!product.bestSelling) return null; // Skip if not best selling
           return (
             <ProductCard

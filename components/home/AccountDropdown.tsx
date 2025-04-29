@@ -8,18 +8,35 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { ProfileIcon } from '@/components/icons';
+import { useAuth } from '@/contexts/AuthContext';
+import { useRouter } from 'next/navigation';
+import { useToast } from '@/hooks/use-toast';
 
 interface AccountDropdownProps {
   triggerRef?: React.RefObject<HTMLButtonElement>;
 }
 
 const AccountDropdown: React.FC<AccountDropdownProps> = ({ triggerRef }) => {
-  const handleMenuItemClick = (action: string) => {
+  const { signOut } = useAuth();
+  const router = useRouter();
+  const { toast } = useToast();
+
+  const handleMenuItemClick = async (action: string) => {
+    if (action === 'logout') {
+      await signOut();
+      toast({
+        title: 'Logged out',
+        description: 'You have been logged out successfully.',
+        variant: 'success',
+      });
+      router.push('/login');
+      return;
+    }
     console.log(`Clicked: ${action}`);
   };
 
   return (
-    <DropdownMenu>
+    <DropdownMenu >
       <DropdownMenuTrigger asChild>
         <button ref={triggerRef} className='w-8 aspect-square'>
           <ProfileIcon className='w-full h-full' />
@@ -27,7 +44,7 @@ const AccountDropdown: React.FC<AccountDropdownProps> = ({ triggerRef }) => {
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className='w-56 text-sm text-neutral-50 bg-black bg-opacity-0 border-0 shadow-none'
+        className='w-56 text-sm text-neutral-50 bg-black  border-0 shadow-none'
         align='end'
       >
         <DropdownMenuItem

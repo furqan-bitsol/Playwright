@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
 
 import { useParams, useSearchParams } from 'next/navigation';
-import { PRODUCTS } from '@/mocks/products';
 import MainLayout from '@/components/layouts/MainLayout';
+import { useProducts } from '@/contexts/ProductsContext';
 
 const ProductsPage: React.FC = () => {
   const { t } = useTranslation('common'); // Translation hook
@@ -17,6 +17,7 @@ const ProductsPage: React.FC = () => {
   const { type } = params; // Extract the "type" from the dynamic route
   const category = searchParams.get('category'); // Extract "categoryId" from query params
   const subCategory = searchParams.get('subCategory'); // Extract "subcategoryId" from query params
+   const { products, loading, error } = useProducts();
 
   // Determine the page title based on the type and query params
   const pageTitle =
@@ -35,7 +36,7 @@ const ProductsPage: React.FC = () => {
       </header>
 
       {/* Product Grid */}
-      <ProductGrid products={PRODUCTS} />
+      <ProductGrid products={products} />
 
       {/* Back to Home Button */}
       <div className='mt-10 flex justify-center'>

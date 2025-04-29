@@ -20,20 +20,52 @@ import {
   RESET_PASSWORD_FORM_FIELDS,
 } from '@/constants/forms';
 import { ResetPasswordFormData } from '@/types/forms';
+import { useToast } from '@/hooks/use-toast';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useAuth } from '@/contexts/AuthContext';
+import { ROUTE_LINKS } from '@/constants/routes';
 
 const INPUT_STYLES =
   'px-0 py-2 text-base border-t-0 border-x-0 border-b border-solid border-b-black border-opacity-50 rounded-none w-[370px] max-sm:w-full focus:outline-none focus:border-b-black focus-visible:ring-0 focus-visible:ring-offset-0';
 
 export const ResetPasswordForm: React.FC = () => {
-  const { t } = useTranslation('common'); // Use translation hook
+  const { t } = useTranslation('common');
+  const { toast } = useToast();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const { resetPassword } = useAuth();
   const form = useForm<ResetPasswordFormData>({
     resolver: zodResolver(getResetPasswordFormSchema(t)),
     defaultValues: RESET_PASSWORD_FORM_DEFAULT_VALUES,
   });
 
-  function onSubmit(data: ResetPasswordFormData) {
-    // TODO: Implement form submission logic here
-  }
+  const onSubmit = async (data: ResetPasswordFormData) => {
+    const oobCode = searchParams.get('oobCode');
+    if (!oobCode) {
+      toast({
+        title: t('resetPassword.form.errorTitle', 'Invalid link'),
+        description: t('resetPassword.form.errorDescription', 'The reset link is invalid or expired.'),
+        variant: 'destructive',
+      });
+      return;
+    }
+    try {
+      await resetPassword(oobCode, data.password);
+      toast({
+        title: t('resetPassword.form.successTitle', 'Password reset successful!'),
+        description: t('resetPassword.form.successDescription', 'You can now log in with your new password.'),
+        variant: 'success',
+      });
+      router.push(ROUTE_LINKS.login);
+    } catch (error: any) {
+      form.setError('password', { message: error.message ?? t('resetPassword.form.error') });
+      toast({
+        title: t('resetPassword.form.errorTitle', 'Reset failed'),
+        description: error.message ?? t('resetPassword.form.error'),
+        variant: 'destructive',
+      });
+    }
+  };
 
   return (
     <AuthPageLayout pageType='resetPassword'>
@@ -52,7 +84,7 @@ export const ResetPasswordForm: React.FC = () => {
                   <FormControl>
                     <Input
                       {...controlledField}
-                      type='text'
+                      type={formField.type}
                       placeholder={
                         formField.placeholder ? t(formField.placeholder) : ''
                       }
