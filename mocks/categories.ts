@@ -5,6 +5,13 @@ import {
   CameraIcon,
   HeadphoneIcon,
   GamepadIcon,
+  DressIcon,
+  ShirtIcon,
+  HomeIcon,
+  PillIcon,
+  BabyIcon,
+  AppleIcon,
+  PawIcon,
 } from '@/components/icons';
 import { NavCategory } from '@/types/categories';
 
@@ -76,6 +83,46 @@ export interface Category {
 }
 
 export const CATEGORIES: Category[] = [
+  {
+    Icon: DressIcon,
+    name: "Woman's Fashion",
+  },
+  {
+    Icon: ShirtIcon,
+    name: "Men's Fashion",
+  },
+  {
+    Icon: ComputerIcon,
+    name: 'Electronics',
+  },
+  {
+    Icon: HomeIcon,
+    name: 'Home & Lifestyle',
+  },
+  {
+    Icon: PillIcon,
+    name: 'Medicine',
+  },
+  {
+    Icon: GamepadIcon,
+    name: 'Sports & Outdoor',
+  },
+  {
+    Icon: BabyIcon,
+    name: "Baby's & Toys",
+  },
+  {
+    Icon: AppleIcon,
+    name: 'Groceries & Pets',
+  },
+  {
+    Icon: PawIcon,
+    name: 'Pets',
+  },
+  {
+    Icon: HeadphoneIcon,
+    name: 'Health & Beauty',
+  },
   {
     Icon: PhoneIcon,
     name: 'Phones',
