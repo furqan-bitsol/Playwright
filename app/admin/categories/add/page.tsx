@@ -17,6 +17,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { Suspense } from 'react';
 
 const categorySchema = z.object({
     name: z.string().min(2, 'Name is required'),
@@ -27,7 +28,7 @@ const categorySchema = z.object({
 
 type CategoryFormData = z.infer<typeof categorySchema>;
 
-export default function AddOrEditCategoryPage() {
+function AddOrEditCategoryPage() {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const router = useRouter();
@@ -190,5 +191,13 @@ export default function AddOrEditCategoryPage() {
                 </form>
             </Form>
         </div>
+    );
+}
+
+export default function AddOrEditCategoryPageWrapper() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <AddOrEditCategoryPage />
+        </Suspense>
     );
 }

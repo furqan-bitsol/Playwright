@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -39,7 +39,7 @@ const productSchema = z.object({
 
 type ProductFormData = z.infer<typeof productSchema>;
 
-export default function AddOrEditProductPage() {
+function AddOrEditProductPage() {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const router = useRouter();
@@ -344,5 +344,13 @@ export default function AddOrEditProductPage() {
                 </form>
             </Form>
         </div>
+    );
+}
+
+export default function AddOrEditProductPageWrapper() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <AddOrEditProductPage />
+        </Suspense>
     );
 } 

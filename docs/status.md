@@ -13,6 +13,11 @@
 - **Comprehensive Playwright E2E tests for Patients Directory Listing and Filtering (doctor portal):**
   - UI rendering, patient card content, search, gender/age/condition filtering, reset, export, advanced filter modal, accessibility tab order
   - All tests validated against technical and architectural requirements
+- **CategorySection now fetches categories from Firebase/Redux, not mock data.**
+  - Fully dynamic category list in home UI
+  - Icon mapping from string to component
+  - Loading and error states handled
+  - Aligns with DATA-001 and ADMIN-001 requirements
 
 ## In Progress
 
