@@ -10,6 +10,14 @@
 - Internationalization setup with i18next
 - Firebase Authentication (Sign Up, Login, Forgot Password, Reset Password, Redux integration, Toast notifications, i18n, error handling)
 - Private route protection (middleware for auth pages and wishlist, AccountDropdown visibility, firebaseToken cookie logic)
+- **Comprehensive Playwright E2E tests for Patients Directory Listing and Filtering (doctor portal):**
+  - UI rendering, patient card content, search, gender/age/condition filtering, reset, export, advanced filter modal, accessibility tab order
+  - All tests validated against technical and architectural requirements
+- **CategorySection now fetches categories from Firebase/Redux, not mock data.**
+  - Fully dynamic category list in home UI
+  - Icon mapping from string to component
+  - Loading and error states handled
+  - Aligns with DATA-001 and ADMIN-001 requirements
 
 ## In Progress
 
@@ -23,8 +31,8 @@
 ### ADMIN-001: Admin Dashboard
 
 - ✅ Basic dashboard layout
-- 🏗️ Product CRUD operations
-- ⏳ Category management
+- 🏗️ Product CRUD operations (Redux slice + Firebase CRUD implemented)
+- 🏗️ Category management (Redux slice + Firebase CRUD implemented, type updated for subcategories)
 - ⏳ Sales tracking
 
 ### DATA-001: Firebase Integration
@@ -63,14 +71,11 @@
 
 ## Next Steps
 
-1. Set up admin dashboard
-2. Migrate mock data to Firebase
-3. Implement persistent cart
-4. Add proper error handling
-5. Implement loading states
-6. Add proper TypeScript types
-7. Write comprehensive tests
-8. Update documentation
+1. Scaffold admin dashboard UI and CRUD pages under app/admin/
+2. Implement UI for category and product CRUD
+3. Add proper error handling and loading states
+4. Write comprehensive tests
+5. Update documentation
 
 ## Blockers
 

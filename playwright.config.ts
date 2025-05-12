@@ -1,17 +1,38 @@
-import { defineConfig } from '@playwright/test';
+import { PlaywrightTestConfig } from '@playwright/test';
 
-export default defineConfig({
-  testDir: './tests',
-  timeout: 30000,
-  expect: {
-    timeout: 5000,
-  },
-  reporter: 'html',
+const config: PlaywrightTestConfig = {
+  testDir: './tests/',
+  timeout: 300000,
   use: {
-    headless: true,
-    viewport: { width: 1280, height: 720 },
-    actionTimeout: 0,
-    ignoreHTTPSErrors: true,
+    baseURL: 'https://mh-doctor-portal.bitsol.dev/',
+    screenshot: 'only-on-failure',
     video: 'retain-on-failure',
+    trace: 'retain-on-failure',
+    ignoreHTTPSErrors: true,
+    viewport: { width: 1280, height: 720 },
+    actionTimeout: 30000,
   },
-});
+  // projects: [
+  //   {
+  //     name: 'Chrome',
+  //     use: {
+  //       browserName: 'chromium',
+  //     },
+  //   },
+  //   {
+  //     name: 'Firefox',
+  //     use: {
+  //       browserName: 'firefox',
+  //     },
+  //   },
+  //   {
+  //     name: 'Safari',
+  //     use: {
+  //       browserName: 'webkit',
+  //     },
+  //   },
+  // ],
+  reporter: [['html'], ['list']],
+};
+
+export default config;

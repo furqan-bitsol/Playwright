@@ -58,7 +58,7 @@ Dependencies: AUTH-001
 
 ## ADMIN-001: Implement Admin Dashboard
 
-Status: Pending
+Status: In Progress
 Priority: Medium
 Dependencies: AUTH-001
 
@@ -66,7 +66,7 @@ Dependencies: AUTH-001
 
 - Admin authentication
 - Product CRUD operations
-- Category management
+- Category management (type updated for subcategories, hierarchical CRUD in progress)
 - Sales tracking
 - Admin dashboard UI
 
@@ -74,7 +74,7 @@ Dependencies: AUTH-001
 
 1. Admin can login to dashboard
 2. Admin can create, read, update, delete products
-3. Admin can manage product categories
+3. Admin can manage product categories (including subcategories)
 4. Admin can view sales reports
 5. Dashboard UI is responsive and user-friendly
 

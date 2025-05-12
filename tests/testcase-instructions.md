@@ -16,9 +16,11 @@ These are the guidelines and expectations for writing and reviewing Playwright t
 ## 2. 🔁 Lifecycle Hook Usage
 
 - Use **`beforeAll`** for global setup.
+
   - Example: launch browser, open base URL.
 
 - Use **`beforeEach`** for per-test setup.
+
   - Example: navigate to homepage, reset wishlist.
 
 - Use **`afterEach` / `afterAll`** for teardown and cleanup.
@@ -28,12 +30,8 @@ These are the guidelines and expectations for writing and reviewing Playwright t
 
 ## 3. 🎯 Element Selection
 
-- Always select elements using `data-testid` attributes.
-- Avoid using:
-  - Class names
-  - Tag names
-  - Visible text  
-  These can break easily and reduce test clarity.
+- Get elements by using identifiers such as visible text, tag, class, or id.
+- If the element is not found using these methods, then fall back to using XPath.
 
 ---
 
@@ -41,6 +39,7 @@ These are the guidelines and expectations for writing and reviewing Playwright t
 
 - Write small, focused test cases using: **Setup → Action → Assertion**.
 - Group reusable logic into:
+
   - Utility functions
   - Page objects
   - Component classes (if applicable)
@@ -53,6 +52,7 @@ These are the guidelines and expectations for writing and reviewing Playwright t
 
 - Group UI actions into **modular components** or **page objects**.
 - Separate:
+
   - UI logic from test logic
   - Setup logic from assertions
 
@@ -73,6 +73,7 @@ These are the guidelines and expectations for writing and reviewing Playwright t
 ## 7. 🧼 Clean Code Practices
 
 - Remove:
+
   - Unused variables
   - Console logs
   - Commented-out code
@@ -86,7 +87,6 @@ These are the guidelines and expectations for writing and reviewing Playwright t
 
 When reviewing, suggest:
 
-- Replacing class/text selectors with `data-testid`
 - Grouping logic into components or shared helpers
 - Improving naming for readability
 - Refactoring flaky or brittle selectors
@@ -100,5 +100,6 @@ When writing or reviewing Playwright tests:
 
 - Follow lifecycle structure: `beforeAll`, `beforeEach`, `afterEach`, `afterAll`
 - Ensure all UI interaction is MCP-based and modular
-- Use clear, stable `data-testid` selectors
+- Use clear and stable identifiers such as visible text, tag, class, or id. If these are not reliable or available, then use XPath as a fallback.
 - Keep code clean, consistent, and maintainable
+- Always make new testcase file that too with the name of textSuite ForExample: Test Suite Name="Patients Directory Listing and Filtering" then the generated file name would be patients-directory-listing-and-filtering.test.ts

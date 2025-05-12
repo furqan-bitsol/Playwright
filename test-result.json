@@ -1,0 +1,366 @@
+{
+  "config": {
+    "configFile": "D:\\practice\\ecommerce\\playwright.config.ts",
+    "rootDir": "D:/practice/ecommerce/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "D:/practice/ecommerce/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/practice/ecommerce/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.51.1",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "patients-directory-listing-and-filtering.test.ts",
+      "file": "patients-directory-listing-and-filtering.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Patients Directory Listing and Filtering",
+          "file": "patients-directory-listing-and-filtering.test.ts",
+          "line": 70,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display Patients heading and at least one patient card",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1930,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-30T09:46:22.956Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0f46f118c7b158c9bd2e-4badd6bcca15bd48a817",
+              "file": "patients-directory-listing-and-filtering.test.ts",
+              "line": 78,
+              "column": 7
+            },
+            {
+              "title": "each patient card displays required info and records link",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1721,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-30T09:46:25.006Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0f46f118c7b158c9bd2e-eb373755c19608df67db",
+              "file": "patients-directory-listing-and-filtering.test.ts",
+              "line": 88,
+              "column": 7
+            },
+            {
+              "title": "search filters patient cards by name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2563,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-30T09:46:26.732Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0f46f118c7b158c9bd2e-1bacba706d6aae50a366",
+              "file": "patients-directory-listing-and-filtering.test.ts",
+              "line": 102,
+              "column": 7
+            },
+            {
+              "title": "gender and age filters work",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2767,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-30T09:46:29.300Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0f46f118c7b158c9bd2e-0d35abc91e0c87b12d8d",
+              "file": "patients-directory-listing-and-filtering.test.ts",
+              "line": 116,
+              "column": 7
+            },
+            {
+              "title": "condition tabs filter patients",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2242,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-30T09:46:32.071Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0f46f118c7b158c9bd2e-5e607d69b86724e89312",
+              "file": "patients-directory-listing-and-filtering.test.ts",
+              "line": 149,
+              "column": 7
+            },
+            {
+              "title": "reset filters restores all patients",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1886,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('div.glass.border.rounded-xl.overflow-hidden.transition-all.duration-300.ease-in-out.relative.hover\\\\:shadow-sm')\nExpected: \u001b[32m8\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveCount with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('div.glass.border.rounded-xl.overflow-hidden.transition-all.duration-300.ease-in-out.relative.hover\\\\:shadow-sm')\u001b[22m\n\u001b[2m    3 × locator resolved to 0 elements\u001b[22m\n\u001b[2m      - unexpected value \"0\"\u001b[22m\n\u001b[2m    - locator resolved to 2 elements\u001b[22m\n\u001b[2m    - unexpected value \"2\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('div.glass.border.rounded-xl.overflow-hidden.transition-all.duration-300.ease-in-out.relative.hover\\\\:shadow-sm')\nExpected: \u001b[32m8\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveCount with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('div.glass.border.rounded-xl.overflow-hidden.transition-all.duration-300.ease-in-out.relative.hover\\\\:shadow-sm')\u001b[22m\n\u001b[2m    3 × locator resolved to 0 elements\u001b[22m\n\u001b[2m      - unexpected value \"0\"\u001b[22m\n\u001b[2m    - locator resolved to 2 elements\u001b[22m\n\u001b[2m    - unexpected value \"2\"\u001b[22m\n\n    at D:\\practice\\ecommerce\\tests\\patients-directory-listing-and-filtering.test.ts:172:39",
+                        "matcherResult": {
+                          "actual": 2,
+                          "expected": 8,
+                          "message": "\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('div.glass.border.rounded-xl.overflow-hidden.transition-all.duration-300.ease-in-out.relative.hover\\\\:shadow-sm')\nExpected: \u001b[32m8\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveCount with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('div.glass.border.rounded-xl.overflow-hidden.transition-all.duration-300.ease-in-out.relative.hover\\\\:shadow-sm')\u001b[22m\n\u001b[2m    3 × locator resolved to 0 elements\u001b[22m\n\u001b[2m      - unexpected value \"0\"\u001b[22m\n\u001b[2m    - locator resolved to 2 elements\u001b[22m\n\u001b[2m    - unexpected value \"2\"\u001b[22m\n",
+                          "name": "toHaveCount",
+                          "pass": false,
+                          "log": [
+                            "  - expect.toHaveCount with timeout 5000ms",
+                            "  - waiting for locator('div.glass.border.rounded-xl.overflow-hidden.transition-all.duration-300.ease-in-out.relative.hover\\\\:shadow-sm')",
+                            "    3 × locator resolved to 0 elements",
+                            "      - unexpected value \"0\"",
+                            "    - locator resolved to 2 elements",
+                            "    - unexpected value \"2\""
+                          ]
+                        },
+                        "location": {
+                          "file": "D:\\practice\\ecommerce\\tests\\patients-directory-listing-and-filtering.test.ts",
+                          "column": 39,
+                          "line": 172
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 170 |\u001b[39m\n \u001b[90m 171 |\u001b[39m   test(\u001b[32m'reset filters restores all patients'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 172 |\u001b[39m     expect(patientsPage\u001b[33m.\u001b[39mpatientCards)\u001b[33m.\u001b[39mtoHaveCount(\u001b[33mMOCK_PATIENTS\u001b[39m\u001b[33m.\u001b[39mallCardsCount)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 173 |\u001b[39m     \u001b[36mawait\u001b[39m patientsPage\u001b[33m.\u001b[39mtabDiabetes\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 174 |\u001b[39m     \u001b[36mconst\u001b[39m filteredCount \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m patientsPage\u001b[33m.\u001b[39mpatientCards\u001b[33m.\u001b[39mcount()\u001b[33m;\u001b[39m\n \u001b[90m 175 |\u001b[39m     expect(filteredCount)\u001b[33m.\u001b[39mtoBe(\u001b[33mMOCK_PATIENTS\u001b[39m\u001b[33m.\u001b[39mpatient\u001b[33m.\u001b[39mconditions\u001b[33m.\u001b[39mdiabetes)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\practice\\ecommerce\\tests\\patients-directory-listing-and-filtering.test.ts",
+                            "column": 39,
+                            "line": 172
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('div.glass.border.rounded-xl.overflow-hidden.transition-all.duration-300.ease-in-out.relative.hover\\\\:shadow-sm')\nExpected: \u001b[32m8\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveCount with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('div.glass.border.rounded-xl.overflow-hidden.transition-all.duration-300.ease-in-out.relative.hover\\\\:shadow-sm')\u001b[22m\n\u001b[2m    3 × locator resolved to 0 elements\u001b[22m\n\u001b[2m      - unexpected value \"0\"\u001b[22m\n\u001b[2m    - locator resolved to 2 elements\u001b[22m\n\u001b[2m    - unexpected value \"2\"\u001b[22m\n\n\n  170 |\n  171 |   test('reset filters restores all patients', async ({ page }) => {\n> 172 |     expect(patientsPage.patientCards).toHaveCount(MOCK_PATIENTS.allCardsCount);\n      |                                       ^\n  173 |     await patientsPage.tabDiabetes.click();\n  174 |     const filteredCount = await patientsPage.patientCards.count();\n  175 |     expect(filteredCount).toBe(MOCK_PATIENTS.patient.conditions.diabetes);\n    at D:\\practice\\ecommerce\\tests\\patients-directory-listing-and-filtering.test.ts:172:39"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-30T09:46:34.319Z",
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\practice\\ecommerce\\test-results\\patients-directory-listing-04ed3-lters-restores-all-patients\\test-failed-1.png"
+                        },
+                        {
+                          "name": "_prompt-0",
+                          "contentType": "text/markdown",
+                          "body": "IyBJbnN0cnVjdGlvbnMKCi0gRm9sbG93aW5nIFBsYXl3cmlnaHQgdGVzdCBmYWlsZWQuCi0gRXhwbGFpbiB3aHksIGJlIGNvbmNpc2UsIHJlc3BlY3QgUGxheXdyaWdodCBiZXN0IHByYWN0aWNlcy4KLSBQcm92aWRlIGEgc25pcHBldCBvZiBjb2RlIHdpdGggdGhlIGZpeCwgaWYgcG9zc2libGUuCgojIFRlc3QgaW5mbwoKLSBOYW1lOiBQYXRpZW50cyBEaXJlY3RvcnkgTGlzdGluZyBhbmQgRmlsdGVyaW5nID4+IHJlc2V0IGZpbHRlcnMgcmVzdG9yZXMgYWxsIHBhdGllbnRzCi0gTG9jYXRpb246IEQ6XHByYWN0aWNlXGVjb21tZXJjZVx0ZXN0c1xwYXRpZW50cy1kaXJlY3RvcnktbGlzdGluZy1hbmQtZmlsdGVyaW5nLnRlc3QudHM6MTcxOjcKCiMgRXJyb3IgZGV0YWlscwoKYGBgCkVycm9yOiBleHBlY3QobG9jYXRvcikudG9IYXZlQ291bnQoZXhwZWN0ZWQpCgpMb2NhdG9yOiBsb2NhdG9yKCdkaXYuZ2xhc3MuYm9yZGVyLnJvdW5kZWQteGwub3ZlcmZsb3ctaGlkZGVuLnRyYW5zaXRpb24tYWxsLmR1cmF0aW9uLTMwMC5lYXNlLWluLW91dC5yZWxhdGl2ZS5ob3ZlclxcOnNoYWRvdy1zbScpCkV4cGVjdGVkOiA4ClJlY2VpdmVkOiAyCkNhbGwgbG9nOgogIC0gZXhwZWN0LnRvSGF2ZUNvdW50IHdpdGggdGltZW91dCA1MDAwbXMKICAtIHdhaXRpbmcgZm9yIGxvY2F0b3IoJ2Rpdi5nbGFzcy5ib3JkZXIucm91bmRlZC14bC5vdmVyZmxvdy1oaWRkZW4udHJhbnNpdGlvbi1hbGwuZHVyYXRpb24tMzAwLmVhc2UtaW4tb3V0LnJlbGF0aXZlLmhvdmVyXFw6c2hhZG93LXNtJykKICAgIDMgw5cgbG9jYXRvciByZXNvbHZlZCB0byAwIGVsZW1lbnRzCiAgICAgIC0gdW5leHBlY3RlZCB2YWx1ZSAiMCIKICAgIC0gbG9jYXRvciByZXNvbHZlZCB0byAyIGVsZW1lbnRzCiAgICAtIHVuZXhwZWN0ZWQgdmFsdWUgIjIiCgogICAgYXQgRDpccHJhY3RpY2VcZWNvbW1lcmNlXHRlc3RzXHBhdGllbnRzLWRpcmVjdG9yeS1saXN0aW5nLWFuZC1maWx0ZXJpbmcudGVzdC50czoxNzI6MzkKYGBgCgojIFRlc3Qgc291cmNlCgpgYGB0cwogICA3MiB8CiAgIDczIHwgICB0ZXN0LmJlZm9yZUVhY2goYXN5bmMgKHsgcGFnZSB9KSA9PiB7CiAgIDc0IHwgICAgIHBhdGllbnRzUGFnZSA9IG5ldyBQYXRpZW50c1BhZ2UocGFnZSk7CiAgIDc1IHwgICAgIGF3YWl0IHBhdGllbnRzUGFnZS5nb3RvKCk7CiAgIDc2IHwgICB9KTsKICAgNzcgfAogICA3OCB8ICAgdGVzdCgnc2hvdWxkIGRpc3BsYXkgUGF0aWVudHMgaGVhZGluZyBhbmQgYXQgbGVhc3Qgb25lIHBhdGllbnQgY2FyZCcsIGFzeW5jICh7CiAgIDc5IHwgICAgIHBhZ2UsCiAgIDgwIHwgICB9KSA9PiB7CiAgIDgxIHwgICAgIGF3YWl0IGV4cGVjdChwYXRpZW50c1BhZ2UuaGVhZGluZykudG9CZVZpc2libGUoKTsKICAgODIgfCAgICAgYXdhaXQgZXhwZWN0KHBhdGllbnRzUGFnZS5wYXRpZW50Q2FyZHMpLnRvSGF2ZUNvdW50KAogICA4MyB8ICAgICAgIE1PQ0tfUEFUSUVOVFMuYWxsQ2FyZHNDb3VudCwKICAgODQgfCAgICAgICB7IHRpbWVvdXQ6IDMwMDAgfQogICA4NSB8ICAgICApOwogICA4NiB8ICAgfSk7CiAgIDg3IHwKICAgODggfCAgIHRlc3QoJ2VhY2ggcGF0aWVudCBjYXJkIGRpc3BsYXlzIHJlcXVpcmVkIGluZm8gYW5kIHJlY29yZHMgbGluaycsIGFzeW5jICh7CiAgIDg5IHwgICAgIHBhZ2UsCiAgIDkwIHwgICB9KSA9PiB7CiAgIDkxIHwgICAgIGNvbnN0IGNhcmQgPSBwYXRpZW50c1BhZ2UuZ2V0Rmlyc3RDYXJkKCk7CiAgIDkyIHwgICAgIGNvbnN0IGluZm8gPSBwYXRpZW50c1BhZ2UuZ2V0Q2FyZEluZm8oY2FyZCk7CiAgIDkzIHwgICAgIGF3YWl0IGV4cGVjdChpbmZvLm5hbWUpLnRvQmVWaXNpYmxlKCk7CiAgIDk0IHwgICAgIGF3YWl0IGV4cGVjdChpbmZvLmRldGFpbHMpLnRvQmVWaXNpYmxlKCk7CiAgIDk1IHwgICAgIGF3YWl0IGV4cGVjdChpbmZvLnBob25lKS50b0JlVmlzaWJsZSgpOwogICA5NiB8ICAgICBhd2FpdCBleHBlY3QoaW5mby5lbWFpbCkudG9CZVZpc2libGUoKTsKICAgOTcgfCAgICAgYXdhaXQgZXhwZWN0KGluZm8uYWdlR2VuZGVyKS50b0JlVmlzaWJsZSgpOwogICA5OCB8ICAgICBhd2FpdCBleHBlY3QoaW5mby5zaG93TW9yZSkudG9IYXZlVGV4dCgvc2hvdyBtb3JlL2kpOwogICA5OSB8ICAgICBhd2FpdCBleHBlY3QoaW5mby5yZWNvcmRzTGluaykudG9CZVZpc2libGUoKTsKICAxMDAgfCAgIH0pOwogIDEwMSB8CiAgMTAyIHwgICB0ZXN0KCdzZWFyY2ggZmlsdGVycyBwYXRpZW50IGNhcmRzIGJ5IG5hbWUnLCBhc3luYyAoeyBwYWdlIH0pID0+IHsKICAxMDMgfCAgICAgYXdhaXQgcGF0aWVudHNQYWdlLnNlYXJjaElucHV0LmZpbGwoTU9DS19QQVRJRU5UUy5wYXRpZW50LnNlYXJjaC5uYW1lKTsKICAxMDQgfCAgICAgYXdhaXQgZXhwZWN0KHBhdGllbnRzUGFnZS5wYXRpZW50Q2FyZHMpLnRvSGF2ZUNvdW50KAogIDEwNSB8ICAgICAgIE1PQ0tfUEFUSUVOVFMucGF0aWVudC5zZWFyY2guY291bnQKICAxMDYgfCAgICAgKTsKICAxMDcgfCAgICAgYXdhaXQgcGF0aWVudHNQYWdlLnNlYXJjaElucHV0LmZpbGwoJycpOwogIDEwOCB8ICAgICBhd2FpdCBleHBlY3QocGF0aWVudHNQYWdlLnBhdGllbnRDYXJkcykudG9IYXZlQ291bnQoCiAgMTA5IHwgICAgICAgTU9DS19QQVRJRU5UUy5hbGxDYXJkc0NvdW50LAogIDExMCB8ICAgICAgIHsKICAxMTEgfCAgICAgICAgIHRpbWVvdXQ6IDMwMDAsCiAgMTEyIHwgICAgICAgfQogIDExMyB8ICAgICApOwogIDExNCB8ICAgfSk7CiAgMTE1IHwKICAxMTYgfCAgIHRlc3QoJ2dlbmRlciBhbmQgYWdlIGZpbHRlcnMgd29yaycsIGFzeW5jICh7IHBhZ2UgfSkgPT4gewogIDExNyB8ICAgICAvLyBHZW5kZXIgZmlsdGVyCiAgMTE4IHwgICAgIGF3YWl0IHBhdGllbnRzUGFnZS5nZW5kZXJDb21ib2JveC5jbGljaygpOwogIDExOSB8ICAgICBhd2FpdCBwYWdlCiAgMTIwIHwgICAgICAgLmdldEJ5VGV4dChNT0NLX1BBVElFTlRTLnBhdGllbnQuZmlsdGVyLmdlbmRlciwgeyBleGFjdDogdHJ1ZSB9KQogIDEyMSB8ICAgICAgIC5jbGljaygpOwogIDEyMiB8ICAgICBmb3IgKGNvbnN0IGNhcmQgb2YgYXdhaXQgcGF0aWVudHNQYWdlLnBhdGllbnRDYXJkcy5hbGwoKSkgewogIDEyMyB8ICAgICAgIGNvbnN0IGdlbmRlclRleHQgPSBhd2FpdCBjYXJkCiAgMTI0IHwgICAgICAgICAubG9jYXRvcigncC50ZXh0LXNtLnRleHQtbXV0ZWQtZm9yZWdyb3VuZCcpCiAgMTI1IHwgICAgICAgICAudGV4dENvbnRlbnQoKTsKICAxMjYgfCAgICAgICBleHBlY3QoZ2VuZGVyVGV4dCkudG9NYXRjaCgvRmVtYWxlL2kpOwogIDEyNyB8ICAgICB9CiAgMTI4IHwgICAgIC8vIEFnZSBmaWx0ZXIKICAxMjkgfCAgICAgYXdhaXQgcGF0aWVudHNQYWdlLmFnZUNvbWJvYm94LmNsaWNrKCk7CiAgMTMwIHwgICAgIGF3YWl0IHBhZ2UKICAxMzEgfCAgICAgICAuZ2V0QnlUZXh0KE1PQ0tfUEFUSUVOVFMucGF0aWVudC5maWx0ZXIuYWdlLCB7IGV4YWN0OiB0cnVlIH0pCiAgMTMyIHwgICAgICAgLmNsaWNrKCk7CiAgMTMzIHwgICAgIGZvciAoY29uc3QgY2FyZCBvZiBhd2FpdCBwYXRpZW50c1BhZ2UucGF0aWVudENhcmRzLmFsbCgpKSB7CiAgMTM0IHwgICAgICAgY29uc3QgYWdlR2VuZGVyID0gKAogIDEzNSB8ICAgICAgICAgYXdhaXQgY2FyZC5sb2NhdG9yKCdwLnRleHQtc20udGV4dC1tdXRlZC1mb3JlZ3JvdW5kJykudGV4dENvbnRlbnQoKQogIDEzNiB8ICAgICAgICkKICAxMzcgfCAgICAgICAgID8uc3BsaXQoJ3llYXJzJylbMF0KICAxMzggfCAgICAgICAgIC50cmltKCk7CiAgMTM5IHwgICAgICAgY29uc3QgYWdlID0gcGFyc2VJbnQoYWdlR2VuZGVyID8/ICcnLCAxMCk7CiAgMTQwIHwgICAgICAgZXhwZWN0KGFnZSkudG9CZUdyZWF0ZXJUaGFuT3JFcXVhbCgKICAxNDEgfCAgICAgICAgIE1PQ0tfUEFUSUVOVFMucGF0aWVudC5maWx0ZXIuYWdlR3JlYXRlclRoYW4KICAxNDIgfCAgICAgICApOwogIDE0MyB8ICAgICAgIGV4cGVjdChhZ2UpLnRvQmVMZXNzVGhhbk9yRXF1YWwoCiAgMTQ0IHwgICAgICAgICBNT0NLX1BBVElFTlRTLnBhdGllbnQuZmlsdGVyLmFnZVNtYWxsZXJUaGFuCiAgMTQ1IHwgICAgICAgKTsKICAxNDYgfCAgICAgfQogIDE0NyB8ICAgfSk7CiAgMTQ4IHwKICAxNDkgfCAgIHRlc3QoJ2NvbmRpdGlvbiB0YWJzIGZpbHRlciBwYXRpZW50cycsIGFzeW5jICh7IHBhZ2UgfSkgPT4gewogIDE1MCB8ICAgICBhd2FpdCBleHBlY3QocGF0aWVudHNQYWdlLnBhdGllbnRDYXJkcykudG9IYXZlQ291bnQoCiAgMTUxIHwgICAgICAgTU9DS19QQVRJRU5UUy5hbGxDYXJkc0NvdW50CiAgMTUyIHwgICAgICk7CiAgMTUzIHwgICAgIGF3YWl0IHBhdGllbnRzUGFnZS50YWJIeXBlcnRlbnNpb24uY2xpY2soKTsKICAxNTQgfCAgICAgZXhwZWN0KGF3YWl0IHBhdGllbnRzUGFnZS5wYXRpZW50Q2FyZHMuY291bnQoKSkudG9CZSgKICAxNTUgfCAgICAgICBNT0NLX1BBVElFTlRTLnBhdGllbnQuY29uZGl0aW9ucy5oeXBlcnRlbnNpb24KICAxNTYgfCAgICAgKTsKICAxNTcgfCAgICAgYXdhaXQgcGF0aWVudHNQYWdlLnRhYkRpYWJldGVzLmNsaWNrKCk7CiAgMTU4IHwgICAgIGV4cGVjdChhd2FpdCBwYXRpZW50c1BhZ2UucGF0aWVudENhcmRzLmNvdW50KCkpLnRvQmUoCiAgMTU5IHwgICAgICAgTU9DS19QQVRJRU5UUy5wYXRpZW50LmNvbmRpdGlvbnMuZGlhYmV0ZXMKICAxNjAgfCAgICAgKTsKICAxNjEgfCAgICAgYXdhaXQgcGF0aWVudHNQYWdlLnRhYkhlYXJ0LmNsaWNrKCk7CiAgMTYyIHwgICAgIGV4cGVjdChhd2FpdCBwYXRpZW50c1BhZ2UucGF0aWVudENhcmRzLmNvdW50KCkpLnRvQmUoCiAgMTYzIHwgICAgICAgTU9DS19QQVRJRU5UUy5wYXRpZW50LmNvbmRpdGlvbnMuaGVhcnQKICAxNjQgfCAgICAgKTsKICAxNjUgfCAgICAgYXdhaXQgcGF0aWVudHNQYWdlLnRhYkFsbC5jbGljaygpOwogIDE2NiB8ICAgICBleHBlY3QoYXdhaXQgcGF0aWVudHNQYWdlLnBhdGllbnRDYXJkcy5jb3VudCgpKS50b0JlKAogIDE2NyB8ICAgICAgIE1PQ0tfUEFUSUVOVFMuYWxsQ2FyZHNDb3VudAogIDE2OCB8ICAgICApOwogIDE2OSB8ICAgfSk7CiAgMTcwIHwKICAxNzEgfCAgIHRlc3QoJ3Jlc2V0IGZpbHRlcnMgcmVzdG9yZXMgYWxsIHBhdGllbnRzJywgYXN5bmMgKHsgcGFnZSB9KSA9PiB7Cj4gMTcyIHwgICAgIGV4cGVjdChwYXRpZW50c1BhZ2UucGF0aWVudENhcmRzKS50b0hhdmVDb3VudChNT0NLX1BBVElFTlRTLmFsbENhcmRzQ291bnQpOwogICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXiBFcnJvcjogZXhwZWN0KGxvY2F0b3IpLnRvSGF2ZUNvdW50KGV4cGVjdGVkKQogIDE3MyB8ICAgICBhd2FpdCBwYXRpZW50c1BhZ2UudGFiRGlhYmV0ZXMuY2xpY2soKTsKICAxNzQgfCAgICAgY29uc3QgZmlsdGVyZWRDb3VudCA9IGF3YWl0IHBhdGllbnRzUGFnZS5wYXRpZW50Q2FyZHMuY291bnQoKTsKICAxNzUgfCAgICAgZXhwZWN0KGZpbHRlcmVkQ291bnQpLnRvQmUoTU9DS19QQVRJRU5UUy5wYXRpZW50LmNvbmRpdGlvbnMuZGlhYmV0ZXMpOwogIDE3NiB8ICAgICBhd2FpdCBwYXRpZW50c1BhZ2UucmVzZXRGaWx0ZXJzQnV0dG9uLmNsaWNrKCk7CiAgMTc3IHwgICAgIGV4cGVjdChhd2FpdCBwYXRpZW50c1BhZ2UucGF0aWVudENhcmRzLmNvdW50KCkpLnRvQmUoCiAgMTc4IHwgICAgICAgTU9DS19QQVRJRU5UUy5hbGxDYXJkc0NvdW50CiAgMTc5IHwgICAgICk7CiAgMTgwIHwgICB9KTsKICAxODEgfAogIDE4MiB8ICAgdGVzdCgnYWxsIGludGVyYWN0aXZlIGVsZW1lbnRzIGFyZSBhY2Nlc3NpYmxlIGluIHRhYiBvcmRlcicsIGFzeW5jICh7CiAgMTgzIHwgICAgIHBhZ2UsCiAgMTg0IHwgICB9KSA9PiB7CiAgMTg1IHwgICAgIGNvbnN0IGZvY3VzYWJsZSA9IFsKICAxODYgfCAgICAgICBwYXRpZW50c1BhZ2Uuc2VhcmNoSW5wdXQsCiAgMTg3IHwgICAgICAgcGF0aWVudHNQYWdlLmdlbmRlckNvbWJvYm94LAogIDE4OCB8ICAgICAgIHBhdGllbnRzUGFnZS5hZ2VDb21ib2JveCwKICAxODkgfCAgICAgICBwYXRpZW50c1BhZ2UudGFiQWxsLAogIDE5MCB8ICAgICAgIHBhdGllbnRzUGFnZS50YWJIeXBlcnRlbnNpb24sCiAgMTkxIHwgICAgICAgcGF0aWVudHNQYWdlLnRhYkRpYWJldGVzLAogIDE5MiB8ICAgICAgIHBhdGllbnRzUGFnZS5yZXNldEZpbHRlcnNCdXR0b24sCiAgMTkzIHwgICAgICAgcGF0aWVudHNQYWdlLmV4cG9ydEJ1dHRvbiwKICAxOTQgfCAgICAgICBwYXRpZW50c1BhZ2UuYWR2YW5jZWRPcHRpb25zQnV0dG9uLAogIDE5NSB8ICAgICBdOwogIDE5NiB8ICAgICBmb3IgKGNvbnN0IGVsIG9mIGZvY3VzYWJsZSkgewogIDE5NyB8ICAgICAgIGF3YWl0IGVsLmZvY3VzKCk7CiAgMTk4IHwgICAgICAgY29uc3QgaGFuZGxlID0gYXdhaXQgZWwuZWxlbWVudEhhbmRsZSgpOwogIDE5OSB8ICAgICAgIGNvbnN0IGlzRm9jdXNlZCA9IGF3YWl0IHBhZ2UuZXZhbHVhdGUoCiAgMjAwIHwgICAgICAgICAoZWwpID0+IGVsID09PSBkb2N1bWVudC5hY3RpdmVFbGVtZW50LAogIDIwMSB8ICAgICAgICAgaGFuZGxlCiAgMjAyIHwgICAgICAgKTsKICAyMDMgfCAgICAgICBleHBlY3QoaXNGb2N1c2VkKS50b0JlKHRydWUpOwogIDIwNCB8ICAgICB9CiAgMjA1IHwgICB9KTsKICAyMDYgfCB9KTsKICAyMDcgfApgYGA="
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\practice\\ecommerce\\test-results\\patients-directory-listing-04ed3-lters-restores-all-patients\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\practice\\ecommerce\\tests\\patients-directory-listing-and-filtering.test.ts",
+                        "column": 39,
+                        "line": 172
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0f46f118c7b158c9bd2e-49201377732f65af95aa",
+              "file": "patients-directory-listing-and-filtering.test.ts",
+              "line": 171,
+              "column": 7
+            },
+            {
+              "title": "all interactive elements are accessible in tab order",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2569,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-30T09:46:37.942Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0f46f118c7b158c9bd2e-5ad6da3734e62ad4ca19",
+              "file": "patients-directory-listing-and-filtering.test.ts",
+              "line": 182,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-04-30T09:46:21.944Z",
+    "duration": 18968.07,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
