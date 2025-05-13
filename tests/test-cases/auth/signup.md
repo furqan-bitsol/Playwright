@@ -39,7 +39,7 @@
 
 **Test Procedure Steps:**
 
-1. Open: https://ecommerce-omega-three-23.vercel.app/login
+1. Open: https://ecommerce-omega-three-23.vercel.app/signup
 2. Click "Don't have an account? Sign Up"
 3. Enter all valid fields
 4. Click Sign Up

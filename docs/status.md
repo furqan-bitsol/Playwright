@@ -42,6 +42,16 @@
   - Page Object created at `tests/pages/SignUpPage.ts` with strict typing and verified selectors
   - All tests follow MCP, technical, and architectural guidelines
   - No blockers encountered
+- **Forgot Password Test Cases (Markdown):**
+  - Added detailed forgot password test cases in `tests/auth/forgot-password.md` (valid email, unregistered email, invalid format, empty field, navigation)
+  - Test cases cover UC-AUTH-009, UC-AUTH-010, UC-AUTH-011, UC-AUTH-012
+  - Aligned with authentication requirements and technical guidelines
+  - No blockers encountered
+- **Forgot Password Playwright MCP+POM E2E Tests Implemented:**
+  - All scenarios from `tests/test-cases/auth/forgot-password.md` are now covered in `tests/auth/forgot-password/forgot-password-success-failure.spec.ts` using the MCP and POM structure
+  - Page Object created at `tests/pages/ForgotPasswordPage.ts` with strict typing and verified selectors
+  - All tests follow MCP, technical, and architectural guidelines
+  - No blockers encountered
 
 ## In Progress
 

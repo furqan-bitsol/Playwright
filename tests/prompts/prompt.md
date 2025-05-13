@@ -22,7 +22,7 @@ You are generating Playwright test scripts using:
 
 ## 🔗 Website Under Test
 
-- **URL:** [https://ecommerce-omega-three-23.vercel.app/login](https://ecommerce-omega-three-23.vercel.app/login)
+- **URL:** [https://ecommerce-omega-three-23.vercel.app/](https://ecommerce-omega-three-23.vercel.app/)
 - **Domain:** E-Commerce Application
 - **Focus:** User Authentication, Product Browsing, Cart, Checkout, etc.
 

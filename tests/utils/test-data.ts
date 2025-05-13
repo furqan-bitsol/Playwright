@@ -4,6 +4,7 @@ export const testRoutes = {
   login: '/login',
   dashboard: '/', // Update if dashboard route changes
   signup: '/signup',
+  forgotPassword: '/forgot-password',
   // Add more named routes as needed
 };
 
@@ -15,6 +16,12 @@ export const testUsers = {
   invalid: {
     email: 'fatima.shahzad@bitsol.tech',
     password: 'WrongPassword',
+  },
+  forgotPassword: {
+    valid: 'testuser@example.com',
+    unregistered: 'notregistered@example.com',
+    invalidFormat: 'invalidemail.com',
+    empty: '',
   },
 };
 

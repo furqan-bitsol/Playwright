@@ -8,7 +8,7 @@ alwaysApply: false
 
 ## 🌐 Introduction
 
-This guide provides custom review and authoring instructions for Playwright test cases written for the **MH Doctor Portal** — a medical web application available at [https://mh-doctor-portal.bitsol.dev/](https://mh-doctor-portal.bitsol.dev/).
+This guide provides custom review and authoring instructions for Playwright test cases written for the E-Commerce Web Application — a shopping platform available at https://ecommerce-omega-three-23.vercel.app/. It outlines best practices for writing and maintaining end-to-end test scripts, with a focus on key user flows such as authentication, product browsing, cart management, and checkout.
 
 The portal supports features like patient management, appointment scheduling, and directory filtering. All test cases for this platform should follow the **Modular Component Pattern (MCP)** to ensure the code is scalable, maintainable, and easy to collaborate on.
 
@@ -142,7 +142,7 @@ When writing or reviewing Playwright tests:
 
 # 📁 Playwright MCP Folder Structure Requirement
 
-All Playwright test cases and related files for the MH Doctor Portal must follow this folder structure:
+All Playwright test cases and related files for the E-Commerce Web Application must follow this folder structure:
 
 /
 │
