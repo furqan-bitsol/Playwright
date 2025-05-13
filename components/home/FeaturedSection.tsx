@@ -42,6 +42,7 @@ export const FeaturedSection = () => {
           href={ROUTE_LINKS.allProducts} // Update the href to the correct route
           className='px-12 h-14 py-4 mt-16 text-base font-medium bg-red-500 rounded text-neutral-50 hover:bg-red-600 transition-colors max-md:px-5 max-md:mt-10'
           aria-label='View all featured products'
+          prefetch={false}
         >
           View All Products
         </Link>

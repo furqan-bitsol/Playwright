@@ -29,11 +29,10 @@ export const fetchCategories = createAsyncThunk<Category[]>(
   'categories/fetchCategories',
   async (_, { rejectWithValue }) => {
     try {
-      const querySnapshot = await getDocs(collection(db, 'categories'));
-      const categories: Category[] = querySnapshot.docs.map(
-        (doc: QueryDocumentSnapshot<DocumentData>) =>
-          ({ id: doc.id, ...doc.data() }) as Category
-      );
+      // Fetch from Next.js API route
+      const response = await fetch('/api/categories');
+      if (!response.ok) throw new Error('Failed to fetch categories');
+      const categories: Category[] = await response.json();
       return categories;
     } catch (error: any) {
       return rejectWithValue(error.message);
