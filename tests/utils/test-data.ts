@@ -17,3 +17,9 @@ export const testUsers = {
     password: 'WrongPassword',
   },
 };
+
+export const newUser = {
+  name: 'test user',
+  email: 'testUser1@example.com',
+  password: 'SecurePass123',
+};

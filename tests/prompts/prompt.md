@@ -8,6 +8,7 @@
 - **All URLs (routes, endpoints) must be present in `testData` and only used from there.**
 - **All helper functions (e.g., URL builders, data generators) must be placed in `tests/utils/helper-functions`.**
 - **Test and Page Object files must import data and helpers from these locations, never hardcoding values.**
+- **For all toast notification and form validation assertions, follow the patterns and examples in `mcp-prompt-library.md`.**
 
 ---
 

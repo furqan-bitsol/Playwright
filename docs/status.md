@@ -32,6 +32,16 @@
 - **Login test data refactored:**
   - All login credentials for Playwright tests are now in `tests/utils/testData.ts` for maintainability and MCP compliance
   - No blockers encountered
+- **Sign Up Test Cases (Playwright, Markdown):**
+  - Added detailed sign-up test cases in `tests/test-cases/auth/signup.md` (valid registration, duplicate email, empty form, navigation back to login)
+  - Test cases cover UC-AUTH-005, UC-AUTH-006, UC-AUTH-007, UC-AUTH-008
+  - Aligned with authentication requirements and technical guidelines
+  - No blockers encountered
+- **Sign Up Playwright MCP+POM E2E Tests Implemented:**
+  - All scenarios from `tests/test-cases/auth/signup.md` are now covered in `tests/auth/signup/signup-success-failure.spec.ts` using the MCP and POM structure
+  - Page Object created at `tests/pages/SignUpPage.ts` with strict typing and verified selectors
+  - All tests follow MCP, technical, and architectural guidelines
+  - No blockers encountered
 
 ## In Progress
 
