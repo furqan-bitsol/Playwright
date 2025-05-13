@@ -18,6 +18,20 @@
   - Icon mapping from string to component
   - Loading and error states handled
   - Aligns with DATA-001 and ADMIN-001 requirements
+- **Login Test Cases (Playwright, Markdown):**
+  - Added detailed login test cases in `tests/test-cases/auth/login.md` (valid login, invalid password, empty fields, sign-up redirect)
+  - Test cases cover UC-AUTH-001, UC-AUTH-002, UC-AUTH-003, UC-AUTH-004
+  - Aligned with current authentication requirements and technical guidelines
+- **Playwright MCP + POM Test Script Generator Prompt:**
+  - Added documentation in `tests/test-cases/prompt.md` to standardize Playwright test authoring using MCP and POM
+  - Supports maintainable, modular, and standards-compliant E2E test development
+- **Playwright MCP + POM Login E2E Tests Implemented:**
+  - All scenarios from `tests/test-cases/auth/login.md` are now covered in `tests/auth/login/login-success-failure.spec.ts` using the MCP and POM structure
+  - Page Object created at `tests/pages/LoginPage.ts` with strict typing and verified selectors
+  - No blockers encountered; ready for review and integration
+- **Login test data refactored:**
+  - All login credentials for Playwright tests are now in `tests/utils/testData.ts` for maintainability and MCP compliance
+  - No blockers encountered
 
 ## In Progress
 
