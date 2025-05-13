@@ -35,6 +35,7 @@ export const BestSellingProducts: React.FC = () => {
             href={ROUTE_LINKS.bestSellingProducts} // Update the href to the correct route
             className='px-12 h-14 py-4 text-base font-medium bg-red-500 rounded text-neutral-50 hover:bg-red-600 transition-colors max-md:px-5'
             aria-label='View all best selling products'
+            prefetch={false}
           >
             View All
           </Link>

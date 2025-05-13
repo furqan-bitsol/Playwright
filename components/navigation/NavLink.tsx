@@ -15,7 +15,7 @@ interface NavLinkProps {
  */
 export const NavLink: React.FC<NavLinkProps> = ({
   href,
- dataTestID,
+  dataTestID,
   children,
   className = '',
 }) => {
@@ -25,11 +25,10 @@ export const NavLink: React.FC<NavLinkProps> = ({
   return (
     <Link
       href={href}
-      className={`${
-        isActive
+      className={`${isActive
           ? 'font-medium hover:opacity-80'
           : 'opacity-60 hover:opacity-100'
-      } transition-opacity ${className}`}
+        } transition-opacity ${className}`}
       data-testid={dataTestID}
     >
       {children}
