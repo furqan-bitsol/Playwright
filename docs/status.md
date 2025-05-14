@@ -57,6 +57,11 @@
   - Added detailed home page test cases in `tests/test-cases/public/home.md` (page load, navigation bar, categories from API, featured products, navigation to all products, responsive layout)
   - Test cases follow project conventions and are ready for Playwright MCP+POM test generation
   - No blockers encountered
+- **Admin Category Management Test Cases (Markdown):**
+  - Added comprehensive admin category management test cases in `tests/test-cases/admin/categories.md` (access, add, edit, delete, prevention, validation, frontend visibility)
+  - Test cases cover all CRUD and validation scenarios for categories as per ADMIN-001 requirements
+  - Aligned with technical, architectural, and testing guidelines
+  - No blockers encountered
 
 ## In Progress
 

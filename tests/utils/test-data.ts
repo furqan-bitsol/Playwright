@@ -12,6 +12,10 @@ export const testRoutes = {
   about: '/about',
   cart: '/cart',
   allProducts: '/products/all',
+  adminDashboard: '/admin',
+  adminCategories: '/admin/categories',
+  addCategory: '/admin/categories/add',
+  homepage: '/',
   // Add more named routes as needed
 };
 
@@ -41,4 +45,19 @@ export const newUser = {
   name: 'test user',
   email: 'testUser1@example.com',
   password: 'SecurePass123',
+};
+
+export const adminCredentials = {
+  email: 'admin@example.com',
+  password: 'AdminPass123',
+};
+
+export const categoryNames = {
+  valid: 'ValidCategoryTest',
+  updated: 'UpdatedCategoryTest',
+  empty: '',
+};
+
+export const testIcons = {
+  valid: 'Electronics', // Use the actual value attribute for the Electronics icon option in the dropdown
 };
