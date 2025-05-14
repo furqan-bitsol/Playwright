@@ -2,6 +2,15 @@
 
 ---
 
+You are generating Playwright test scripts using:
+
+- ✅ MCP Playwright framework conventions
+- ✅ Page Object Model (POM) structure
+- ✅ Markdown file as input (containing all test cases)
+- 🕵️ **Use MCP Playwright to inspect the HTML and obtain the actual selectors for all required elements. Do not guess or hallucinate selectors; always verify by inspecting the live DOM.**
+
+---
+
 ## 🛠️ Project Conventions (Required)
 
 - **All mock data / test data must be defined in `tests/utils/testData`.**
@@ -9,16 +18,6 @@
 - **All helper functions (e.g., URL builders, data generators) must be placed in `tests/utils/helper-functions`.**
 - **Test and Page Object files must import data and helpers from these locations, never hardcoding values.**
 - **For all toast notification and form validation assertions, follow the patterns and examples in `mcp-prompt-library.md`.**
-
----
-
-You are generating Playwright test scripts using:
-
-- ✅ MCP Playwright framework conventions
-- ✅ Page Object Model (POM) structure
-- ✅ Markdown file as input (containing all test cases)
-
----
 
 ## 🔗 Website Under Test
 

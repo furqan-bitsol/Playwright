@@ -1,11 +1,23 @@
 // Centralized test data for Playwright E2E tests
 
+export const baseUrl = 'https://ecommerce-omega-three-23.vercel.app';
+
 export const testRoutes = {
   login: '/login',
-  dashboard: '/', // Update if dashboard route changes
+  home: '/', // Update if dashboard route changes
   signup: '/signup',
   forgotPassword: '/forgot-password',
+  resetPassword: '/reset-password',
+  contact: '/contact',
+  about: '/about',
+  cart: '/cart',
+  allProducts: '/products/all',
   // Add more named routes as needed
+};
+
+export const apiRoutes = {
+  categories: '/api/categories',
+  products: '/api/products',
 };
 
 export const testUsers = {
