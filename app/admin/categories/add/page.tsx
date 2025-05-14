@@ -33,7 +33,7 @@ function AddOrEditCategoryPage() {
     const dispatch = useAppDispatch();
     const router = useRouter();
     const searchParams = useSearchParams();
-    const id = searchParams.get('id');
+    const id = searchParams?.get('id');
     const { categories, loading, error } = useAppSelector((state: import('@/store/store').RootState) => state.categories);
 
     // Find category if editing
@@ -66,7 +66,6 @@ function AddOrEditCategoryPage() {
 
     const onSubmit = async (data: CategoryFormData) => {
         if (id && category) {
-            console.log("update category=================", data);
             // Update the main category (do not update subCategories as a nested array)
             await dispatch(updateCategory({
                 ...category,
@@ -91,7 +90,6 @@ function AddOrEditCategoryPage() {
                 }
             }
         } else {
-            console.log("add category=================", data);
             const result = await dispatch(addCategory({
                 name: data.name,
                 icon: data.icon,

@@ -10,7 +10,7 @@ import MainLayout from '@/components/layouts/MainLayout';
 
 export default function ProductDetailsPage() {
   const searchParams = useSearchParams();
-  const productId = searchParams.get('id'); // Get the product ID from the query params
+  const productId = searchParams?.get('id'); // Get the product ID from the query params
   const product = PRODUCTS.find((p) => p.id === productId); // Find the product by ID
 
   if (!product) {

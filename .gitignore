@@ -11,7 +11,6 @@
 /coverage
 .last-run.json
 /playwright-report
-/tests
 
 # next.js
 /.next/

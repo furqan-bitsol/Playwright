@@ -5,14 +5,15 @@ import { ProductCard } from './ProductCard';
 import { Slider } from '@/components/ui/slider';
 import Link from 'next/link';
 import { ROUTE_LINKS } from '@/constants/routes';
-import { useProducts } from '@/contexts/ProductsContext';
+import { useAppSelector } from "@/hooks/useRedux";
 
 /**
  * BestSellingProducts Component
  * Displays best selling products in a slider format without navigation arrows
  */
 export const BestSellingProducts: React.FC = () => {
-  const { products, loading, error } = useProducts();
+  const { products, loading, error } = useAppSelector((state) => state.products);
+
 
   if (loading) return <p>Loading products...</p>;
   if (error) return <p>{error}</p>;
@@ -32,7 +33,7 @@ export const BestSellingProducts: React.FC = () => {
         subtitle='This Month'
         rightContent={
           <Link
-            href={ROUTE_LINKS.bestSellingProducts} // Update the href to the correct route
+            href={ROUTE_LINKS.bestSellingProducts}
             className='px-12 h-14 py-4 text-base font-medium bg-red-500 rounded text-neutral-50 hover:bg-red-600 transition-colors max-md:px-5'
             aria-label='View all best selling products'
             prefetch={false}

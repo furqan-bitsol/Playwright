@@ -65,7 +65,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   };
 
   return (
-    <div className='relative flex flex-col min-w-[270px] group' data-testid={`${testid}-${index}`}>
+    <div className='relative flex flex-col w-full group' data-testid={`${testid}-${index}`}>
       {/* Product Image Container */}
       <div className='relative aspect-square bg-neutral-100 rounded-md overflow-hidden'>
         <Image
@@ -91,9 +91,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             onClick={handleWishlistToggle}
           >
             {inWishlist ? (
-              <FilledHeartIcon className='w-5 h-5'  />
+              <FilledHeartIcon className='w-5 h-5' />
             ) : (
-              <HeartIcon className='w-5 h-5'  />
+              <HeartIcon className='w-5 h-5' />
             )}
           </button>
           <button
@@ -103,7 +103,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               router.push(ROUTE_LINKS.productDetails(id as string))
             }
           >
-            <EyeIcon width={20} height={20} className='text-black'  />
+            <EyeIcon width={20} height={20} className='text-black' />
           </button>
         </div>
 

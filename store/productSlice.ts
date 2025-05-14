@@ -3,13 +3,10 @@ import { Product } from '../types/products';
 import { db } from '../firebase/firebaseConfig';
 import {
   collection,
-  getDocs,
   addDoc,
   updateDoc,
   deleteDoc,
   doc,
-  DocumentData,
-  QueryDocumentSnapshot,
 } from 'firebase/firestore';
 
 interface ProductState {
@@ -20,7 +17,7 @@ interface ProductState {
 
 const initialState: ProductState = {
   products: [],
-  loading: false,
+  loading: true,
   error: null,
 };
 
@@ -29,11 +26,12 @@ export const fetchProducts = createAsyncThunk<Product[]>(
   'products/fetchProducts',
   async (_, { rejectWithValue }) => {
     try {
-      const querySnapshot = await getDocs(collection(db, 'products'));
-      const products: Product[] = querySnapshot.docs.map(
-        (doc: QueryDocumentSnapshot<DocumentData>) =>
-          ({ id: doc.id, ...doc.data() }) as Product
-      );
+      const response = await fetch('/api/products');
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error ?? 'Failed to fetch products');
+      }
+      const products: Product[] = await response.json();
       return products;
     } catch (error: any) {
       return rejectWithValue(error.message);

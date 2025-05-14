@@ -3,10 +3,10 @@ import Image from 'next/image';
 export const EnhanceMusicHero = () => {
   return (
     <section
-      className='overflow-hidden px-7 pt-24 bg-black rounded min-w-60 w-[570px] max-md:px-5 max-md:max-w-full'
+      className='overflow-hidden px-7 pt-24 bg-black rounded w-full max-w-[570px] max-md:px-5 max-md:max-w-full'
       aria-label='Music experience promotion'
     >
-      <div className='flex relative flex-col items-start px-1 pt-96 pb-8 min-h-[511px] max-md:pt-24 max-md:pr-5 max-md:max-w-full'>
+      <div className='flex relative flex-col items-start px-1 pt-96 pb-8  max-md:pt-24 max-md:pr-5 max-md:max-w-full'>
         <Image
           src='https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/73f5265c2f5d001cb1791ad0b057a894190088c4?placeholderIfAbsent=true'
           alt='PlayStation 5 Console'

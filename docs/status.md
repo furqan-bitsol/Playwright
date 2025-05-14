@@ -18,6 +18,40 @@
   - Icon mapping from string to component
   - Loading and error states handled
   - Aligns with DATA-001 and ADMIN-001 requirements
+- **Login Test Cases (Playwright, Markdown):**
+  - Added detailed login test cases in `tests/test-cases/auth/login.md` (valid login, invalid password, empty fields, sign-up redirect)
+  - Test cases cover UC-AUTH-001, UC-AUTH-002, UC-AUTH-003, UC-AUTH-004
+  - Aligned with current authentication requirements and technical guidelines
+- **Playwright MCP + POM Test Script Generator Prompt:**
+  - Added documentation in `tests/test-cases/prompt.md` to standardize Playwright test authoring using MCP and POM
+  - Supports maintainable, modular, and standards-compliant E2E test development
+- **Playwright MCP + POM Login E2E Tests Implemented:**
+  - All scenarios from `tests/test-cases/auth/login.md` are now covered in `tests/auth/login/login-success-failure.spec.ts` using the MCP and POM structure
+  - Page Object created at `tests/pages/LoginPage.ts` with strict typing and verified selectors
+  - No blockers encountered; ready for review and integration
+- **Login test data refactored:**
+  - All login credentials for Playwright tests are now in `tests/utils/testData.ts` for maintainability and MCP compliance
+  - No blockers encountered
+- **Sign Up Test Cases (Playwright, Markdown):**
+  - Added detailed sign-up test cases in `tests/test-cases/auth/signup.md` (valid registration, duplicate email, empty form, navigation back to login)
+  - Test cases cover UC-AUTH-005, UC-AUTH-006, UC-AUTH-007, UC-AUTH-008
+  - Aligned with authentication requirements and technical guidelines
+  - No blockers encountered
+- **Sign Up Playwright MCP+POM E2E Tests Implemented:**
+  - All scenarios from `tests/test-cases/auth/signup.md` are now covered in `tests/auth/signup/signup-success-failure.spec.ts` using the MCP and POM structure
+  - Page Object created at `tests/pages/SignUpPage.ts` with strict typing and verified selectors
+  - All tests follow MCP, technical, and architectural guidelines
+  - No blockers encountered
+- **Forgot Password Test Cases (Markdown):**
+  - Added detailed forgot password test cases in `tests/auth/forgot-password.md` (valid email, unregistered email, invalid format, empty field, navigation)
+  - Test cases cover UC-AUTH-009, UC-AUTH-010, UC-AUTH-011, UC-AUTH-012
+  - Aligned with authentication requirements and technical guidelines
+  - No blockers encountered
+- **Forgot Password Playwright MCP+POM E2E Tests Implemented:**
+  - All scenarios from `tests/test-cases/auth/forgot-password.md` are now covered in `tests/auth/forgot-password/forgot-password-success-failure.spec.ts` using the MCP and POM structure
+  - Page Object created at `tests/pages/ForgotPasswordPage.ts` with strict typing and verified selectors
+  - All tests follow MCP, technical, and architectural guidelines
+  - No blockers encountered
 
 ## In Progress
 
@@ -41,6 +75,7 @@
 - 🏗️ Product data migration
 - ⏳ Real-time updates
 - ⏳ Error handling implementation
+- **FlashSales now fetches products from Firebase using ProductsContext, replacing mock data. Loading and error states implemented. No blockers encountered.**
 
 ### CART-001: Persistent Cart
 

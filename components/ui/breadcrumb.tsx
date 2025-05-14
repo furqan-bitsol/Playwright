@@ -55,7 +55,7 @@ export function Breadcrumb({
   isNotFound,
 }: Readonly<BreadcrumbProps>) {
   const pathname = usePathname();
-  const breadcrumbItems = useBreadcrumbItems(pathname, isNotFound);
+  const breadcrumbItems = useBreadcrumbItems(pathname ?? "", isNotFound);
 
   return (
     <nav
