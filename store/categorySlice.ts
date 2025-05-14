@@ -3,13 +3,10 @@ import { Category } from '../types';
 import { db } from '../firebase/firebaseConfig';
 import {
   collection,
-  getDocs,
   addDoc,
   updateDoc,
   deleteDoc,
   doc,
-  DocumentData,
-  QueryDocumentSnapshot,
 } from 'firebase/firestore';
 
 interface CategoryState {
@@ -20,7 +17,7 @@ interface CategoryState {
 
 const initialState: CategoryState = {
   categories: [],
-  loading: false,
+  loading: true,
   error: null,
 };
 

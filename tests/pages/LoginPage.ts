@@ -47,7 +47,7 @@ export class LoginPage {
    * Assert successful login by checking for dashboard redirect
    */
   async assertLoginSuccess() {
-    await this.page.waitForURL(getRouteUrl(testRoutes.dashboard), {
+    await this.page.waitForURL(getRouteUrl(testRoutes.home), {
       timeout: 5000,
     });
     await expect(this.page).not.toHaveURL(getRouteUrl(testRoutes.login));

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -17,13 +17,12 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Suspense } from 'react';
+import { CATEGORIES } from '@/mocks/categories';
 
 const categorySchema = z.object({
     name: z.string().min(2, 'Name is required'),
     icon: z.string().min(1, 'Icon is required'),
     parentId: z.string().optional(),
-    subCategories: z.array(z.string().min(1)).optional(),
 });
 
 type CategoryFormData = z.infer<typeof categorySchema>;
@@ -45,13 +44,14 @@ function AddOrEditCategoryPage() {
             name: category?.name ?? '',
             icon: category?.icon ?? '',
             parentId: category?.parentId ?? '',
-            subCategories: category?.subCategories?.map((sc) => sc.name) ?? [],
         },
     });
 
     useEffect(() => {
-        dispatch(fetchCategories());
-    }, [dispatch]);
+        if (categories.length === 0) {
+            dispatch(fetchCategories());
+        }
+    }, [dispatch, categories]);
 
     useEffect(() => {
         if (category) {
@@ -59,55 +59,35 @@ function AddOrEditCategoryPage() {
                 name: category.name,
                 icon: category.icon,
                 parentId: category.parentId ?? '',
-                subCategories: category.subCategories?.map((sc) => sc.name) || [],
             });
         }
     }, [category, form]);
 
     const onSubmit = async (data: CategoryFormData) => {
         if (id && category) {
-            // Update the main category (do not update subCategories as a nested array)
+            // Update the main category
             await dispatch(updateCategory({
                 ...category,
                 name: data.name,
                 icon: data.icon,
-                parentId: data.parentId || undefined,
+                ...(data.parentId && { parentId: data.parentId }),
             }));
-            // Add new subcategories as separate categories
-            if (data.subCategories && category.id) {
-                for (const subName of data.subCategories) {
-                    // Only add if not already present as a category with this parent
-                    const exists = categories.some(
-                        (cat) => cat.name === subName && cat.parentId === category.id
-                    );
-                    if (!exists) {
-                        await dispatch(addCategory({
-                            name: subName,
-                            icon: category.icon,
-                            parentId: category.id,
-                        }));
-                    }
-                }
-            }
         } else {
-            const result = await dispatch(addCategory({
+            await dispatch(addCategory({
                 name: data.name,
                 icon: data.icon,
-                parentId: data.parentId || undefined,
-            })).unwrap();
-
-            if (data.subCategories && result.id) {
-                for (const subName of data.subCategories) {
-                    await dispatch(addCategory({
-                        name: subName,
-                        icon: result.icon,
-                        parentId: result.id,
-                    }));
-                }
-            }
+                ...(data.parentId && { parentId: data.parentId }),
+            }));
         }
         router.push('/admin/categories');
     };
+
+    // Compute button label to avoid nested ternary
+    const buttonLabel = loading
+        ? t('admin.saving', 'Saving...')
+        : id
+            ? t('admin.saveCategory', 'Save Changes')
+            : t('admin.saveCategory', 'Save Category');
 
     return (
         <div className="p-8 max-w-xl mx-auto">
@@ -136,7 +116,12 @@ function AddOrEditCategoryPage() {
                             <FormItem>
                                 <FormLabel>{t('admin.categoryIcon', 'Category Icon')}</FormLabel>
                                 <FormControl>
-                                    <Input {...field} placeholder={t('admin.categoryIcon', 'Icon name or URL')} />
+                                    <select {...field} className="w-full border rounded px-3 py-2">
+                                        <option value="">{t('admin.selectIcon', 'Select Icon')}</option>
+                                        {CATEGORIES.map((cat) => (
+                                            <option key={cat.name} value={cat.name}>{cat.name}</option>
+                                        ))}
+                                    </select>
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -160,30 +145,8 @@ function AddOrEditCategoryPage() {
                             </FormItem>
                         )}
                     />
-                    {/* Subcategories as comma-separated input for simplicity */}
-                    <FormField
-                        control={form.control}
-                        name="subCategories"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>{t('admin.subCategories', 'Subcategories')}</FormLabel>
-                                <FormControl>
-                                    <Input
-                                        value={field.value?.join(', ') || ''}
-                                        onChange={(e) => field.onChange(e.target.value.split(',').map((s) => s.trim()).filter(Boolean))}
-                                        placeholder={t('admin.subCategoriesPlaceholder', 'Comma separated')}
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
                     <Button type="submit" className="w-full" disabled={loading}>
-                        {loading
-                            ? t('admin.saving', 'Saving...')
-                            : id
-                                ? t('admin.saveCategory', 'Save Changes')
-                                : t('admin.saveCategory', 'Save Category')}
+                        {buttonLabel}
                     </Button>
                     {error && <p className="text-red-500 text-sm">{error}</p>}
                 </form>

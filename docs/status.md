@@ -25,6 +25,7 @@
 - **Playwright MCP + POM Test Script Generator Prompt:**
   - Added documentation in `tests/test-cases/prompt.md` to standardize Playwright test authoring using MCP and POM
   - Supports maintainable, modular, and standards-compliant E2E test development
+  - **Updated:** Explicit rule added to require use of MCP Playwright to inspect HTML and obtain actual selectors for all required elements. No guessing or hallucinating selectors. All conventions and technical requirements remain satisfied.
 - **Playwright MCP + POM Login E2E Tests Implemented:**
   - All scenarios from `tests/test-cases/auth/login.md` are now covered in `tests/auth/login/login-success-failure.spec.ts` using the MCP and POM structure
   - Page Object created at `tests/pages/LoginPage.ts` with strict typing and verified selectors
@@ -51,6 +52,10 @@
   - All scenarios from `tests/test-cases/auth/forgot-password.md` are now covered in `tests/auth/forgot-password/forgot-password-success-failure.spec.ts` using the MCP and POM structure
   - Page Object created at `tests/pages/ForgotPasswordPage.ts` with strict typing and verified selectors
   - All tests follow MCP, technical, and architectural guidelines
+  - No blockers encountered
+- **Home Page Test Cases (Markdown):**
+  - Added detailed home page test cases in `tests/test-cases/public/home.md` (page load, navigation bar, categories from API, featured products, navigation to all products, responsive layout)
+  - Test cases follow project conventions and are ready for Playwright MCP+POM test generation
   - No blockers encountered
 
 ## In Progress

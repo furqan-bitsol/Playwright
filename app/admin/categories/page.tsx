@@ -1,12 +1,11 @@
 "use client";
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '@/hooks/useRedux';
 import { fetchCategories, deleteCategory } from '@/store/categorySlice';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { CATEGORIES as CATEGORY_ICONS } from '@/mocks/categories';
-import React from 'react';
 
 export default function AdminCategoriesPage() {
     const { t } = useTranslation();
@@ -17,8 +16,10 @@ export default function AdminCategoriesPage() {
     const [deleteError, setDeleteError] = useState<string | null>(null);
 
     useEffect(() => {
-        dispatch(fetchCategories());
-    }, [dispatch]);
+        if (categories.length === 0) {
+            dispatch(fetchCategories());
+        }
+    }, [dispatch, categories]);
 
     // Helper to get parent category name
     const getParentName = (parentId: string | undefined) => {
@@ -35,11 +36,68 @@ export default function AdminCategoriesPage() {
             await dispatch(deleteCategory(deleteId));
             setDeleteId(null);
         } catch (err: any) {
-            setDeleteError(err.message || t('admin.deleteError', 'Delete failed.'));
+            setDeleteError(err.message ?? t('admin.deleteError', 'Delete failed.'));
         } finally {
             setDeleting(false);
         }
     };
+
+    let content;
+    if (loading) {
+        content = <p>{t('admin.loading', 'Loading...')}</p>;
+    } else if (error) {
+        content = <p className="text-red-500">{error}</p>;
+    } else if (categories.length === 0) {
+        content = (
+            <div className="bg-white rounded shadow p-4">
+                <p className="text-gray-500">{t('admin.noCategories', 'No categories yet.')}</p>
+            </div>
+        );
+    } else {
+        content = (
+            <div className="overflow-x-auto">
+                <table className="min-w-full bg-white rounded shadow">
+                    <thead>
+                        <tr>
+                            <th className="px-4 py-2 text-left">{t('admin.categoryIcon', 'Icon')}</th>
+                            <th className="px-4 py-2 text-left">{t('admin.categoryName', 'Name')}</th>
+                            <th className="px-4 py-2 text-left">{t('admin.parentCategory', 'Parent')}</th>
+                            <th className="px-4 py-2 text-left">{t('admin.actions', 'Actions')}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {categories.map((category) => (
+                            <tr key={category.id} className="border-t">
+                                <td className="px-4 py-2">
+                                    <span className=" w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
+                                        {(CATEGORY_ICONS.find((c) => c.name === category.icon)?.Icon)
+                                            ? React.createElement(CATEGORY_ICONS.find((c) => c.name === category.icon)!.Icon, { className: 'w-8 h-8', color: 'black' })
+                                            : category.icon}
+                                    </span>
+                                </td>
+                                <td className="px-4 py-2">{category.name}</td>
+                                <td className="px-4 py-2">{getParentName(category.parentId)}</td>
+                                <td className="px-4 py-2 space-x-2">
+                                    <Link href={`/admin/categories/add?id=${category.id}`} className="text-blue-600 hover:underline">
+                                        {t('admin.edit', 'Edit')}
+                                    </Link>
+                                    <Button
+                                        variant="destructive"
+                                        size="sm"
+                                        className="ml-2"
+                                        onClick={() => setDeleteId(String(category.id))}
+                                        disabled={deleting}
+                                    >
+                                        {t('admin.delete', 'Delete')}
+                                    </Button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        );
+    }
 
     return (
         <div className="p-8 max-w-4xl mx-auto">
@@ -49,57 +107,7 @@ export default function AdminCategoriesPage() {
                     {t('admin.addCategory', 'Add Category')}
                 </Link>
             </div>
-            {loading ? (
-                <p>{t('admin.loading', 'Loading...')}</p>
-            ) : error ? (
-                <p className="text-red-500">{error}</p>
-            ) : categories.length === 0 ? (
-                <div className="bg-white rounded shadow p-4">
-                    <p className="text-gray-500">{t('admin.noCategories', 'No categories yet.')}</p>
-                </div>
-            ) : (
-                <div className="overflow-x-auto">
-                    <table className="min-w-full bg-white rounded shadow">
-                        <thead>
-                            <tr>
-                                <th className="px-4 py-2 text-left">{t('admin.categoryIcon', 'Icon')}</th>
-                                <th className="px-4 py-2 text-left">{t('admin.categoryName', 'Name')}</th>
-                                <th className="px-4 py-2 text-left">{t('admin.parentCategory', 'Parent')}</th>
-                                <th className="px-4 py-2 text-left">{t('admin.actions', 'Actions')}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {categories.map((category) => (
-                                <tr key={category.id} className="border-t">
-                                    <td className="px-4 py-2">
-                                        <span className="inline-block w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
-                                            {(CATEGORY_ICONS.find((c) => c.name === category.name)?.Icon)
-                                                ? React.createElement(CATEGORY_ICONS.find((c) => c.name === category.name)!.Icon, { className: 'w-8 h-8', color: 'black' })
-                                                : category.icon}
-                                        </span>
-                                    </td>
-                                    <td className="px-4 py-2">{category.name}</td>
-                                    <td className="px-4 py-2">{getParentName(category.parentId)}</td>
-                                    <td className="px-4 py-2 space-x-2">
-                                        <Link href={`/admin/categories/add?id=${category.id}`} className="text-blue-600 hover:underline">
-                                            {t('admin.edit', 'Edit')}
-                                        </Link>
-                                        <Button
-                                            variant="destructive"
-                                            size="sm"
-                                            className="ml-2"
-                                            onClick={() => setDeleteId(String(category.id))}
-                                            disabled={deleting}
-                                        >
-                                            {t('admin.delete', 'Delete')}
-                                        </Button>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            )}
+            {content}
             {/* Delete confirmation dialog */}
             {deleteId && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
