@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 import { useParams, useSearchParams } from 'next/navigation';
 import MainLayout from '@/components/layouts/MainLayout';
-import { useProducts } from '@/contexts/ProductsContext';
+import { useAppSelector } from '@/hooks/useRedux';
 
 const ProductsPage: React.FC = () => {
   const { t } = useTranslation('common'); // Translation hook
@@ -17,15 +17,17 @@ const ProductsPage: React.FC = () => {
   const { type } = params; // Extract the "type" from the dynamic route
   const category = searchParams.get('category'); // Extract "categoryId" from query params
   const subCategory = searchParams.get('subCategory'); // Extract "subcategoryId" from query params
-   const { products, loading, error } = useProducts();
+  const { products, loading, error } = useAppSelector((state) => state.products);
+
+
 
   // Determine the page title based on the type and query params
   const pageTitle =
     type === 'all'
       ? category || subCategory
         ? t('products.allFor', {
-            name: (subCategory ?? category)?.split('-').join(' '),
-          })
+          name: (subCategory ?? category)?.split('-').join(' '),
+        })
         : t('products.all')
       : t('products.type', { type: (type as string).split('-').join(' ') });
 
@@ -36,7 +38,13 @@ const ProductsPage: React.FC = () => {
       </header>
 
       {/* Product Grid */}
-      <ProductGrid products={products} />
+      {loading ? (
+        <p>Loading products...</p>
+      ) : error ? (
+        <p>{error}</p>
+      ) : (
+        <ProductGrid products={products} />
+      )}
 
       {/* Back to Home Button */}
       <div className='mt-10 flex justify-center'>

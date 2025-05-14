@@ -5,7 +5,7 @@ import Image from 'next/image';
 export const NewArrival = () => {
   return (
     <section
-      className='flex flex-col mt-36 max-md:mt-10 max-md:max-w-full'
+      className='flex flex-col mt-36 max-md:mt-10 w-full'
       aria-label='New arrivals'
     >
       <header className='flex flex-col self-start'>
@@ -22,25 +22,27 @@ export const NewArrival = () => {
         </h3>
       </header>
 
-      <div className='flex flex-wrap gap-8 items-start mt-16 max-md:mt-10 max-md:max-w-full'>
+      <div className='flex gap-8  mt-16 max-md:mt-10 max-md:max-w-full justify-center items-center'>
         <EnhanceMusicHero />
-        <div className='flex flex-col items-center min-w-60 w-[570px] max-md:max-w-full'>
+        <div className='flex flex-col items-center min-w-60 max-w-[570px] w-full h-full'>
           <WomensCollection />
-          <div className='flex flex-wrap gap-8 justify-center items-center mt-8 max-md:max-w-full'>
-            <Image
-              src='https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/14a0de098df8fa673dc072e8c1b7c2680793ea24?placeholderIfAbsent=true'
-              alt='Featured Product 1'
-              width={270}
-              height={270}
-              className='object-contain self-stretch my-auto aspect-[0.95] min-w-60 w-[270px]'
-            />
-            <Image
-              src='https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/2e0aa78abdc689ecbbb60849670185d870c65c89?placeholderIfAbsent=true'
-              alt='Featured Product 2'
-              width={270}
-              height={270}
-              className='object-contain self-stretch my-auto aspect-[0.95] min-w-60 w-[270px]'
-            />
+          <div className='flex gap-8 mt-8 max-md:max-w-full w-full'>
+            <div className="relative w-full max-w-xs aspect-square">
+              <Image
+                src='https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/14a0de098df8fa673dc072e8c1b7c2680793ea24?placeholderIfAbsent=true'
+                alt='Featured Product 1'
+                fill
+                className='object-contain'
+              />
+            </div>
+            <div className="relative w-full max-w-xs aspect-square">
+              <Image
+                src='https://cdn.builder.io/api/v1/image/assets/50863f29051940439648c044a13e82c2/2e0aa78abdc689ecbbb60849670185d870c65c89?placeholderIfAbsent=true'
+                alt='Featured Product 2'
+                fill
+                className='object-contain'
+              />
+            </div>
           </div>
         </div>
       </div>

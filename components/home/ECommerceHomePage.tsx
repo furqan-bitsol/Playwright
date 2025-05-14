@@ -9,8 +9,22 @@ import { NewArrival } from './NewArrival';
 import CategoriesHeroSection from './CategoriesHeroSection';
 import { Services } from '../common/Services';
 import MainLayout from '../layouts/MainLayout';
+import { fetchProducts } from "@/store/productSlice";
+import { useEffect } from "react";
+import { useAppSelector } from "@/hooks/useRedux";
+import { useAppDispatch } from "@/hooks/useRedux";
 
 export default function ECommerceHomePage() {
+  const dispatch = useAppDispatch();
+  const { products, loading } = useAppSelector((state) => state.products);
+
+  useEffect(() => {
+    if (!products.length && loading) {
+      dispatch(fetchProducts());
+      console.log('fetching products');
+    }
+  }, [dispatch, products.length, loading]);
+
   return (
     <MainLayout>
       {/* Hero Section */}

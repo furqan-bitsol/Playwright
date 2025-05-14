@@ -33,7 +33,7 @@ export const Timer = ({ endTime }: TimerProps) => {
   }, [endTime]);
 
   return (
-    <div className='flex gap-4 text-black whitespace-nowrap min-w-60 w-[302px]'>
+    <div className='flex flex-wrap gap-2 text-black whitespace-nowrap min-w-60 '>
       <div className='min-h-[50px]'>
         <div className='text-xs font-medium'>Days</div>
         <div className='mt-1 text-3xl font-bold tracking-widest leading-none'>

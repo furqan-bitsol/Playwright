@@ -5,12 +5,14 @@ import { ProductCard } from './ProductCard';
 import { SectionHeader } from '@/components/ui/section-header';
 import Link from 'next/link';
 import { ROUTE_LINKS } from '@/constants/routes';
-import { PRODUCTS } from '@/mocks/products';
+import { useAppSelector } from "@/hooks/useRedux";
+
 
 /**
  * FeaturedSection Component
  */
 export const FeaturedSection = () => {
+  const { products, loading, error } = useAppSelector((state) => state.products);
   return (
     <section
       className='w-full mt-36 max-md:mt-10'
@@ -20,21 +22,28 @@ export const FeaturedSection = () => {
 
       {/* Products Grid */}
       <div
-        className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16 mt-16 pb-4 max-md:mt-10'
+        className='w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16 mt-16 pb-4 max-md:mt-10'
         role='grid'
         aria-label='Featured products grid'
       >
-        {PRODUCTS.map((product, index) => {
-          if (!product.featured) return null; // Skip if not featured
-          return (
-            <ProductCard
-              key={`featured-${product.title}`}
-              {...product}
-              testid='featured'
-              index={index}
-            />
-          );
-        })}
+        {loading ? (
+          <div className="w-full flex justify-center items-center h-32">Loading...</div>
+        ) : error ? (
+          <div className="w-full flex justify-center items-center h-32 text-red-500">{error}</div>
+        ) : (
+          products.map((product, index) => {
+            if (!product.featured) return null; // Skip if not featured
+            return (
+              <ProductCard
+                key={`featured-${product.title}`}
+                {...product}
+                testid='featured'
+                index={index}
+              />
+            );
+          })
+        )}
+
       </div>
 
       <div className='flex justify-center w-full'>

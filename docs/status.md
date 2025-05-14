@@ -75,6 +75,7 @@
 - 🏗️ Product data migration
 - ⏳ Real-time updates
 - ⏳ Error handling implementation
+- **FlashSales now fetches products from Firebase using ProductsContext, replacing mock data. Loading and error states implemented. No blockers encountered.**
 
 ### CART-001: Persistent Cart
 
