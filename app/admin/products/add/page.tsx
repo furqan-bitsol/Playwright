@@ -44,7 +44,7 @@ function AddOrEditProductPage() {
     const dispatch = useAppDispatch();
     const router = useRouter();
     const searchParams = useSearchParams();
-    const id = searchParams.get('id');
+    const id = searchParams?.get('id');
     const { products, loading, error } = useAppSelector((state: import('@/store/store').RootState) => state.products);
     const { categories } = useAppSelector((state: import('@/store/store').RootState) => state.categories);
     const { toast } = useToast();

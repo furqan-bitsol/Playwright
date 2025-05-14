@@ -11,12 +11,11 @@ import { useAppSelector } from '@/hooks/useRedux';
 
 const ProductsPage: React.FC = () => {
   const { t } = useTranslation('common'); // Translation hook
-  const params = useParams(); // Get dynamic route params
   const searchParams = useSearchParams(); // Get query parameters
 
-  const { type } = params; // Extract the "type" from the dynamic route
-  const category = searchParams.get('category'); // Extract "categoryId" from query params
-  const subCategory = searchParams.get('subCategory'); // Extract "subcategoryId" from query params
+  const type = useParams()?.type ?? ""; // Extract the "type" from the dynamic route
+  const category = searchParams?.get('category'); // Extract "categoryId" from query params
+  const subCategory = searchParams?.get('subCategory'); // Extract "subcategoryId" from query params
   const { products, loading, error } = useAppSelector((state) => state.products);
 
 

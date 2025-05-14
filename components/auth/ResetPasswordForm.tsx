@@ -40,7 +40,7 @@ export const ResetPasswordForm: React.FC = () => {
   });
 
   const onSubmit = async (data: ResetPasswordFormData) => {
-    const oobCode = searchParams.get('oobCode');
+    const oobCode = searchParams?.get('oobCode');
     if (!oobCode) {
       toast({
         title: t('resetPassword.form.errorTitle', 'Invalid link'),
