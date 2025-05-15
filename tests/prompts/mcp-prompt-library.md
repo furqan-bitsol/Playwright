@@ -20,6 +20,8 @@ await expect(toast).toHaveClass(/bg-green-500 text-white/);
 await expect(toast).toHaveText(/Successfully added/);
 ```
 
+---
+
 #### ❌ **Validation Errors**
 
 ### 🟩 Field Validation Errors
@@ -37,3 +39,36 @@ To handle form validation errors:
 await this.submitButton.click();
 await expect(this.page.locator('p.text-destructive')).toBeVisible();
 ```
+
+---
+
+### 🟦 Dropdowns (Rules for Native and Custom Overlays)
+
+#### ✅ General Rules for Dropdowns
+
+- Identify whether the dropdown is a **native `<select>`** or a **custom overlay** (e.g., MUI Autocomplete).
+- Do **not** use `selectOption()` on custom dropdowns — it only works with native `<select>` elements.
+- Always click the input or trigger before selecting an option in custom dropdowns.
+- Prefer dynamic selection (e.g., selecting the first item) when possible to reduce hardcoded selectors.
+
+✅ Example:
+
+```ts
+await this.dropdownInput.click();
+await this.page.locator('.dropdown-option-selector').first().click();
+```
+
+#### 🟩 Native `<select>` Dropdowns
+
+Use this when interacting with a standard HTML `<select>` element.
+
+- Use `selectOption()` for selecting values.
+- Target the dropdown using `getByLabel()` for clarity and accessibility.
+
+✅ Example:
+
+```ts
+await page.getByLabel('Category Icon').selectOption("Woman's Fashion");
+```
+
+---

@@ -17,10 +17,10 @@ export const CategorySection: React.FC = () => {
   const { categories, loading, error } = useAppSelector((state) => state.categories);
 
   useEffect(() => {
-    if (categories.length === 0 && !loading) {
+    if (categories.length === 0) {
       dispatch(fetchCategories());
     }
-  }, [dispatch, categories.length, loading]);
+  }, [dispatch, categories.length]);
 
   // Map icon string or name to icon component using the mock CATEGORIES array
   const getIconComponent = (category: { icon?: string; name: string }) => {
