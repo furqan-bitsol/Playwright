@@ -22,6 +22,7 @@
   - Added detailed login test cases in `tests/test-cases/auth/login.md` (valid login, invalid password, empty fields, sign-up redirect)
   - Test cases cover UC-AUTH-001, UC-AUTH-002, UC-AUTH-003, UC-AUTH-004
   - Aligned with current authentication requirements and technical guidelines
+  - No blockers encountered; ready for review and integration
 - **Playwright MCP + POM Test Script Generator Prompt:**
   - Added documentation in `tests/test-cases/prompt.md` to standardize Playwright test authoring using MCP and POM
   - Supports maintainable, modular, and standards-compliant E2E test development
@@ -61,6 +62,12 @@
   - Added comprehensive admin category management test cases in `tests/test-cases/admin/categories.md` (access, add, edit, delete, prevention, validation, frontend visibility)
   - Test cases cover all CRUD and validation scenarios for categories as per ADMIN-001 requirements
   - Aligned with technical, architectural, and testing guidelines
+  - No blockers encountered
+- **Products Page Pagination:**
+  - Integrated shadcn/ui Pagination component in products page
+  - Only 5 products are shown per page
+  - Pagination state and logic handled in page component
+  - Follows architectural and technical guidelines
   - No blockers encountered
 
 ## In Progress

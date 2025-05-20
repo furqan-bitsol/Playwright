@@ -6,6 +6,8 @@ import { fetchCategories, deleteCategory } from '@/store/categorySlice';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { CATEGORIES as CATEGORY_ICONS } from '@/mocks/categories';
+import { Pagination } from '@/components/ui/Pagination';
+import AdminTableSkeleton from "@/components/skeleton/AdminTableSkeleton";
 
 export default function AdminCategoriesPage() {
     const { t } = useTranslation();
@@ -14,6 +16,15 @@ export default function AdminCategoriesPage() {
     const [deleteId, setDeleteId] = useState<string | null>(null);
     const [deleting, setDeleting] = useState(false);
     const [deleteError, setDeleteError] = useState<string | null>(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const CATEGORIES_PER_PAGE = 5;
+    const totalCategories = categories.length;
+    const totalPages = Math.ceil(totalCategories / CATEGORIES_PER_PAGE);
+    const sortedCategories = [...categories].sort((a, b) => a.name.localeCompare(b.name));
+    const paginatedCategories = sortedCategories.slice(
+        (currentPage - 1) * CATEGORIES_PER_PAGE,
+        currentPage * CATEGORIES_PER_PAGE
+    );
 
     useEffect(() => {
         if (categories.length === 0) {
@@ -44,7 +55,9 @@ export default function AdminCategoriesPage() {
 
     let content;
     if (loading) {
-        content = <p>{t('admin.loading', 'Loading...')}</p>;
+        content = (
+            <AdminTableSkeleton />
+        );
     } else if (error) {
         content = <p className="text-red-500">{error}</p>;
     } else if (categories.length === 0) {
@@ -55,47 +68,54 @@ export default function AdminCategoriesPage() {
         );
     } else {
         content = (
-            <div className="overflow-x-auto">
-                <table className="min-w-full bg-white rounded shadow">
-                    <thead>
-                        <tr>
-                            <th className="px-4 py-2 text-left">{t('admin.categoryIcon', 'Icon')}</th>
-                            <th className="px-4 py-2 text-left">{t('admin.categoryName', 'Name')}</th>
-                            <th className="px-4 py-2 text-left">{t('admin.parentCategory', 'Parent')}</th>
-                            <th className="px-4 py-2 text-left">{t('admin.actions', 'Actions')}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {categories.map((category) => (
-                            <tr key={category.id} className="border-t">
-                                <td className="px-4 py-2">
-                                    <span className=" w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
-                                        {(CATEGORY_ICONS.find((c) => c.name === category.icon)?.Icon)
-                                            ? React.createElement(CATEGORY_ICONS.find((c) => c.name === category.icon)!.Icon, { className: 'w-8 h-8', color: 'black' })
-                                            : category.icon}
-                                    </span>
-                                </td>
-                                <td className="px-4 py-2">{category.name}</td>
-                                <td className="px-4 py-2">{getParentName(category.parentId)}</td>
-                                <td className="px-4 py-2 space-x-2">
-                                    <Link href={`/admin/categories/add?id=${category.id}`} className="text-blue-600 hover:underline">
-                                        {t('admin.edit', 'Edit')}
-                                    </Link>
-                                    <Button
-                                        variant="destructive"
-                                        size="sm"
-                                        className="ml-2"
-                                        onClick={() => setDeleteId(String(category.id))}
-                                        disabled={deleting}
-                                    >
-                                        {t('admin.delete', 'Delete')}
-                                    </Button>
-                                </td>
+            <>
+                <div className="overflow-x-auto">
+                    <table className="min-w-full bg-white rounded shadow">
+                        <thead>
+                            <tr>
+                                <th className="px-4 py-2 text-left">{t('admin.categoryIcon', 'Icon')}</th>
+                                <th className="px-4 py-2 text-left">{t('admin.categoryName', 'Name')}</th>
+                                <th className="px-4 py-2 text-left">{t('admin.parentCategory', 'Parent')}</th>
+                                <th className="px-4 py-2 text-left">{t('admin.actions', 'Actions')}</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                            {paginatedCategories.map((category) => (
+                                <tr key={category.id} className="border-t">
+                                    <td className="px-4 py-2">
+                                        <span className=" w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
+                                            {(CATEGORY_ICONS.find((c) => c.name === category.icon)?.Icon)
+                                                ? React.createElement(CATEGORY_ICONS.find((c) => c.name === category.icon)!.Icon, { className: 'w-8 h-8', color: 'black' })
+                                                : category.icon}
+                                        </span>
+                                    </td>
+                                    <td className="px-4 py-2">{category.name}</td>
+                                    <td className="px-4 py-2">{getParentName(category.parentId)}</td>
+                                    <td className="px-4 py-2 space-x-2">
+                                        <Link href={`/admin/categories/add?id=${category.id}`} className="text-blue-600 hover:underline">
+                                            {t('admin.edit', 'Edit')}
+                                        </Link>
+                                        <Button
+                                            variant="destructive"
+                                            size="sm"
+                                            className="ml-2"
+                                            onClick={() => setDeleteId(String(category.id))}
+                                            disabled={deleting}
+                                        >
+                                            {t('admin.delete', 'Delete')}
+                                        </Button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+                <Pagination
+                    page={currentPage}
+                    pageCount={totalPages}
+                    onPageChange={setCurrentPage}
+                />
+            </>
         );
     }
 
