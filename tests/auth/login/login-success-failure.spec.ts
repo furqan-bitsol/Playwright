@@ -42,9 +42,6 @@ test.describe('Login Page - Success & Failure Scenarios', () => {
     await loginPage.submitEmptyLogin();
     // Pass: Validation errors (field-level)
     await loginPage.assertValidationErrorCount(2);
-    // Optionally, check for a specific error message:
-    // await loginPage.assertFieldValidationError('Email is required');
-    // Fail: Should not redirect
     await expect(page).toHaveURL(/\/login/);
   });
 
