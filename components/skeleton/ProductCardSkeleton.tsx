@@ -1,7 +1,7 @@
 import { Skeleton } from "../ui/skeleton";
 
 export const ProductCardSkeleton: React.FC = () => (
-    <div className='relative flex flex-col w-full'>
+    <div className='relative flex flex-col w-[270px]'>
         {/* Image Skeleton */}
         <div className='relative aspect-square bg-neutral-100 rounded-md overflow-hidden'>
             <Skeleton className='absolute inset-0 w-full h-full' />
